@@ -1,0 +1,25 @@
+﻿tower defence
+-pixelated with rendertarget
+-8-bit
+-different turrets
+-different enemies
+-turrets can be combined to create new ones. This combines the properties of both, boosts them, and mutates one or two.
+-enemies can burn and be poisoned
+-different types of turrets - can only be combined within their own type.
+
+Turrets:
+-Gun
+-Laser/energy
+-Bomb
+-Sniper (High damage output, low speed)
+
+Upgrades:
+-Speed
+-Damage
+-Status effects
+
+Enemies:
+-Tanky
+-Fast
+-Resistant or vulnerable to particular turrets
+-Healer
