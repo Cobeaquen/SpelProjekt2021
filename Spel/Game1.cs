@@ -10,7 +10,7 @@ namespace Spel
     public class Game1 : Game
     {
         GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        SpriteBatch spriteBatch;s
 
         public Game1()
         {
