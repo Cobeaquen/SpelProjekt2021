@@ -37,6 +37,13 @@ namespace Spelprojekt2
             LookRotation = (float)Math.Atan2(mouseDir.Y, mouseDir.X);
         }
 
+        public void Fire()
+        {
+            Console.WriteLine("Fire!");
+            Matrix rotMatrix = Matrix.CreateRotationZ(lookRotation);
+            Vector2 firePosition = Vector2.Transform(position, rotMatrix);
+        }
+
         private static float GetShortestAngle(float from, float to)
         {
             float max_angle = MathHelper.TwoPi;

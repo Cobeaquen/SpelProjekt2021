@@ -35,6 +35,7 @@ namespace Spelprojekt2
 
             //return null;
             HermiteSpline spline = new HermiteSpline(points.ToArray());
+            spline.
             return new Level()
             {
                 splinePath = spline
@@ -46,7 +47,7 @@ namespace Spelprojekt2
 
         public void Draw()
         {
-            splinePath.DrawSpline(Main.spriteBatch);
+            //splinePath.DrawSpline(Main.spriteBatch);
         }
     }
 }

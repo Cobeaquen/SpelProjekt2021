@@ -4,8 +4,8 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/cobea/source/repos/Spelprojekt2/Spelprojekt2/Content/graphics/gun_tower_body.png</File>
-    <File>C:/Users/cobea/source/repos/Spelprojekt2/Spelprojekt2/Content/graphics/gun_tower_head.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_body.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_head.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />
