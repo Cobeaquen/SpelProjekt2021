@@ -12,7 +12,7 @@ namespace Spelprojekt2
     /// <summary>
     /// Manage and load all game textures and origins of them
     /// </summary>
-    public static class Sprites
+    public static class Assets
     {
         public static ContentManager Content { get; internal set; }
 
@@ -24,12 +24,13 @@ namespace Spelprojekt2
         public static Texture2D GunTowerHead { get; internal set; }
         public static Vector2 GunTowerHeadOrigin { get; internal set; }
         public static Texture2D LaserTower { get; internal set; }
+        public static Vector2 LaserTowerOrigin { get; internal set; }
         public static Texture2D LaserTowerHead { get; internal set; }
+        public static Vector2 LaserTowerHeadOrigin { get; internal set; }
         public static Texture2D BombTower { get; internal set; }
         public static Texture2D BombTowerHead { get; internal set; }
         public static Texture2D SniperTower { get; internal set; }
         public static Texture2D SniperTowerHead { get; internal set; }
-
         public static void Initialize(ContentManager content)
         {
             Content = content;

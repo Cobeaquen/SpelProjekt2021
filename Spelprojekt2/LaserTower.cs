@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Spelprojekt2
 {
-    //public class LaserTower : Tower
-    //{
-    //    public LaserTower(Vector2 position) : base(position, Sprites.LaserTower, Sprites.LaserTowerOrigin, Sprites.LaserTowerHead, Sprites.LaserTowerHeadOrigin)
-    //    {
+    public class LaserTower : Tower
+    {
+        public LaserTower(Vector2 position) : base(position, Assets.LaserTower, Assets.LaserTowerOrigin, Assets.LaserTowerHead, Assets.LaserTowerHeadOrigin)
+        {
 
-    //    }
-    //}
+        }
+    }
 }
