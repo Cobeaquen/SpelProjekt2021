@@ -12,7 +12,7 @@ namespace Spelprojekt2
     /// <summary>
     /// Manage and load all game textures and origins of them
     /// </summary>
-    public static class Sprites
+    public static class Assets
     {
         public static ContentManager Content { get; internal set; }
 

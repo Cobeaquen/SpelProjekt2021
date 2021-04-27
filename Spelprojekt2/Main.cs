@@ -46,7 +46,7 @@ namespace Spelprojekt2
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            Sprites.Initialize(Content);
+            Assets.Initialize(Content);
             DebugTextures.LoadTextures(GraphicsDevice);
             Setup.Initialize(GraphicsDevice);
             
@@ -75,6 +75,7 @@ namespace Spelprojekt2
             {
                 tower.Update(gameTime);
             }
+            
 
             enemy.Update(gameTime);
 

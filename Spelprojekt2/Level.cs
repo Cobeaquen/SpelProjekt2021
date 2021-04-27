@@ -30,6 +30,8 @@ namespace Spelprojekt2
             points.Add(new Transform(new Vector2(0, Main.instance.GameHeight)));
             points.Add(new Transform(new Vector2(0, 100)));
             points.Add(new Transform(new Vector2(100, 100)));
+            points.Add(new Transform(new Vector2(150, 150)));
+            points.Add(new Transform(new Vector2(100, 200)));
             points.Add(new Transform(new Vector2(50, 50)));
             points.Add(new Transform(new Vector2(100, 20)));
 
