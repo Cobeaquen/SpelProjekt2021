@@ -25,13 +25,17 @@ namespace Spelprojekt2
         public Texture2D sprite;
 
         public Vector2 position;
-        float t = 0;
+        private float t = 0;
+        private float progress;
+        private float progressPerEdge;
 
         public Enemy()
         {
             sprite = DebugTextures.GenerateRectangle(10, 10, Color.Brown);
             CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
             position = GetPositionOnCurve(t);
+            progressPerEdge = 1f / (Main.instance.level.splinePath.GetAllPoints.Length - 1);
+            progress = progressPerEdge;
         }
         public override void CreateSplineWalker(SplineBase spline, SplineWalkerMode mode, int duration, bool canTriggerEvents = true, SplineWalkerTriggerDirection triggerDirection = SplineWalkerTriggerDirection.Forward, bool autoStart = true)
         {
@@ -40,9 +44,16 @@ namespace Spelprojekt2
         public override void Update(GameTime gameTime)
         {
             position = GetPositionOnCurve(t);
+            Console.WriteLine("Progress per edge: " + progressPerEdge);
+            
             //position
             t += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.1f;
             t = t > 1f ? 0f : t;
+
+            if (t > progress)
+            {
+                //progress = Math.Round(progress) * progressPerEdge;
+            }
             SetPosition(t);
             base.Update(gameTime);
         }

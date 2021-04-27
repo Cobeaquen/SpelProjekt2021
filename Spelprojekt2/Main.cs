@@ -10,19 +10,12 @@ namespace Spelprojekt2
     {
         public static Main instance;
 
-        public int ScreenWidth { get; private set; } = 1920;
-        public int GameWidth { get; private set; } = 480;
-        public int GameHeight { get; private set; } = 270;
-        public int ScreenHeight { get; private set; } = 1080;
-
         public Level level;
 
         GraphicsDeviceManager graphics;
         public static SpriteBatch spriteBatch { get; private set; }
 
         RenderTarget2D scene;
-
-        public List<Tower> placedTowers;
 
         Enemy enemy;
 
@@ -31,8 +24,8 @@ namespace Spelprojekt2
             instance = this;
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
-            graphics.PreferredBackBufferWidth = ScreenWidth;
-            graphics.PreferredBackBufferHeight = ScreenHeight;
+            graphics.PreferredBackBufferWidth = Global.ScreenWidth;
+            graphics.PreferredBackBufferHeight = Global.ScreenHeight;
             IsMouseVisible = true;
             IsFixedTimeStep = false;
             graphics.SynchronizeWithVerticalRetrace = false;
@@ -55,8 +48,8 @@ namespace Spelprojekt2
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
 
-            placedTowers = new List<Tower>();
-            placedTowers.Add(new GunTower(new Vector2(GameWidth / 2f, GameHeight / 2f)));
+            Global.placedTowers = new List<Tower>();
+            Global.placedTowers.Add(new GunTower(new Vector2(Global.GameWidth / 2f, Global.GameHeight / 2f)));
 
             enemy = new Enemy();
         }
@@ -71,7 +64,9 @@ namespace Spelprojekt2
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            foreach (Tower tower in placedTowers)
+            Global.Update(gameTime);
+
+            foreach (Tower tower in Global.placedTowers)
             {
                 tower.Update(gameTime);
             }
@@ -89,7 +84,7 @@ namespace Spelprojekt2
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            foreach (Tower tower in placedTowers)
+            foreach (Tower tower in Global.placedTowers)
             {
                 tower.Draw(spriteBatch);
             }
