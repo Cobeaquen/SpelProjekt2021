@@ -12,6 +12,7 @@ namespace Spelprojekt2
 {
     public class Level
     {
+        public List<Enemy> Enemies = new List<Enemy>();
         public List<Vector2> waypoints;
         public HermiteSpline splinePath;
         public float[] splineLengths;
@@ -49,9 +50,21 @@ namespace Spelprojekt2
 
         }
 
+        public void Update(GameTime gameTime)
+        {
+            foreach (var enemy in Enemies)
+            {
+                enemy.Update(gameTime);
+            }
+        }
+
         public void Draw()
         {
             //splinePath.DrawSpline(Main.spriteBatch);
+            foreach (var enemy in Enemies)
+            {
+                enemy.Draw();
+            }
         }
     }
 }

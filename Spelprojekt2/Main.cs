@@ -51,7 +51,8 @@ namespace Spelprojekt2
             Global.placedTowers = new List<Tower>();
             Global.placedTowers.Add(new GunTower(new Vector2(Global.GameWidth / 2f, Global.GameHeight / 2f)));
 
-            enemy = new Enemy();
+            level.Enemies.Add(new Enemy());
+            level.Enemies.Add(new Enemy() { t = 0.5f});
         }
 
         protected override void UnloadContent()
@@ -70,9 +71,8 @@ namespace Spelprojekt2
             {
                 tower.Update(gameTime);
             }
-            
 
-            enemy.Update(gameTime);
+            level.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -89,8 +89,7 @@ namespace Spelprojekt2
                 tower.Draw(spriteBatch);
             }
 
-            level.Draw();
-            enemy.Draw();
+            level.Draw();        
 
             spriteBatch.End();
 

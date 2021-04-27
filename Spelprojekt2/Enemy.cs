@@ -25,10 +25,11 @@ namespace Spelprojekt2
         public Texture2D sprite;
 
         public Vector2 position;
-        private float t = 0;
+        public float t = 0;
         private float progress;
         private float progressPerEdge;
 
+        public Rectangle rectangle;
         public Enemy()
         {
             sprite = DebugTextures.GenerateRectangle(10, 10, Color.Brown);

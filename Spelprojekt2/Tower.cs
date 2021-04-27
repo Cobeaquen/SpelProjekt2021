@@ -16,6 +16,8 @@ namespace Spelprojekt2
         protected Vector2 firePosition;
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float FireRate { get; private set; }
+        public float DamageModifier { get; private set; }
+        protected float Damage { get; private set; }       
 
         private float lookRotation;
         private float rotOffset = MathHelper.PiOver2;
