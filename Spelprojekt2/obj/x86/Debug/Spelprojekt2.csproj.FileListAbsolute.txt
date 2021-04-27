@@ -68,3 +68,4 @@ C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelproje
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.csproj.CopyComplete
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.exe
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.pdb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\bullet.xnb

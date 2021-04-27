@@ -14,6 +14,7 @@ namespace Spelprojekt2
     {
         public List<Vector2> waypoints;
         public HermiteSpline splinePath;
+        public float[] splineLengths;
 
         public Level()
         {
@@ -27,7 +28,7 @@ namespace Spelprojekt2
         public static Level GenerateExampleLevel()
         {
             List<Transform> points = new List<Transform>();
-            points.Add(new Transform(new Vector2(0, Main.instance.GameHeight)));
+            points.Add(new Transform(new Vector2(0, Global.GameHeight)));
             points.Add(new Transform(new Vector2(0, 100)));
             points.Add(new Transform(new Vector2(100, 100)));
             points.Add(new Transform(new Vector2(50, 50)));
@@ -35,10 +36,11 @@ namespace Spelprojekt2
 
             //return null;
             HermiteSpline spline = new HermiteSpline(points.ToArray());
-            spline.
+            //spline.
             return new Level()
             {
-                splinePath = spline
+                splinePath = spline,
+                splineLengths = MapGenerator.GenerateDistances(spline)
             };
 
             //curve.Keys.Add(new CurveKey(new Vector2(0, Main.instance.GameHeight), ,));

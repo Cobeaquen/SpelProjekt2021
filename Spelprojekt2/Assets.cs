@@ -31,6 +31,8 @@ namespace Spelprojekt2
         public static Texture2D BombTowerHead { get; internal set; }
         public static Texture2D SniperTower { get; internal set; }
         public static Texture2D SniperTowerHead { get; internal set; }
+        public static Texture2D Bullet { get; internal set; }
+        public static Vector2 BulletOrigin { get; internal set; }
         public static void Initialize(ContentManager content)
         {
             Content = content;
@@ -41,6 +43,8 @@ namespace Spelprojekt2
             GunTowerOrigin = GetOrigin(GunTower);
             GunTowerHead = Content.Load<Texture2D>("graphics\\gun_tower_head");
             GunTowerHeadOrigin = new Vector2(16, 24);
+            Bullet = Content.Load<Texture2D>("graphics/bullet");
+            BulletOrigin = GetOrigin(Bullet);
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
             //BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");

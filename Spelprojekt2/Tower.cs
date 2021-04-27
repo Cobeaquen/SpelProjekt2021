@@ -13,35 +13,38 @@ namespace Spelprojekt2
     {
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
+        protected Vector2 firePosition;
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
+        public float FireRate { get; private set; }
+
         private float lookRotation;
         private float rotOffset = MathHelper.PiOver2;
         private Texture2D bodySprite;
         private Vector2 bodyOrigin;
         private Texture2D headSprite;
         private Vector2 headOrigin;
+        protected int cannonLength;
 
-        public Tower(Vector2 position, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        protected Texture2D debugFirePoint;
+
+        public Tower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
+            this.FireRate = fireRate;
             this.LookRotation = 0;
             this.bodySprite = bodySprite;
             this.bodyOrigin = bodyOrigin;
             this.headSprite = headSprite;
             this.headOrigin = headOrigin;
+            cannonLength = this.headSprite.Height;
+
+            debugFirePoint = DebugTextures.GenerateRectangle(2, 2, Color.Red);
         }
 
         public virtual void Update(GameTime gameTime)
         {
-            Vector2 mouseDir = Mouse.GetState().Position.ToVector2() / 4f - position;
+            Vector2 mouseDir = Global.mousePosition - position;
             LookRotation = (float)Math.Atan2(mouseDir.Y, mouseDir.X);
-        }
-
-        public void Fire()
-        {
-            Console.WriteLine("Fire!");
-            Matrix rotMatrix = Matrix.CreateRotationZ(lookRotation);
-            Vector2 firePosition = Vector2.Transform(position, rotMatrix);
         }
 
         private static float GetShortestAngle(float from, float to)
