@@ -1,0 +1,8 @@
+
+*.db
+*.db-shm
+*.db-wal
+*.opendb
+*.exe
+*.exe
+*.pdb
