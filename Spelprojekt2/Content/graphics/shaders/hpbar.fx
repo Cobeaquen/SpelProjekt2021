@@ -7,6 +7,7 @@
 	#define PS_SHADERMODEL ps_4_0_level_9_1
 #endif
 
+float frameWidth;
 float value;
 Texture2D SpriteTexture;
 
@@ -25,7 +26,13 @@ struct VertexShaderOutput
 float4 MainPS(VertexShaderOutput input) : COLOR
 {
 	float2 UV = input.TextureCoordinates;
-	return UV.x <= value ? float4(0, 1, 0, 1) : float4(0, 0, 0, 1);
+
+	float4 texColor = tex2D(SpriteTextureSampler, input.TextureCoordinates) * input.Color;
+	float4 barColor = UV.x <= value ? lerp(float4(1, 0, 0, 1), float4(0, 1, 0, 1), value) : float4(0, 0, 0, 0);
+	if (texColor.a != 0.0) {
+		return texColor;
+	}
+	return barColor;
 	//return tex2D(SpriteTextureSampler,input.TextureCoordinates) * input.Color;
 }
 

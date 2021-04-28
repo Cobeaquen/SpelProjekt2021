@@ -10,47 +10,47 @@
   <Class Name="Spelprojekt2.Tower">
     <Position X="2.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAQAAAAAAgAgAiAAEAIAAACABBBAgAAAAAAAAAACA=</HashCode>
+      <HashCode>AAQAQACAAAAgAgAiAAEAIAAACABBBAgAAAAAAAAAACA=</HashCode>
       <FileName>Tower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Enemy">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAABBAAAAAAgAAAAAEIAQAABCAAQAAAAQAAAAAAAg=</HashCode>
+      <HashCode>IQQAAACAAgAAAgAiAAIAICQARBBAASAAAIQAAAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.GunTower">
-    <Position X="2.75" Y="6.5" Width="1.5" />
+    <Position X="2.75" Y="7.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GunTower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Minion">
-    <Position X="10.25" Y="5" Width="1.5" />
+    <Position X="12.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Minion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.ProjectileTower" Collapsed="true">
-    <Position X="2.75" Y="5.5" Width="1.5" />
+    <Position X="2.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQAgAAAAAAAAgAAAAAAAAAAAAAEQAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>IAQAgAAAAAAAAgAAEAAAAAAAAAAEQAAAAQAAAAAAAAA=</HashCode>
       <FileName>ProjectileTower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Wave">
-    <Position X="0.5" Y="8" Width="1.5" />
+    <Position X="0.5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Wave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Burst">
-    <Position X="2.75" Y="8" Width="1.5" />
+    <Position X="2.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAI=</HashCode>
       <FileName>Burst.cs</FileName>
@@ -59,15 +59,50 @@
   <Class Name="Spelprojekt2.Level">
     <Position X="0.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAIAAIAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAAAAAAgAAAAAAAIAAAAMAAIAAAIAAAAAAAAA=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.LaserTower" Collapsed="true">
-    <Position X="4.75" Y="5.5" Width="1.5" />
+    <Position X="4.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LaserTower.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.GUI">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.Input">
+    <Position X="7.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIAAIAAAAAAAJAACAAAAAAAAAAAAAAAAAAAAAAAGAAA=</HashCode>
+      <FileName>Input.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.Assets">
+    <Position X="14.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DFAQAgAQAgIIAUAAAIBABAAABAAAAAADAAACAAAQhCA=</HashCode>
+      <FileName>Assets.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.Global">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAQBgAAAAkAAAAAAAAAACBAgQABAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Global.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.Bar">
+    <Position X="12.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAgAgAAAAAAAAABAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Bar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

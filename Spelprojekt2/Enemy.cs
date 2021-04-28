@@ -32,14 +32,14 @@ namespace Spelprojekt2
         public float t = 0;
         private float progress;
         private float progressPerEdge;
-
+        private Vector2 hpOffset = new Vector2(0, -15);
         public Rectangle rectangle;
         public Enemy()
         {
             maxHP = 20;
             HP = maxHP;
             value = 10;
-            hpBar = new Bar(maxHP);
+            hpBar = new Bar(maxHP, Assets.HPBarFrame, 24, 4);
             sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
             position = GetPositionOnCurve(t);
@@ -66,7 +66,7 @@ namespace Spelprojekt2
             }
             SetPosition(t);
 
-            hpBar.Position = Position;
+            hpBar.Position = Position + hpOffset;
 
             base.Update(gameTime);
         }
@@ -104,14 +104,7 @@ namespace Spelprojekt2
             Main.spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);
             foreach (var enemy in Main.instance.level.Enemies)
             {
-                //enemy.hpBar.Draw();
-                Assets.HPBarEffect.Parameters["value"].SetValue(enemy.hpBar.Value);
-                foreach (var pass in Assets.HPBarEffect.CurrentTechnique.Passes)
-                {
-                    pass.Apply();
-                }
-                Main.spriteBatch.Draw(enemy.hpBar.sprite, enemy.hpBar.Position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-
+                enemy.hpBar.Draw();
             }
             Main.spriteBatch.End();
         }
