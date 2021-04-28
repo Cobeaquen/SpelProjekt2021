@@ -11,7 +11,7 @@ namespace Spelprojekt2
 {
     public class Bullet
     {
-        public float Velocity { get; private set; } = 250f;
+        public float Velocity { get; private set; } = 100f;
         public float TimeAlive { get; private set; } = 2f;
 
         public float Damage { get; private set; }
@@ -48,7 +48,23 @@ namespace Spelprojekt2
                 time = 0f;
                 destroyCallback(this); // Destroy bullet
             }
-            
+            Enemy enemy = CollisionCheck();
+            enemy?.Destroy();
+        }
+
+        public Enemy CollisionCheck()
+        {
+            foreach (var enemy in Main.instance.level.Enemies)
+            {
+                bool collided = rectangle.Intersects(enemy.rectangle);
+
+                if (collided)
+                {
+                    Console.WriteLine("Collided!!");
+                    return enemy;
+                }
+            }
+            return null;
         }
 
         public void Draw()

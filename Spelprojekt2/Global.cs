@@ -15,15 +15,23 @@ namespace Spelprojekt2
         public static int GameHeight { get; private set; } = 270;
         public static int ScreenHeight { get; private set; } = 1080;
 
-        public static Vector2 mousePosition { get; private set; }
+        public static int StartHP = 200;
+        public static int HP;
+        public static int StartCoins = 400;
+        public static int Coins;
 
         public static List<Tower> placedTowers;
         public static double time;
 
+        public static void Load()
+        {
+            HP = StartHP;
+            Coins = StartCoins;
+        }
+
         public static void Update(GameTime gameTime)
         {
             time += gameTime.ElapsedGameTime.TotalSeconds;
-            mousePosition = Mouse.GetState().Position.ToVector2() / 4f;
         }
     }
 }

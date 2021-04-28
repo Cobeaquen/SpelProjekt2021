@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MonoGame.SplineFlower.Content;
+using System.IO;
 
 namespace Spelprojekt2
 {
@@ -41,6 +42,7 @@ namespace Spelprojekt2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.Initialize(Content);
             DebugTextures.LoadTextures(GraphicsDevice);
+            Global.Load();
             Setup.Initialize(GraphicsDevice);
             
             level = Level.GenerateExampleLevel();
@@ -62,7 +64,8 @@ namespace Spelprojekt2
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+            Input.BeginInput();
+            if (Input.Kstate.IsKeyDown(Keys.Escape))
                 Exit();
 
             Global.Update(gameTime);
@@ -74,7 +77,13 @@ namespace Spelprojekt2
 
             level.Update(gameTime);
 
+            if (Input.Pressed(Keys.F2))
+            { // Ta skärmbild
+                scene.SaveAsPng(new FileStream("screenshot.png", FileMode.Create), Global.ScreenWidth, Global.ScreenHeight);
+            }
+
             base.Update(gameTime);
+            Input.EndInput();
         }
 
         protected override void Draw(GameTime gameTime)
@@ -89,7 +98,8 @@ namespace Spelprojekt2
                 tower.Draw(spriteBatch);
             }
 
-            level.Draw();        
+            level.Draw();
+            GUI.Draw();
 
             spriteBatch.End();
 

@@ -60,7 +60,7 @@ namespace Spelprojekt2
 
         public void Draw()
         {
-            //splinePath.DrawSpline(Main.spriteBatch);
+            splinePath.DrawSpline(Main.spriteBatch);
             foreach (var enemy in Enemies)
             {
                 enemy.Draw();

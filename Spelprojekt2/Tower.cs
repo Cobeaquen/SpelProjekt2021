@@ -45,7 +45,7 @@ namespace Spelprojekt2
 
         public virtual void Update(GameTime gameTime)
         {
-            Vector2 mouseDir = Global.mousePosition - position;
+            Vector2 mouseDir = Input.MousePosition - position;
             LookRotation = (float)Math.Atan2(mouseDir.Y, mouseDir.X);
         }
 

@@ -33,18 +33,26 @@ namespace Spelprojekt2
         public static Texture2D SniperTowerHead { get; internal set; }
         public static Texture2D Bullet { get; internal set; }
         public static Vector2 BulletOrigin { get; internal set; }
+        public static Texture2D Stats { get; internal set; }
+        public static Vector2 StatsOrigin { get; internal set; }
+
+        public static SpriteFont DefaultFont { get; internal set; }
         public static void Initialize(ContentManager content)
         {
             Content = content;
 
             //Level1 = Content.Load<Texture2D>("graphics/level1");
             //Enemy1 = Content.Load<Texture2D>("graphics/enemy1");
-            GunTower = Content.Load<Texture2D>("graphics\\gun_tower_body");
+            GunTower = Content.Load<Texture2D>("graphics/gun_tower_body");
             GunTowerOrigin = GetOrigin(GunTower);
-            GunTowerHead = Content.Load<Texture2D>("graphics\\gun_tower_head");
+            GunTowerHead = Content.Load<Texture2D>("graphics/gun_tower_head");
             GunTowerHeadOrigin = new Vector2(16, 24);
             Bullet = Content.Load<Texture2D>("graphics/bullet");
             BulletOrigin = GetOrigin(Bullet);
+
+            Stats = Content.Load<Texture2D>("graphics/ui/stats");
+            StatsOrigin = new Vector2(Stats.Width, 0);
+            DefaultFont = Content.Load<SpriteFont>("graphics/ui/default");
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
             //BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");

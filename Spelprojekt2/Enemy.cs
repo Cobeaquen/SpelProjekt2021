@@ -32,7 +32,7 @@ namespace Spelprojekt2
         public Rectangle rectangle;
         public Enemy()
         {
-            sprite = DebugTextures.GenerateRectangle(10, 10, Color.Brown);
+            sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
             position = GetPositionOnCurve(t);
             progressPerEdge = 1f / (Main.instance.level.splinePath.GetAllPoints.Length - 1);
@@ -45,7 +45,8 @@ namespace Spelprojekt2
         public override void Update(GameTime gameTime)
         {
             position = GetPositionOnCurve(t);
-            Console.WriteLine("Progress per edge: " + progressPerEdge);
+            rectangle = new Rectangle(position.ToPoint(), new Point(sprite.Width, sprite.Height));
+            //Console.WriteLine("Progress per edge: " + progressPerEdge);
             
             //position
             t += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.1f;
@@ -61,8 +62,13 @@ namespace Spelprojekt2
 
         public void Draw()
         {
-            //Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-            base.Draw(Main.spriteBatch);
+            Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //base.Draw(Main.spriteBatch);
+        }
+
+        public void Destroy()
+        {
+            Main.instance.level.Enemies.Remove(this);
         }
     }
 }
