@@ -6,3 +6,6 @@
 *.exe
 *.exe
 *.pdb
+*.xnb
+*.cache
+Spelprojekt2/obj/x86/Debug/Spelprojekt2.csproj.CoreCompileInputs.cache
