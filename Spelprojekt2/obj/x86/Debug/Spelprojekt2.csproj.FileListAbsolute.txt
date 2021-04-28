@@ -105,3 +105,5 @@ C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHu
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.csproj.CopyComplete
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.exe
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.pdb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\default.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\stats.xnb
