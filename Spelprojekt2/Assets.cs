@@ -56,7 +56,7 @@ namespace Spelprojekt2
             StatsOrigin = new Vector2(Stats.Width, 0);
             DefaultFont = Content.Load<SpriteFont>("graphics/ui/default");
 
-            HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
+            //HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
             //BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");

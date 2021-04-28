@@ -12,7 +12,7 @@ namespace Spelprojekt2
     public class Bullet
     {
         public ProjectileTower Owner { get; private set; }
-        public float Velocity { get; private set; } = 100f;
+        public float Velocity { get; private set; } = 200f;
         public float TimeAlive { get; private set; } = 2f;
         public float Damage { get; private set; }
         public Vector2 Position { get; private set; }
@@ -22,11 +22,12 @@ namespace Spelprojekt2
         private Rectangle rectangle;
         
         private Texture2D sprite;
+        private Texture2D textrect;
 
         private float lookRotation;
         private Vector2 lookDirection;
         private float time;
-
+        
         private float rotOffset = MathHelper.PiOver2;
 
         public Bullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
@@ -37,12 +38,13 @@ namespace Spelprojekt2
             this.lookRotation = lookRotation;
             this.destroyCallback = destroyCallback;
             this.Damage = damage;
+            textrect = DebugTextures.GenerateHollowRectangele(Assets.Bullet.Height, Assets.Bullet.Height, 1, Color.Red);
         }
 
         public void Update(GameTime gameTime)
         {
             Position += lookDirection * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
-            rectangle = new Rectangle(Position.ToPoint(), new Point(Assets.Bullet.Height, Assets.Bullet.Height));
+            rectangle = new Rectangle(Position.ToPoint() - new Point(Assets.Bullet.Height / 2, Assets.Bullet.Height / 2), new Point(Assets.Bullet.Height, Assets.Bullet.Height));
             time += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (time >= TimeAlive)
             {
@@ -57,6 +59,7 @@ namespace Spelprojekt2
                 Console.WriteLine("Hit enemy for {0} HP", dmg);
                 destroyCallback(this);
             }
+
         }
 
         public Enemy CollisionCheck()
@@ -76,6 +79,7 @@ namespace Spelprojekt2
         public void Draw()
         {
             Main.spriteBatch.Draw(Assets.Bullet, Position, null, Color.White, lookRotation + rotOffset, Assets.BulletOrigin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Spelprojekt2
         public override void Update(GameTime gameTime)
         {
             position = GetPositionOnCurve(t);
-            rectangle = new Rectangle(position.ToPoint(), new Point(sprite.Width, sprite.Height));
+            rectangle = new Rectangle(Position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Height, sprite.Height)); ;
             //Console.WriteLine("Progress per edge: " + progressPerEdge);
             
             //position
@@ -90,7 +90,7 @@ namespace Spelprojekt2
 
         public void Draw()
         {
-            Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, new Vector2(sprite.Width / 2, sprite.Height / 2), 1f, SpriteEffects.None, 0f);
             //base.Draw(Main.spriteBatch);
         }
 
