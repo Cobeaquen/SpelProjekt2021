@@ -11,9 +11,9 @@ namespace Spelprojekt2
 {
     public class Bullet
     {
+        public ProjectileTower Owner { get; private set; }
         public float Velocity { get; private set; } = 100f;
         public float TimeAlive { get; private set; } = 2f;
-
         public float Damage { get; private set; }
         public Vector2 Position { get; private set; }
         
@@ -29,8 +29,9 @@ namespace Spelprojekt2
 
         private float rotOffset = MathHelper.PiOver2;
 
-        public Bullet(Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
+        public Bullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
         {
+            this.Owner = owner;
             this.Position = position;
             this.lookDirection = lookDirection;
             this.lookRotation = lookRotation;
@@ -49,7 +50,13 @@ namespace Spelprojekt2
                 destroyCallback(this); // Destroy bullet
             }
             Enemy enemy = CollisionCheck();
-            enemy?.Destroy();
+            if (enemy != null)
+            {
+                float dmg = enemy.Hit(Damage + Owner.Damage * Owner.DamageModifier);
+                Owner.TotalDamage += dmg;
+                Console.WriteLine("Hit enemy for {0} HP", dmg);
+                destroyCallback(this);
+            }
         }
 
         public Enemy CollisionCheck()
@@ -60,7 +67,6 @@ namespace Spelprojekt2
 
                 if (collided)
                 {
-                    Console.WriteLine("Collided!!");
                     return enemy;
                 }
             }

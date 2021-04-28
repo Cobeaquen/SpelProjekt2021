@@ -17,7 +17,7 @@ namespace Spelprojekt2
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float FireRate { get; private set; }
         public float DamageModifier { get; private set; }
-        protected float Damage { get; private set; }       
+        public float Damage { get; private set; }       
 
         private float lookRotation;
         private float rotOffset = MathHelper.PiOver2;
@@ -29,9 +29,11 @@ namespace Spelprojekt2
 
         protected Texture2D debugFirePoint;
 
-        public Tower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, float damage, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
+            this.DamageModifier = 1f;
+            this.Damage = damage;
             this.FireRate = fireRate;
             this.LookRotation = 0;
             this.bodySprite = bodySprite;

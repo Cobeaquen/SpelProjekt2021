@@ -13,14 +13,16 @@ namespace Spelprojekt2
     public class Enemy : SplineWalker
     {
         public float speed;
-        
-        public float maxHP;
-        public float health;
 
-        public float laser_resistance;
-        public float gun_resistance;
-        public float bomb_resistance;
-        public float sniper_resistance;
+        public int value { get; private set; }
+        public float maxHP { get; private set; }
+        public float HP;
+
+        public float masterResistance = 1f;
+        public float laserResistance;
+        public float gunResistance;
+        public float bombResistance;
+        public float sniperResistance;
 
         public Texture2D sprite;
 
@@ -32,6 +34,9 @@ namespace Spelprojekt2
         public Rectangle rectangle;
         public Enemy()
         {
+            maxHP = 20;
+            HP = maxHP;
+            value = 10;
             sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
             position = GetPositionOnCurve(t);
@@ -58,6 +63,22 @@ namespace Spelprojekt2
             }
             SetPosition(t);
             base.Update(gameTime);
+        }
+
+        public float Hit(float damage)
+        {
+            float dmg = damage / masterResistance;
+            HP -= dmg;
+            if (HP <= 0)
+                Die();
+
+            return Math.Min(dmg, HP + dmg);
+        }
+
+        public void Die()
+        {
+            Global.Coins += value;
+            Destroy();
         }
 
         public void Draw()

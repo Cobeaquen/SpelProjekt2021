@@ -10,12 +10,13 @@ namespace Spelprojekt2
 {
     public class ProjectileTower : Tower
     {
+        public float TotalDamage { get; set; }
         public List<Bullet> Bullets { get; private set; }
         public List<Bullet> BulletDestroyQueue { get; private set; }
 
         private double timeSinceFired = 0f;
 
-        public ProjectileTower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, fireRate, bodySprite, bodyOrigin, headSprite, headOrigin)
+        public ProjectileTower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, 5f, fireRate, bodySprite, bodyOrigin, headSprite, headOrigin)
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
@@ -55,7 +56,7 @@ namespace Spelprojekt2
             Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
             firePosition = Position + dir * cannonLength;
 
-            Bullet bullet = new Bullet(firePosition, dir, LookRotation, 1, DestroyBullet);
+            Bullet bullet = new Bullet(this, firePosition, dir, LookRotation, 1, DestroyBullet);
             Bullets.Add(bullet);
         }
 
