@@ -18,6 +18,8 @@ namespace Spelprojekt2
         public float maxHP { get; private set; }
         public float HP;
 
+        public Bar hpBar;
+
         public float masterResistance = 1f;
         public float laserResistance;
         public float gunResistance;
@@ -37,6 +39,7 @@ namespace Spelprojekt2
             maxHP = 20;
             HP = maxHP;
             value = 10;
+            hpBar = new Bar(maxHP);
             sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
             position = GetPositionOnCurve(t);
@@ -62,6 +65,9 @@ namespace Spelprojekt2
                 //progress = Math.Round(progress) * progressPerEdge;
             }
             SetPosition(t);
+
+            hpBar.Position = Position;
+
             base.Update(gameTime);
         }
 
@@ -72,6 +78,7 @@ namespace Spelprojekt2
             if (HP <= 0)
                 Die();
 
+            hpBar.SetValue(Math.Max(HP, 0f));
             return Math.Min(dmg, HP + dmg);
         }
 
@@ -90,6 +97,23 @@ namespace Spelprojekt2
         public void Destroy()
         {
             Main.instance.level.Enemies.Remove(this);
+        }
+
+        public static void DrawHPBars()
+        {
+            Main.spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);
+            foreach (var enemy in Main.instance.level.Enemies)
+            {
+                //enemy.hpBar.Draw();
+                Assets.HPBarEffect.Parameters["value"].SetValue(enemy.hpBar.Value);
+                foreach (var pass in Assets.HPBarEffect.CurrentTechnique.Passes)
+                {
+                    pass.Apply();
+                }
+                Main.spriteBatch.Draw(enemy.hpBar.sprite, enemy.hpBar.Position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+
+            }
+            Main.spriteBatch.End();
         }
     }
 }

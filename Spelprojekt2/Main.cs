@@ -103,6 +103,8 @@ namespace Spelprojekt2
 
             spriteBatch.End();
 
+            Enemy.DrawHPBars();
+
             GraphicsDevice.SetRenderTarget(null);
 
             spriteBatch.Begin(samplerState: SamplerState.PointClamp);

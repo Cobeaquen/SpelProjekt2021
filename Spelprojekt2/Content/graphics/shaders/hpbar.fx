@@ -7,8 +7,8 @@
 	#define PS_SHADERMODEL ps_4_0_level_9_1
 #endif
 
-Texture2D SpriteTexture;
 float value;
+Texture2D SpriteTexture;
 
 sampler2D SpriteTextureSampler = sampler_state
 {
@@ -25,7 +25,7 @@ struct VertexShaderOutput
 float4 MainPS(VertexShaderOutput input) : COLOR
 {
 	float2 UV = input.TextureCoordinates;
-	return UV <= value ? float2(0, 255, 0) : float2(0, 0, 0);
+	return UV.x <= value ? float4(0, 1, 0, 1) : float4(0, 0, 0, 1);
 	//return tex2D(SpriteTextureSampler,input.TextureCoordinates) * input.Color;
 }
 

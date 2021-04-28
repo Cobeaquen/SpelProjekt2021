@@ -49,6 +49,12 @@
 /processorParam:TextureFormat=Color
 /build:graphics/gun_tower_head.png
 
+#begin graphics/shaders/hpbar.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:graphics/shaders/hpbar.fx
+
 #begin graphics/ui/default.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
