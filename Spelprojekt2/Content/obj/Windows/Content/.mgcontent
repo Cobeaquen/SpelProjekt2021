@@ -5,6 +5,7 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/bullet.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/bullet_small.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_body.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_head.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/hpbar_frame.png</File>
@@ -13,6 +14,7 @@
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/stats.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

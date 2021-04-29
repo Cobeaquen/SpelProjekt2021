@@ -56,7 +56,7 @@ namespace Spelprojekt2
             Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
             firePosition = Position + dir * cannonLength;
 
-            Bullet bullet = new Bullet(this, firePosition, dir, LookRotation, 1, DestroyBullet);
+            Bullet bullet = new Bullet(this, 200f, firePosition, dir, LookRotation, 1, DestroyBullet);
             Bullets.Add(bullet);
         }
 

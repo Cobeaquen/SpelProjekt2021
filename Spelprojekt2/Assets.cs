@@ -51,7 +51,7 @@ namespace Spelprojekt2
             GunTowerOrigin = GetOrigin(GunTower);
             GunTowerHead = Content.Load<Texture2D>("graphics/gun_tower_head");
             GunTowerHeadOrigin = new Vector2(16, 24);
-            Bullet = Content.Load<Texture2D>("graphics/bullet");
+            Bullet = Content.Load<Texture2D>("graphics/bullet_small");
             BulletOrigin = GetOrigin(Bullet);
 
             Stats = Content.Load<Texture2D>("graphics/ui/stats");
@@ -60,6 +60,7 @@ namespace Spelprojekt2
 
             HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
             HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
+
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
             //BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");

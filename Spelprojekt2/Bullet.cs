@@ -12,7 +12,7 @@ namespace Spelprojekt2
     public class Bullet
     {
         public ProjectileTower Owner { get; private set; }
-        public float Velocity { get; private set; } = 200f;
+        public float Velocity { get; private set; }
         public float TimeAlive { get; private set; } = 2f;
         public float Damage { get; private set; }
         public Vector2 Position { get; private set; }
@@ -30,9 +30,10 @@ namespace Spelprojekt2
         
         private float rotOffset = MathHelper.PiOver2;
 
-        public Bullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
+        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
         {
             this.Owner = owner;
+            this.Velocity = velocity;
             this.Position = position;
             this.lookDirection = lookDirection;
             this.lookRotation = lookRotation;
@@ -79,7 +80,7 @@ namespace Spelprojekt2
         public void Draw()
         {
             Main.spriteBatch.Draw(Assets.Bullet, Position, null, Color.White, lookRotation + rotOffset, Assets.BulletOrigin, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }

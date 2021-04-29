@@ -10,17 +10,25 @@ namespace Spelprojekt2
 {
     public class Bar
     {
-        public Vector2 Position;
+        public Vector2 Position { get; set; }
 
         public float Value;
         public float MaxValue;
+        public float Smoothing;
         public Texture2D sprite;
         private Vector2 spriteOrigin;
 
-        public Bar(float maxValue, Texture2D sprite = null, int width = 32, int height = 4)
+        private float dispValue;
+        private float prevValue;
+        private float t;
+
+        public Bar(float maxValue, float smoothing = 0f, Texture2D sprite = null, int width = 32, int height = 4)
         {
             this.MaxValue = maxValue;
+            this.Smoothing = smoothing;
+            prevValue = 1f;
             Value = 1f;
+            t = 1f;
             if (sprite == null)
                 sprite = DebugTextures.GenerateRectangle(width, height, Color.White);
             else
@@ -30,12 +38,23 @@ namespace Spelprojekt2
 
         public void SetValue(float value)
         {
+            prevValue = this.dispValue;
             this.Value = value / MaxValue;
+            t = 0f;
+        }
+
+        public void Update(GameTime gameTime, Vector2 position)
+        {
+            this.Position = position;
+            t = t < 1.0f ? t + (float)gameTime.ElapsedGameTime.TotalSeconds / Smoothing : 1f;
         }
 
         public void Draw()
         {
-            Assets.HPBarEffect.Parameters["value"].SetValue(Value);
+            dispValue = MathHelper.Lerp(prevValue, Value, t);
+            Assets.HPBarEffect.Parameters["value"].SetValue(dispValue);
+            Assets.HPBarEffect.Parameters["frameWidth"].SetValue(sprite.Width);
+            Assets.HPBarEffect.Parameters["frameHeight"].SetValue(sprite.Height);
             foreach (var pass in Assets.HPBarEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();
