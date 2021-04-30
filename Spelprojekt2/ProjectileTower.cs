@@ -16,24 +16,31 @@ namespace Spelprojekt2
 
         private double timeSinceFired = 0f;
 
+        Random ran = new Random();
+
+        float spreadModifier;
+        float spread;
+
+        public float reach;
+
         public ProjectileTower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, 5f, fireRate, bodySprite, bodyOrigin, headSprite, headOrigin)
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
+            spreadModifier = 1;
+            spread = 0.08f;
+            reach = 150;
         }
 
         public override void Update(GameTime gameTime)
         {
             timeSinceFired += gameTime.ElapsedGameTime.TotalSeconds;
-
+            
             if (timeSinceFired >= 1f/FireRate)
             {
                 timeSinceFired = 0f;
                 Fire();
             }
-
-            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
-            firePosition = Position + dir * cannonLength;
 
             foreach (var bullet in Bullets)
             {
@@ -41,7 +48,7 @@ namespace Spelprojekt2
             }
             foreach (var bullet in BulletDestroyQueue)
             {
-                Bullets.Remove(bullet);
+                Bullets.Remove(bullet);                               
             }
             base.Update(gameTime);
         }
@@ -52,8 +59,9 @@ namespace Spelprojekt2
         /// <returns></returns>
         public virtual void Fire()
         {
-            //Console.WriteLine("Fire!");
-            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
+            float Offset = spread * (ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)ran.NextDouble();
+
+            Vector2 dir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
             firePosition = Position + dir * cannonLength;
 
             Bullet bullet = new Bullet(this, 200f, firePosition, dir, LookRotation, 1, DestroyBullet);
