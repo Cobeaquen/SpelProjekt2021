@@ -110,3 +110,8 @@ C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\C
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\shaders\hpbar.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\hpbar_frame.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\bullet_small.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\default.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\stats.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\shaders\hpbar.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\bullet_small.xnb
+C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\hpbar_frame.xnb

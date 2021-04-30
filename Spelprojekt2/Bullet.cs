@@ -47,11 +47,12 @@ namespace Spelprojekt2
             Position += lookDirection * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
             rectangle = new Rectangle(Position.ToPoint() - new Point(Assets.Bullet.Height / 2, Assets.Bullet.Height / 2), new Point(Assets.Bullet.Height, Assets.Bullet.Height));
             time += (float)gameTime.ElapsedGameTime.TotalSeconds;
-            if (time >= TimeAlive)
+            if (time >= TimeAlive || Vector2.Distance(Owner.Position, Position) >= Owner.reach)
             {
                 time = 0f;
                 destroyCallback(this); // Destroy bullet
             }
+
             Enemy enemy = CollisionCheck();
             if (enemy != null)
             {
