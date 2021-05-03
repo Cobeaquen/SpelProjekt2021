@@ -16,6 +16,7 @@ namespace Spelprojekt2
     {
         public static ContentManager Content { get; internal set; }
 
+        public static Texture2D Meny { get; internal set; }
         public static Texture2D Level1 { get; internal set; }
         public static Texture2D Enemy1 { get; internal set; }
 
@@ -60,6 +61,8 @@ namespace Spelprojekt2
 
             HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
             HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
+
+            Meny = Content.Load<Texture2D>("graphics/ui/menytest");
 
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");

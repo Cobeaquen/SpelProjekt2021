@@ -27,9 +27,9 @@ namespace Spelprojekt2
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
-            spreadModifier = 1;
-            spread = 0.08f;
-            reach = 150;
+            spreadModifier = 1f;
+            spread = 1f;
+            reach = 200;
         }
 
         public override void Update(GameTime gameTime)
