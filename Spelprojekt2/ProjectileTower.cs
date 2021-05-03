@@ -73,7 +73,10 @@ namespace Spelprojekt2
         public override void Draw(SpriteBatch sb)
         {
             base.Draw(sb);
-            sb.Draw(debugFirePoint, firePosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            if (debug)
+            {
+                sb.Draw(debugFirePoint, firePosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            }
             foreach (var bullet in Bullets)
             {
                 bullet.Draw();

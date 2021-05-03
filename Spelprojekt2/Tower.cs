@@ -28,6 +28,7 @@ namespace Spelprojekt2
         protected int cannonLength;
 
         protected Texture2D debugFirePoint;
+        protected bool debug = false;
 
         public Tower(Vector2 position, float damage, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {

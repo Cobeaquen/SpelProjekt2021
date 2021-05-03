@@ -51,7 +51,7 @@ namespace Spelprojekt2
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
 
             Global.placedTowers = new List<Tower>();
-            Global.placedTowers.Add(new GunTower(new Vector2(Global.GameWidth / 2f, Global.GameHeight / 2f)));
+            Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
 
             level.Enemies.Add(new Enemy());
             level.Enemies.Add(new Enemy() { t = 0.5f});
@@ -93,12 +93,13 @@ namespace Spelprojekt2
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
+            level.Draw();
+
             foreach (Tower tower in Global.placedTowers)
             {
                 tower.Draw(spriteBatch);
             }
 
-            level.Draw();
             GUI.Draw();
 
             spriteBatch.End();

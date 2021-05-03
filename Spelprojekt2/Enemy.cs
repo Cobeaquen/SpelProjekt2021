@@ -1,6 +1,4 @@
-﻿using MonoGame.SplineFlower;
-using MonoGame.SplineFlower.Spline;
-using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
@@ -10,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Spelprojekt2
 {
-    public class Enemy : SplineWalker
+    public class Enemy
     {
         public float speed;
 
@@ -33,8 +31,7 @@ namespace Spelprojekt2
 
         public float LookRotation { get; private set; }
         public float t = 0;
-        private float progress;
-        private float progressPerEdge;
+        private int progress;
         private Vector2 hpOffset = new Vector2(0, -15);
 
         public Enemy()
@@ -42,39 +39,35 @@ namespace Spelprojekt2
             maxHP = 50;
             HP = maxHP;
             value = 10;
+            speed = 50f;
             hpBar = new Bar(maxHP, 0.5f, Assets.HPBarFrame, 24, 4);
             sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
-            CreateSplineWalker(Main.instance.level.splinePath, SplineWalkerMode.PingPong, 2);
-            position = GetPositionOnCurve(t);
-            progressPerEdge = 1f / (Main.instance.level.splinePath.GetAllPoints.Length - 1);
-            progress = progressPerEdge;
+            progress = 1;
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Height, sprite.Height));
 
             textrect = DebugTextures.GenerateHollowRectangele(rectangle.Width, rectangle.Height, 1, Color.Red);
         }
-        public override void CreateSplineWalker(SplineBase spline, SplineWalkerMode mode, int duration, bool canTriggerEvents = true, SplineWalkerTriggerDirection triggerDirection = SplineWalkerTriggerDirection.Forward, bool autoStart = true)
+        public void Update(GameTime gameTime)
         {
-            base.CreateSplineWalker(spline, mode, duration, canTriggerEvents, triggerDirection, autoStart);
-        }
-        public override void Update(GameTime gameTime)
-        {
-            position = GetPositionOnCurve(t);
             //LookRotation = (float)Math.Atan2(dir.Y, dir.X);
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Width, sprite.Height));
             //Console.WriteLine("Progress per edge: " + progressPerEdge);
-            
-            //position
-            t += (float)gameTime.ElapsedGameTime.TotalSeconds * 0.1f;
-            t = t > 1f ? 0f : t;
 
-            if (t > progress)
+            t += (float)gameTime.ElapsedGameTime.TotalSeconds / Main.instance.level.waypoints[progress].length * speed;
+            if (t > 1f)
             {
-                //progress = Math.Round(progress) * progressPerEdge;
+                t = 0f;
+                progress++;
+            }
+            position = Main.instance.level.GetPosition(progress, t, out bool outOfBounds);
+            if (outOfBounds)
+            { // Förstör fienden och förlora liv
+                Global.HP -= value;
+                Destroy();
+                return;
             }
 
             hpBar.Update(gameTime, position + hpOffset);
-
-            base.Update(gameTime);
         }
 
         public float Hit(float damage)

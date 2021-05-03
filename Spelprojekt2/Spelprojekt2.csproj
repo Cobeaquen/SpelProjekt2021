@@ -46,6 +46,7 @@
     <Compile Include="Bullet.cs" />
     <Compile Include="Burst.cs" />
     <Compile Include="DebugTextures.cs" />
+    <Compile Include="Enemy.spline.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Global.cs" />
     <Compile Include="GUI.cs" />
@@ -64,6 +65,7 @@
     <Compile Include="Assets.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="Wave.cs" />
+    <Compile Include="Waypoint.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework, Version=3.8.0.60, Culture=neutral, processorArchitecture=MSIL">
