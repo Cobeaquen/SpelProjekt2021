@@ -53,8 +53,6 @@ namespace Spelprojekt2
         {
             dispValue = MathHelper.Lerp(prevValue, Value, t);
             Assets.HPBarEffect.Parameters["value"].SetValue(dispValue);
-            Assets.HPBarEffect.Parameters["frameWidth"].SetValue(sprite.Width);
-            Assets.HPBarEffect.Parameters["frameHeight"].SetValue(sprite.Height);
             foreach (var pass in Assets.HPBarEffect.CurrentTechnique.Passes)
             {
                 pass.Apply();

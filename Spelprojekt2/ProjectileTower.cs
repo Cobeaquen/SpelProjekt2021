@@ -27,9 +27,9 @@ namespace Spelprojekt2
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
-            spreadModifier = 1f;
-            spread = 1f;
-            reach = 200;
+            spreadModifier = 1;
+            spread = 0.25f;
+            reach = 250;
         }
 
         public override void Update(GameTime gameTime)
@@ -61,10 +61,12 @@ namespace Spelprojekt2
         {
             float Offset = spread * (ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)ran.NextDouble();
 
-            Vector2 dir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
+            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
             firePosition = Position + dir * cannonLength;
 
-            Bullet bullet = new Bullet(this, 200f, firePosition, dir, LookRotation, 1, DestroyBullet);
+            Vector2 bulletDir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
+
+            Bullet bullet = new Bullet(this, 200f, firePosition, bulletDir, LookRotation + Offset, 1, DestroyBullet);
             Bullets.Add(bullet);
         }
 
