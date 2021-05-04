@@ -7,20 +7,6 @@
       <FileName>Main.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Spelprojekt2.Tower">
-    <Position X="2.75" Y="0.5" Width="1.5" />
-    <NestedTypes>
-      <Enum Name="Spelprojekt2.Tower.TargetType" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>Tower.cs</NewMemberFileName>
-        </TypeIdentifier>
-      </Enum>
-    </NestedTypes>
-    <TypeIdentifier>
-      <HashCode>AAwAQQCAAAAgAgAiAAGAMiAACABBJAgAAAAAAAABACA=</HashCode>
-      <FileName>Tower.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Spelprojekt2.Enemy">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
@@ -80,21 +66,21 @@
   <Class Name="Spelprojekt2.GUI">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAgACAAAAAAgAAAAAAAAABAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Input">
     <Position X="7.25" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gIAAIAAAAAAAJAACAAAAAAAAAAAAAAAAAAAAAAAGAAA=</HashCode>
+      <HashCode>gIAAIAAAAAAAJAACAAAAAAAAAAAAAAAAAAAAAAAGEAA=</HashCode>
       <FileName>Input.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Assets">
     <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>CFAQAgAQAgIIAUAAAIBABAAgBAAAgAADAAACAAAQhCA=</HashCode>
+      <HashCode>CFAQAgAQAgIIAUAAAIBABAAgBAAAkAADAAACAAAQhCA=</HashCode>
       <FileName>Assets.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -117,6 +103,20 @@
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAEAAAAAAAAAAAEAAAQAAAQAAAAgAAA=</HashCode>
       <FileName>DebugTextures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.Tower">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Spelprojekt2.Tower.TargetType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tower.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAwAQQCAAAAgCgAiAAGAMiQACABBJIgAAAAAAAABAiA=</HashCode>
+      <FileName>Tower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Spelprojekt2.Waypoint">

@@ -103,6 +103,12 @@
 /processorParam:DebugMode=Auto
 /build:graphics/shaders/hpbar.fx
 
+#begin graphics/shaders/range.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:graphics/shaders/range.fx
+
 #begin graphics/ui/default.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

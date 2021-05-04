@@ -31,5 +31,10 @@ namespace Spelprojekt2
         {
             return Kstate.IsKeyDown(key) && PrevKstate.IsKeyUp(key);
         }
+
+        public static bool GetLeftClick()
+        {
+            return Mstate.LeftButton == ButtonState.Pressed && PrevMstate.LeftButton == ButtonState.Released;
+        }
     }
 }

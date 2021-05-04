@@ -105,6 +105,7 @@ namespace Spelprojekt2
             spriteBatch.End();
 
             Enemy.DrawHPBars();
+            Tower.DrawRange();
 
             GraphicsDevice.SetRenderTarget(null);
 

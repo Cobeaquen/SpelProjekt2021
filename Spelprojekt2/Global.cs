@@ -32,6 +32,7 @@ namespace Spelprojekt2
         public static void Update(GameTime gameTime)
         {
             time += gameTime.ElapsedGameTime.TotalSeconds;
+            GUI.HandleInput();
         }
     }
 }
