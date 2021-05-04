@@ -52,6 +52,7 @@ namespace Spelprojekt2
 
         #region Effects
         public static Effect HPBarEffect { get; internal set; }
+        public static Effect RangeEffect { get; internal set; }
         #endregion
         public static void Initialize(ContentManager content)
         {
@@ -74,6 +75,7 @@ namespace Spelprojekt2
             #region Effects
             HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
             HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
+            RangeEffect = Content.Load<Effect>("graphics/shaders/range");
             #endregion
 
             #region GUI

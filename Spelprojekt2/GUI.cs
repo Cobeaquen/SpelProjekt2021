@@ -10,9 +10,20 @@ namespace Spelprojekt2
 {
     public static class GUI
     {
+        public static Tower selectedTower;
         public static void Load()
         {
-            
+
+        }
+
+        public static void SelectTower(Tower tower)
+        {
+            if (selectedTower != null)
+            {
+                selectedTower.SetRange(false);
+            }
+            selectedTower = tower;
+            selectedTower.SetRange(true);
         }
 
         public static void Draw()
@@ -24,6 +35,29 @@ namespace Spelprojekt2
             temp = new Vector2(Global.GameWidth - 38, 17);
             Main.spriteBatch.DrawString(Assets.DefaultFont, Global.Coins.ToString(), temp, Color.Black);
             //Main.spriteBatch.Draw(Assets.Meny, new Vector2(Global.GameWidth, 40), null, Color.White, 0f, new Vector2(Assets.Meny.Width, 0), 1f, SpriteEffects.None, 0f);
+        }
+        public static void HandleInput()
+        {
+            HandleLeftClick();
+        }
+        public static void HandleLeftClick()
+        {
+            if (Input.GetLeftClick())
+            {
+                foreach (var tower in Global.placedTowers)
+                {
+                    if (tower.Bounds.Contains(Input.MousePosition) && selectedTower != tower)
+                    {
+                        Console.WriteLine("Selected tower");
+                        SelectTower(tower);
+                        return;
+                    }
+                }
+                if (selectedTower != null)
+                {
+                    selectedTower = null;
+                }
+            }
         }
     }
 }

@@ -19,14 +19,17 @@ namespace Spelprojekt2
         public float FireRate { get; private set; }
         public float DamageModifier { get; private set; }
         public float Damage { get; private set; }
+        public float Range { get; private set; }
         public TargetType Targetting { get; private set; }
         public Enemy Target { get; private set; }
+        public Rectangle Bounds { get; private set; }
 
         private float lookRotation;
         private float rotOffset = MathHelper.PiOver2;
         private Texture2D bodySprite;
         private Vector2 bodyOrigin;
         private Texture2D headSprite;
+        private static Texture2D rangeSprite;
         private Vector2 headOrigin;
         protected int cannonLength;
 
@@ -36,18 +39,24 @@ namespace Spelprojekt2
         private float prevRotation;
         private Enemy prevTarget;
 
-        public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        private bool viewRange = false;
+
+        public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
             this.DamageModifier = 1f;
             this.Damage = damage;
             this.FireRate = fireRate;
             this.TurnSpeed = turnSpeed;
+            this.Range = range;
             this.LookRotation = 0;
             this.bodySprite = bodySprite;
             this.bodyOrigin = bodyOrigin;
             this.headSprite = headSprite;
             this.headOrigin = headOrigin;
+
+            Bounds = new Rectangle((position - bodyOrigin).ToPoint(), new Point(bodySprite.Width, bodySprite.Height));
+            rangeSprite = DebugTextures.pixel;
             cannonLength = this.headSprite.Height;
             Targetting = TargetType.First;
 
@@ -68,9 +77,7 @@ namespace Spelprojekt2
                 return;
 
             Vector2 dir = Target.position - Position;
-
             float targetAngle = (float)Math.Atan2(dir.Y, dir.X);
-
             if (LookRotation != targetAngle)
             {
                 float angleDiff = -GetShortestAngle(LookRotation, targetAngle);
@@ -84,13 +91,8 @@ namespace Spelprojekt2
                     LookRotation -= TurnSpeed * Math.Sign(angleDiff);
                 }
             }
-
-
             prevRotation = LookRotation;
-
             prevTarget = Target;
-                //Vector2 dir = Target.position - position;
-                //LookRotation = (float)Math.Atan2(dir.Y, dir.X);
         }
 
         public Enemy FindTarget()
@@ -98,17 +100,19 @@ namespace Spelprojekt2
             if (Main.instance.level.Enemies.Count == 0)
                 return null;
 
-            int maxProg = 0;
+            int recordProg = 0;
             float maxT = 0;
             Enemy enemy = null;
             foreach (var e in Main.instance.level.Enemies)
             {
-                if (e.progress > maxProg)
+                if (Vector2.DistanceSquared(e.position, position) > Range * Range)
+                    continue;
+                if (e.progress > recordProg)
                 {
-                    maxProg = e.progress;
+                    recordProg = e.progress;
                     enemy = e;
                 }
-                else if (e.progress == maxProg && e.t > maxT)
+                else if (e.progress == recordProg && e.t > maxT)
                 {
                     maxT = e.t;
                     enemy = e;
@@ -124,6 +128,11 @@ namespace Spelprojekt2
             return ((2 * difference) % max_angle) - difference;
         }
 
+        public void SetRange(bool state)
+        {
+            viewRange = state;
+        }
+
         public virtual void Draw(SpriteBatch sb)
         {
             // Draw body
@@ -131,6 +140,17 @@ namespace Spelprojekt2
 
             // Draw head
             sb.Draw(headSprite, position, null, Color.White, LookRotation + rotOffset, headOrigin, 1f, SpriteEffects.None, 0f);
+        }
+
+        public static void DrawRange()
+        {
+            Tower selected = GUI.selectedTower;
+            if (selected == null)
+                return;
+            Main.spriteBatch.Begin(samplerState: SamplerState.PointClamp, effect: Assets.RangeEffect);
+            Assets.RangeEffect.CurrentTechnique.Passes[0].Apply();
+            Main.spriteBatch.Draw(rangeSprite, selected.position, null, Color.White, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
+            Main.spriteBatch.End();
         }
 
         public enum TargetType

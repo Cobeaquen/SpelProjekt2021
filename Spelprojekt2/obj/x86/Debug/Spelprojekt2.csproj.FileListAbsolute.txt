@@ -119,5 +119,4 @@ C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHu
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\menytest.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1_waypoints.xnb
-C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1.xnb
-C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1_waypoints.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\shaders\range.xnb
