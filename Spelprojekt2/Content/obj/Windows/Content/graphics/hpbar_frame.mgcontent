@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/hpbar_frame.png</SourceFile>
-  <SourceTime>2021-04-29T21:00:21.580073+02:00</SourceTime>
-  <DestFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/hpbar_frame.xnb</DestFile>
-  <DestTime>2021-04-30T14:57:33.3501937+02:00</DestTime>
+  <SourceFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/hpbar_frame.png</SourceFile>
+  <SourceTime>2021-04-30T13:31:21.9600667+02:00</SourceTime>
+  <DestFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/hpbar_frame.xnb</DestFile>
+  <DestTime>2021-05-04T17:12:25.6015417+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
