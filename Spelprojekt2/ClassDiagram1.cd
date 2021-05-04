@@ -9,20 +9,27 @@
   </Class>
   <Class Name="Spelprojekt2.Tower">
     <Position X="2.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Spelprojekt2.Tower.TargetType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Tower.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAQAQACAAAAgAgAiAAEAIAAACABBBAgAAAAAAAAAACA=</HashCode>
+      <HashCode>AAwAQQCAAAAgAgAiAAGAMiAACABBJAgAAAAAAAABACA=</HashCode>
       <FileName>Tower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Enemy">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IQQAAACAAgAAAgAiAAIAICQARBBAASAAAIQAAAAAAAA=</HashCode>
+      <HashCode>IQQAAACAAgAAAgAiAAIAICAARBBAASgAAIQAEAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.GunTower">
-    <Position X="2.75" Y="7.5" Width="1.5" />
+    <Position X="5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GunTower.cs</FileName>
@@ -35,22 +42,22 @@
       <FileName>Minion.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Spelprojekt2.ProjectileTower" Collapsed="true">
-    <Position X="2.75" Y="6.25" Width="1.5" />
+  <Class Name="Spelprojekt2.ProjectileTower">
+    <Position X="2.75" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IAQAgAAAAAAAAgAAEAAAAAAAAAAEQAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>KAQAkAAIAAAAAgAAEAAAAAAAAAQEQAAAAQCAAAAAAAA=</HashCode>
       <FileName>ProjectileTower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Wave">
-    <Position X="0.5" Y="9.5" Width="1.5" />
+    <Position X="0.5" Y="11" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Wave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Burst">
-    <Position X="2.75" Y="9.25" Width="1.5" />
+    <Position X="0.5" Y="13" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAI=</HashCode>
       <FileName>Burst.cs</FileName>
@@ -59,12 +66,12 @@
   <Class Name="Spelprojekt2.Level">
     <Position X="0.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAAAAAAgAAAAAAAIAAAAMAAIAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAgAAAAAAAIAAABMAAAAAAIAAAAAAAAA=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Spelprojekt2.LaserTower" Collapsed="true">
-    <Position X="4.75" Y="6.25" Width="1.5" />
+  <Class Name="Spelprojekt2.LaserTower">
+    <Position X="5" Y="6.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>LaserTower.cs</FileName>
@@ -87,7 +94,7 @@
   <Class Name="Spelprojekt2.Assets">
     <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>DFAQAgAQAgIIAUAAAIBABAAABAAAAAADAAACAAAQhCA=</HashCode>
+      <HashCode>CFAQAgAQAgIIAUAAAIBABAAgBAAAgAADAAACAAAQhCA=</HashCode>
       <FileName>Assets.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -101,9 +108,23 @@
   <Class Name="Spelprojekt2.Bar">
     <Position X="12.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAAAAAgAgAAAAAAAAABAAAAAAAAAgAAAAAAA=</HashCode>
+      <HashCode>gAQAAAAgAAAAAgAgAAEAAAAAABAAAAAAAAQgAAAEAAA=</HashCode>
       <FileName>Bar.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Spelprojekt2.DebugTextures">
+    <Position X="7.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAAEAAAAAAAAAAAEAAAQAAAQAAAAgAAA=</HashCode>
+      <FileName>DebugTextures.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Spelprojekt2.Waypoint">
+    <Position X="0.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Waypoint.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

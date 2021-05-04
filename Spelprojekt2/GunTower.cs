@@ -9,7 +9,7 @@ namespace Spelprojekt2
 {
     public class GunTower : ProjectileTower
     {
-        public GunTower(Vector2 position) : base(position, 5f, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
+        public GunTower(Vector2 position) : base(position, 0.1f, 5f, 0.0025f, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
         {
             
         }

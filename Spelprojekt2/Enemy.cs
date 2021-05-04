@@ -31,7 +31,7 @@ namespace Spelprojekt2
 
         public float LookRotation { get; private set; }
         public float t = 0;
-        private int progress;
+        public int progress;
         private Vector2 hpOffset = new Vector2(0, -15);
 
         public Enemy()
@@ -39,7 +39,7 @@ namespace Spelprojekt2
             maxHP = 50;
             HP = maxHP;
             value = 10;
-            speed = 50f;
+            speed = 45f;
             hpBar = new Bar(maxHP, 0.5f, Assets.HPBarFrame, 24, 4);
             sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             progress = 1;

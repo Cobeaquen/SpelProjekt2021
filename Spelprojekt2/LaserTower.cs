@@ -11,7 +11,7 @@ namespace Spelprojekt2
 {
     public class LaserTower : Tower
     {
-        public LaserTower(Vector2 position, float fireRate) : base(position, 1f, fireRate, Assets.LaserTower, Assets.LaserTowerOrigin, Assets.LaserTowerHead, Assets.LaserTowerHeadOrigin)
+        public LaserTower(Vector2 position, float fireRate) : base(position, 1f, fireRate, 0.1f, Assets.LaserTower, Assets.LaserTowerOrigin, Assets.LaserTowerHead, Assets.LaserTowerHeadOrigin)
         {
 
         }

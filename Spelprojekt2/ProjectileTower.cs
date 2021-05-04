@@ -23,20 +23,25 @@ namespace Spelprojekt2
 
         public float reach;
 
-        public ProjectileTower(Vector2 position, float fireRate, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, 5f, fireRate, bodySprite, bodyOrigin, headSprite, headOrigin)
+        protected bool canFire;
+
+        public ProjectileTower(Vector2 position, float damage, float fireRate, float turnSpeed, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, damage, fireRate, turnSpeed, bodySprite, bodyOrigin, headSprite, headOrigin)
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
             spreadModifier = 1;
             spread = 0.25f;
             reach = 250;
+            canFire = false;
         }
 
         public override void Update(GameTime gameTime)
         {
-            timeSinceFired += gameTime.ElapsedGameTime.TotalSeconds;
+            canFire = Target != null;
+            float fireTime = 1f / FireRate;
+            timeSinceFired = timeSinceFired >= fireTime && !canFire ? fireTime : timeSinceFired + gameTime.ElapsedGameTime.TotalSeconds;
             
-            if (timeSinceFired >= 1f/FireRate)
+            if (timeSinceFired >= fireTime && canFire)
             {
                 timeSinceFired = 0f;
                 Fire();
