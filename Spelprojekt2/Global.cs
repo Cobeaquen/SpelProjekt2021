@@ -27,6 +27,7 @@ namespace Spelprojekt2
         {
             HP = StartHP;
             Coins = StartCoins;
+            GUI.Load();
         }
 
         public static void Update(GameTime gameTime)

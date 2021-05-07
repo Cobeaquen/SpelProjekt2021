@@ -11,7 +11,7 @@ namespace Spelprojekt2
 {
     //public class BombTower : ProjectileTower
     //{
-    //    public BombTower(Vector2 position) : base(position, Sprites.BombTower, Sprites.BombTowerHead)
+    //    public BombTower : base(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) 
     //    {
 
     //    }

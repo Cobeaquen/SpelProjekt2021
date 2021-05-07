@@ -65,12 +65,12 @@ namespace Spelprojekt2
 
         public virtual void Update(GameTime gameTime)
         {
-            TrackTarget();
+            TrackTarget(gameTime);
             //Vector2 mouseDir = Input.MousePosition - position;
             //LookRotation = (float)Math.Atan2(mouseDir.Y, mouseDir.X);
         }
 
-        public void TrackTarget()
+        public void TrackTarget(GameTime gameTime)
         {
             Target = FindTarget();
             if (Target == null)
@@ -89,7 +89,7 @@ namespace Spelprojekt2
                 }
                 else
                 {
-                    LookRotation -= TurnSpeed * Math.Sign(angleDiff);
+                    LookRotation -= TurnSpeed * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
             prevRotation = LookRotation;
