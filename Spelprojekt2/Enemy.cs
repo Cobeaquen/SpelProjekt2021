@@ -90,7 +90,7 @@ namespace Spelprojekt2
         public void Draw()
         {
             Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, new Vector2(sprite.Width / 2, sprite.Height / 2), 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //base.Draw(Main.spriteBatch);
         }
 

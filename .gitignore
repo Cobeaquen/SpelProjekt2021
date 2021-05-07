@@ -11,3 +11,8 @@ Spelprojekt2/obj/x86/Debug/Spelprojekt2.csproj.CoreCompileInputs.cache
 *.cache
 *.cache
 .vs/Spelprojekt2/v16/Server/sqlite3/db.lock
+.vs/Spelprojekt2/v16/.suo
+*.exe
+*.pdb
+*.exe
+*.cache

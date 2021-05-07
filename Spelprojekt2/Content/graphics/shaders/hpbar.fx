@@ -27,7 +27,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float2 UV = input.TextureCoordinates;
 
 	float4 texColor = tex2D(SpriteTextureSampler, input.TextureCoordinates) * input.Color;
-	float4 barColor = UV.x <= value ? lerp(float4(1, 0, 0, 1), float4(0, 1, 0, 1), value) : float4(0, 0, 0, 0);
+	float4 barColor = UV.x <= value ? (value > 0.5f ? lerp(float4(1, 1, 0, 1), float4(0, 1, 0, 1), 2 * (value - 0.5)) : lerp(float4(1, 0, 0, 1), float4(1, 1, 0, 1), 2 * value)) : float4(0, 0, 0, 0);
 	if (texColor.r == 0.0 && texColor.g == 0.0 && texColor.b == 0.0 && texColor.a == 1) {
 		return float4(0, 0, 0, 0);
 	}
