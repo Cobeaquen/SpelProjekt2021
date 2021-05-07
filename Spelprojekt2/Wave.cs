@@ -10,9 +10,9 @@ namespace Spelprojekt2
     {
         public List<Burst> bursts;
 
-        public Wave()
+        public Wave(List<Burst> bursts)
         {
-
+            this.bursts = bursts;
         }
     }
 }

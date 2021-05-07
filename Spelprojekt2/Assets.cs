@@ -80,7 +80,7 @@ namespace Spelprojekt2
 
             #region GUI
             Stats = Content.Load<Texture2D>("graphics/ui/stats");
-            StatsOrigin = new Vector2(Stats.Width, 0);
+            StatsOrigin = Vector2.Zero;
             Meny = Content.Load<Texture2D>("graphics/ui/menytest");
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
             Level1Waypoints = Content.Load<Texture2D>("graphics/levels/level1_waypoints");

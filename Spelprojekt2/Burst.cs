@@ -12,9 +12,11 @@ namespace Spelprojekt2
         public Enemy enemy;
         public float timeInterval;
 
-        public Burst()
+        public Burst(int amount, Enemy enemy, float timeInterval)
         {
-
+            this.amount = amount;
+            this.enemy = enemy;
+            this.timeInterval = timeInterval;
         }
     }
 }
