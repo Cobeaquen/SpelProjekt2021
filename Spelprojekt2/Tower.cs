@@ -77,6 +77,7 @@ namespace Spelprojekt2
                 return;
 
             Vector2 dir = Target.position - Position;
+            //Vector2 dir = Input.MousePosition - Position; // testa systemet
             float targetAngle = (float)Math.Atan2(dir.Y, dir.X);
             if (LookRotation != targetAngle)
             {

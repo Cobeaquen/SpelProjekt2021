@@ -27,6 +27,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float2 center = float2(0.5f, 0.5f);
 	float dist = distance(center, UV);
 	float a;
+	float e = 2.71828;
 
 	if (dist > 0.5f)
 		a = 0;
