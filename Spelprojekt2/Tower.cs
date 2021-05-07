@@ -11,6 +11,9 @@ namespace Spelprojekt2
 {
     public class Tower
     {
+        public static Tower GunTowerMK1 { get; private set; }
+        public static Tower LaserTowerMK1 { get; private set; }
+
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
         protected Vector2 firePosition;
@@ -40,6 +43,11 @@ namespace Spelprojekt2
         private Enemy prevTarget;
 
         private bool viewRange = false;
+
+        public static void GenerateTowers()
+        {
+            GunTowerMK1 = new GunTower(Vector2.Zero);
+        }
 
         public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {

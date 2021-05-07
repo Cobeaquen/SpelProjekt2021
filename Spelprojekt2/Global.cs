@@ -32,7 +32,10 @@ namespace Spelprojekt2
         {
             HP = StartHP;
             Coins = StartCoins;
-            //Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
+            Waves = new List<Wave>();
+            Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
+            Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
+            SaveJSON(Waves, "test.json");
             GUI.Load();
         }
 
@@ -47,11 +50,12 @@ namespace Spelprojekt2
             string text = File.ReadAllText(relativePath);
             return (T)JsonConvert.DeserializeObject(text);
         }
-        public static void SaveJSON(object item, string path)
+        public static void SaveJSON<T>(T item, string path)
         {
-            string obj = JsonConvert.SerializeObject(item);
+            string obj = JsonConvert.SerializeObject(item, Formatting.Indented);
             StreamWriter sw = new StreamWriter(path, false);
             sw.Write(obj);
+            sw.Close();
         }
     }
 }

@@ -34,14 +34,14 @@ namespace Spelprojekt2
         public int progress;
         private Vector2 hpOffset = new Vector2(0, -15);
 
-        public Enemy()
+        public Enemy(float maxHP, int value, float speed, Texture2D sprite)
         {
-            maxHP = 50;
-            HP = maxHP;
-            value = 10;
-            speed = 45f;
+            this.maxHP = maxHP;
+            this.HP = maxHP;
+            this.value = value;
+            this.speed = speed;
             hpBar = new Bar(maxHP, 0.5f, Assets.HPBarFrame, 24, 4);
-            sprite = DebugTextures.GenerateRectangle(20, 20, Color.Brown);
+            this.sprite = sprite;// DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             progress = 1;
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Height, sprite.Height));
 
