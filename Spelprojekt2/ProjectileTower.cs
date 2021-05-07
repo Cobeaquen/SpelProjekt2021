@@ -31,7 +31,7 @@ namespace Spelprojekt2
             BulletDestroyQueue = new List<Bullet>();
             spreadModifier = 1;
             spread = 0.15f;
-            reach = 250;
+            reach = 300;
             canFire = false;
         }
 
