@@ -29,9 +29,7 @@ namespace Spelprojekt2
             this.sprite = sprite;
             waypoints = new List<Waypoint>();
 
-            Vector2 prevPoint = Vector2.Zero;
-
-            prevPoint = waypointsData[0];
+            Vector2 prevPoint = waypointsData[0];
 
             foreach (var point in waypointsData)
             {
@@ -40,9 +38,9 @@ namespace Spelprojekt2
                 prevPoint = point;
             }
 
-            Waves = new List<Wave>();
-            Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
-            Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
+            //Waves = new List<Wave>();
+            //Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
+            //Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
             Waves = Global.LoadJSON<List<Wave>>("waves.json");
             foreach (var w in Waves)
             {
@@ -63,15 +61,6 @@ namespace Spelprojekt2
 
         public static Level GenerateExampleLevel()
         {
-            //List<Transform> points = new List<Transform>();
-            //points.Add(new Transform(new Vector2(0, Global.GameHeight)));
-            //points.Add(new Transform(new Vector2(0, 100)));
-            //points.Add(new Transform(new Vector2(100, 100)));
-            //points.Add(new Transform(new Vector2(150, 150)));
-            //points.Add(new Transform(new Vector2(100, 200)));
-            //points.Add(new Transform(new Vector2(50, 50)));
-            //points.Add(new Transform(new Vector2(100, 20)));
-
             List<Vector2> points = new List<Vector2>();
             points.Add(new Vector2(0, 191));
             points.Add(new Vector2(87, 191));
@@ -91,32 +80,22 @@ namespace Spelprojekt2
             points.Add(new Vector2(328, 32));
             points.Add(new Vector2(415, 120));
             points.Add(new Vector2(415, 269));
-
-            //return null;
-            //HermiteSpline spline = new HermiteSpline(points.ToArray());
-            //spline.
-            return new Level(Assets.Level1, points)
-            {
-                //splinePath = spline,
-                //splineLengths = MapGenerator.GenerateDistances(spline)
-            };
-
-            //curve.Keys.Add(new CurveKey(new Vector2(0, Main.instance.GameHeight), ,));
-
+            return new Level(Assets.Level1, points);
         }
 
         public void Update(GameTime gameTime)
         {
-            if (spawnTime > waitTime)
+            if (spawnTime > waitTime && Global.gameState == Global.GameState.Playing)
             { // Spawn new enemy
                 spawnTime = 0f;
                 if (Waves.Count > wave)
                 {
-                    waitTime = Waves[wave].GetCurrentTimeInterval();
+                    waitTime = Waves[wave].GetCurrentTimeInterval() / Global.gameSpeed;
                     Enemy enemy = Waves[wave].GetEnemy();
                     if (enemy == null)
                     { // Denna Wave är slut
                         wave++;
+                        Global.gameState = Global.GameState.Idle;
                     }
                     else
                         Enemies.Add(enemy);

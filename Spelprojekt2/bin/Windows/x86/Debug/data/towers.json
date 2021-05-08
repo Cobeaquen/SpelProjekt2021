@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Gun Tower",
+    "type": "Spelprojekt2.GunTower",
+    "shortDesc": "Most basic tower, great for medium-sized groups of enemies.",
+    "cost": 50,
+    "icon": "guntower"
+  },
+  {
+    "name": "Laser Tower",
+    "type": "Spelprojekt2.GunTower",
+    "shortDesc": "Epic laser tower, burns through enemies.",
+    "cost": 50,
+    "icon": "guntower"
+  }
+]

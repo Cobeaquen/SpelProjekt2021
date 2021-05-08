@@ -14,6 +14,9 @@ namespace Spelprojekt2
 {
     public static class Global
     {
+        public static GameState gameState { get; set; }
+        public static float gameSpeed { get; set; }
+
         public static int ScreenWidth { get; private set; } = 1920;
         public static int GameWidth { get; private set; } = 480;
         public static int GameHeight { get; private set; } = 270;
@@ -29,6 +32,8 @@ namespace Spelprojekt2
 
         public static void Load()
         {
+            gameState = GameState.Idle;
+            gameSpeed = 1f;
             HP = StartHP;
             Coins = StartCoins;
             GUI.Load();
@@ -55,6 +60,11 @@ namespace Spelprojekt2
             StreamWriter sw = new StreamWriter("data/" + path, false);
             sw.Write(obj);
             sw.Close();
+        }
+
+        public enum GameState
+        {
+            Playing, Paused, Idle
         }
     }
 }

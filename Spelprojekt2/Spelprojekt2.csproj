@@ -65,10 +65,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assets.cs" />
     <Compile Include="TextElement.cs" />
+    <Compile Include="TextureElement.cs" />
+    <Compile Include="ToggleElement.cs" />
     <Compile Include="Tower.cs" />
     <Compile Include="TowerElement.cs" />
     <Compile Include="UIElement.cs" />
     <Compile Include="Wave.cs" />
+    <Compile Include="WaveControl.cs" />
     <Compile Include="Waypoint.cs" />
   </ItemGroup>
   <ItemGroup>

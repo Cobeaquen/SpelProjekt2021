@@ -12,13 +12,9 @@ namespace Spelprojekt2
     public class UIElement
     {
         public Vector2 position;
-        public int width;
-        public int height;
-        public UIElement(Vector2 position, int width, int height)
+        public UIElement(Vector2 position)
         {
             this.position = position;
-            this.width = width;
-            this.height = height;
         }
 
         public virtual void Draw()

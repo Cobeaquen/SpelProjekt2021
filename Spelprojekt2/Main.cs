@@ -18,8 +18,6 @@ namespace Spelprojekt2
 
         RenderTarget2D scene;
 
-        Enemy enemy;
-
         public Main()
         {
             instance = this;
@@ -94,7 +92,7 @@ namespace Spelprojekt2
 
             foreach (Tower tower in Global.placedTowers)
             {
-                tower.Draw(spriteBatch);
+                tower.Draw();
             }
 
             GUI.Draw();

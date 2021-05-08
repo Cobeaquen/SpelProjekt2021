@@ -10,8 +10,8 @@ namespace Spelprojekt2
     public class Wave
     {
         public List<Burst> bursts;
-        [JsonIgnore]
-        public int amountLeft;
+
+        private int amountLeft;
         private int burstIndex;
 
         public Wave(List<Burst> bursts)

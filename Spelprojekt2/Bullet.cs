@@ -44,7 +44,7 @@ namespace Spelprojekt2
 
         public void Update(GameTime gameTime)
         {
-            Position += lookDirection * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds;
+            Position += lookDirection * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
             rectangle = new Rectangle(Position.ToPoint() - new Point(Assets.Bullet.Height / 2, Assets.Bullet.Height / 2), new Point(Assets.Bullet.Height, Assets.Bullet.Height));
             time += (float)gameTime.ElapsedGameTime.TotalSeconds;
             if (time >= TimeAlive || Vector2.Distance(Owner.Position, Position) >= Owner.reach)

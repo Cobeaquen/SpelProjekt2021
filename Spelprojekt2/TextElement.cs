@@ -21,12 +21,16 @@ namespace Spelprojekt2
                 text = value;
             } 
         }
+        public int width { get; private set; }
+        public int height { get; private set; }
         public Color color;
         private string text;
 
         protected SpriteFont font;
-        public TextElement(Vector2 position, int width, int height, string text, Color color, SpriteFont font) : base(position, width, height)
+        public TextElement(Vector2 position, int width, int height, string text, Color color, SpriteFont font) : base(position)
         {
+            this.width = width;
+            this.height = height;
             this.text = text;
             this.color = color;
             this.font = font;

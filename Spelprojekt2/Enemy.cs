@@ -64,7 +64,7 @@ namespace Spelprojekt2
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Width, sprite.Height));
             //Console.WriteLine("Progress per edge: " + progressPerEdge);
 
-            t += (float)gameTime.ElapsedGameTime.TotalSeconds / Main.instance.level.waypoints[progress].length * speed;
+            t += (float)gameTime.ElapsedGameTime.TotalSeconds / Main.instance.level.waypoints[progress].length * speed * Global.gameSpeed;
             if (t > 1f)
             {
                 t = 0f;

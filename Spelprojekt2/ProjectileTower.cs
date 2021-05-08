@@ -38,10 +38,10 @@ namespace Spelprojekt2
         public override void Update(GameTime gameTime)
         {
             canFire = Target != null;
-            float fireTime = 1f / FireRate;
+            float fireTime = (1f / FireRate) / Global.gameSpeed;
             timeSinceFired = timeSinceFired >= fireTime && !canFire ? fireTime : timeSinceFired + gameTime.ElapsedGameTime.TotalSeconds;
             
-            if (timeSinceFired >= fireTime)// && canFire)
+            if (timeSinceFired >= fireTime && canFire)
             {
                 timeSinceFired = 0f;
                 Fire();
@@ -75,12 +75,12 @@ namespace Spelprojekt2
             Bullets.Add(bullet);
         }
 
-        public override void Draw(SpriteBatch sb)
+        public override void Draw()
         {
-            base.Draw(sb);
+            base.Draw();
             if (debug)
             {
-                sb.Draw(debugFirePoint, firePosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+                Main.spriteBatch.Draw(debugFirePoint, firePosition, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             }
             foreach (var bullet in Bullets)
             {

@@ -13,11 +13,23 @@
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/levels/level1_waypoints.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/shaders/hpbar.fx</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/shaders/range.fx</File>
-    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/default.spritefont</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/fonts/default.spritefont</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/towers/guntower.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/pause.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/play.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/speed.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/start.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/meny.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/menytest.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/stats.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

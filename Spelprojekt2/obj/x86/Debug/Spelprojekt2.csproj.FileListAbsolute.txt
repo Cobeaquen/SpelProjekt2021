@@ -105,7 +105,6 @@ C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHu
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.csproj.CopyComplete
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.exe
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\obj\x86\Debug\Spelprojekt2.pdb
-C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\default.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\stats.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\shaders\hpbar.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\hpbar_frame.xnb
@@ -123,3 +122,10 @@ C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\C
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1.xnb
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\levels\level1_waypoints.xnb
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\shaders\range.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\towers\guntower.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\fonts\default.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\meny.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\waveflow\pause.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\waveflow\play.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\waveflow\speed.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\waveflow\start.xnb
