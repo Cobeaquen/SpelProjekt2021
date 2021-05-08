@@ -52,9 +52,6 @@ namespace Spelprojekt2
 
             Global.placedTowers = new List<Tower>();
             Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
-
-            level.Enemies.Add(new Minion());
-            level.Enemies.Add(new Minion() { t = 0.5f});
         }
 
         protected override void UnloadContent()

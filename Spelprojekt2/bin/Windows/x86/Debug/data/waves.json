@@ -1,0 +1,25 @@
+[
+  {
+    "bursts": [
+      {
+        "amount": 4,
+        "enemyType": "Spelprojekt2.Minion",
+        "timeInterval": 1.0
+      },
+	  {
+        "amount": 10,
+        "enemyType": "Spelprojekt2.Minion",
+        "timeInterval": 0.4
+      },
+    ]
+  },
+  {
+    "bursts": [
+      {
+        "amount": 2,
+        "enemyType": "Spelprojekt2.Minion",
+        "timeInterval": 1.0
+      }
+    ]
+  }
+]

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Spelprojekt2
 {
@@ -14,8 +15,10 @@ namespace Spelprojekt2
 
         public int value { get; private set; }
         public float maxHP { get; private set; }
+        [JsonIgnore]
         public float HP;
 
+        [JsonIgnore]
         public Bar hpBar;
 
         public float masterResistance = 1f;
@@ -24,14 +27,22 @@ namespace Spelprojekt2
         public float bombResistance;
         public float sniperResistance;
 
+        [JsonIgnore]
         public Texture2D sprite;
+        [JsonIgnore]
         public Texture2D textrect;
+        [JsonIgnore]
         public Rectangle rectangle;
+        [JsonIgnore]
         public Vector2 position;
 
+        [JsonIgnore]
         public float LookRotation { get; private set; }
+        [JsonIgnore]
         public float t = 0;
-        public int progress;
+        [JsonIgnore]
+        public int progress { get; private set; }
+        [JsonIgnore]
         private Vector2 hpOffset = new Vector2(0, -15);
 
         public Enemy(float maxHP, int value, float speed, Texture2D sprite)
@@ -61,13 +72,18 @@ namespace Spelprojekt2
             }
             position = Main.instance.level.GetPosition(progress, t, out bool outOfBounds);
             if (outOfBounds)
-            { // Förstör fienden och förlora liv
-                Global.HP -= value;
-                Destroy();
-                return;
+            {
+                ReachEnd();
             }
 
             hpBar.Update(gameTime, position + hpOffset);
+        }
+
+        public void ReachEnd()
+        { // Förstör fienden och förlora liv
+            Global.HP -= value;
+            Destroy();
+            return;
         }
 
         public float Hit(float damage)
@@ -87,7 +103,7 @@ namespace Spelprojekt2
             Destroy();
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, new Vector2(sprite.Width / 2, sprite.Height / 2), 1f, SpriteEffects.None, 0f);
             //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);

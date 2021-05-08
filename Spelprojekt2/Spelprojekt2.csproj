@@ -66,6 +66,7 @@
     <Compile Include="Assets.cs" />
     <Compile Include="TextElement.cs" />
     <Compile Include="Tower.cs" />
+    <Compile Include="TowerElement.cs" />
     <Compile Include="UIElement.cs" />
     <Compile Include="Wave.cs" />
     <Compile Include="Waypoint.cs" />

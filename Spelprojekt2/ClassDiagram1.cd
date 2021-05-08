@@ -10,7 +10,7 @@
   <Class Name="Spelprojekt2.Enemy">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IQQAAACAAgAAAgAiAAIAICAARBBAASgAAIQAEAAAAAA=</HashCode>
+      <HashCode>IQQAAACAAgAAAgAjAAIAICAARBBAASgAAIQQEAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.ProjectileTower">
-    <Position X="2.75" Y="9" Width="1.5" />
+    <Position X="2.75" Y="10.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>KAQAkAAIAAAAAgAAEAAAAAAAAAQEQAAAAQCAAAAAAAA=</HashCode>
       <FileName>ProjectileTower.cs</FileName>
@@ -66,7 +66,7 @@
   <Class Name="Spelprojekt2.GUI">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgACAAAAAAgAAAAAAAAABAAAAAAAIAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAgACAAAAAAhAAAAAAAAABAAAAAAAIAAAAAAAAAAI=</HashCode>
       <FileName>GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -115,7 +115,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAwAQQCAAAAgCgAiAAGAMiQACABBJIgAAAAAAAABAiA=</HashCode>
+      <HashCode>AAwAQRCAAAAgCgAiAAGAMiQgCBBBJIgAAAAAAAABAiA=</HashCode>
       <FileName>Tower.cs</FileName>
     </TypeIdentifier>
   </Class>

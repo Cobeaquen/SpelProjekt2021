@@ -15,10 +15,14 @@ namespace Spelprojekt2
     {
         public List<Enemy> Enemies = new List<Enemy>();
         public List<Waypoint> waypoints;
+        public int wave = 0;
+        public List<Wave> Waves { get; private set; }
         //public HermiteSpline splinePath;
         public float[] splineLengths;
 
         private Texture2D sprite;
+        private float spawnTime;
+        private float waitTime;
 
         public Level(Texture2D sprite, List<Vector2> waypointsData)
         {
@@ -35,6 +39,21 @@ namespace Spelprojekt2
                 waypoints.Add(new Waypoint(point, len));
                 prevPoint = point;
             }
+
+            Waves = new List<Wave>();
+            Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
+            Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
+            Waves = Global.LoadJSON<List<Wave>>("waves.json");
+            foreach (var w in Waves)
+            {
+                foreach (var b in w.bursts)
+                {
+                    b.enemy = b.GetEnemyDuplicate();
+                }
+            }
+            waitTime = Waves[0].bursts[0].timeInterval;
+
+            //SaveJSON(Waves, "waves.json");
         }
         public Level(List<Waypoint> waypoints, Texture2D sprite)
         {
@@ -88,6 +107,28 @@ namespace Spelprojekt2
 
         public void Update(GameTime gameTime)
         {
+            if (spawnTime > waitTime)
+            { // Spawn new enemy
+                spawnTime = 0f;
+                if (Waves.Count > wave)
+                {
+                    waitTime = Waves[wave].GetCurrentTimeInterval();
+                    Enemy enemy = Waves[wave].GetEnemy();
+                    if (enemy == null)
+                    { // Denna Wave är slut
+                        wave++;
+                    }
+                    else
+                        Enemies.Add(enemy);
+                }
+                else
+                { // Inga fler waves
+                    return;
+                }
+            }
+
+            spawnTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             for (int i = 0; i < Enemies.Count; i++)
             {
                 Enemies[i].Update(gameTime);
@@ -102,6 +143,11 @@ namespace Spelprojekt2
                 return Vector2.Zero;
             }
             return Vector2.Lerp(waypoints[progress - 1].point, waypoints[progress].point, t);
+        }
+
+        public void StartWave()
+        {
+            wave++;
         }
 
         public void Draw()

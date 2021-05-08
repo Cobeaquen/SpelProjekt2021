@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Linq;
 using System.IO;
 
 namespace Spelprojekt2
@@ -26,34 +27,32 @@ namespace Spelprojekt2
         public static List<Tower> placedTowers;
         public static double time;
 
-        public static List<Wave> Waves;
-
         public static void Load()
         {
             HP = StartHP;
             Coins = StartCoins;
-            Waves = new List<Wave>();
-            Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
-            Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
-            SaveJSON(Waves, "test.json");
             GUI.Load();
         }
 
         public static void Update(GameTime gameTime)
         {
             time += gameTime.ElapsedGameTime.TotalSeconds;
+            GUI.Update();
             GUI.HandleInput();
         }
 
         public static T LoadJSON<T>(string relativePath)
         {
-            string text = File.ReadAllText(relativePath);
-            return (T)JsonConvert.DeserializeObject(text);
+            string text = File.ReadAllText("data/" + relativePath);
+            object obj = JsonConvert.DeserializeObject<T>(text);
+
+
+            return (T)JsonConvert.DeserializeObject<T>(text);
         }
         public static void SaveJSON<T>(T item, string path)
         {
             string obj = JsonConvert.SerializeObject(item, Formatting.Indented);
-            StreamWriter sw = new StreamWriter(path, false);
+            StreamWriter sw = new StreamWriter("data/" + path, false);
             sw.Write(obj);
             sw.Close();
         }

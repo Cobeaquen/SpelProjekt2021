@@ -8,22 +8,33 @@ using Microsoft.Xna.Framework;
 
 namespace Spelprojekt2
 {
-    class TextElement : UIElement
+    public class TextElement : UIElement
     {
+        public string Text
+        { 
+            get 
+            { 
+                return text;
+            }
+            set 
+            {
+                text = value;
+            } 
+        }
+        public Color color;
+        private string text;
+
         protected SpriteFont font;
-        string text;
-        public TextElement(Vector2 position, int width, int height, SpriteFont font, string text) : base(position, width, height)
+        public TextElement(Vector2 position, int width, int height, string text, Color color, SpriteFont font) : base(position, width, height)
         {
-            this.position = position;
-            this.width = width;
-            this.height = height;
-            this.font = font;
             this.text = text;
+            this.color = color;
+            this.font = font;
         }
 
         public override void Draw()
         {
-            Main.spriteBatch.DrawString(font, text, position, Color.White);
+            Main.spriteBatch.DrawString(font, text, position, color);
         }
     }
 }
