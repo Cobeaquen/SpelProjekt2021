@@ -29,9 +29,13 @@ namespace Spelprojekt2
             state = !state;
             Console.WriteLine(state);
             // Förändra texturen
-            texture = state ? toggleTexture2 : toggleTexture1;
+            SwitchTexture(state);
             toggleCallback(state);
             base.Clicked();
+        }
+        public void SwitchTexture(bool second)
+        {
+            texture = second ? toggleTexture2 : toggleTexture1;
         }
     }
 }

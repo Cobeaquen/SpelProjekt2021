@@ -71,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Input">
-    <Position X="7.25" Y="5" Width="1.5" />
+    <Position X="7.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gIAAIAAAAAAAJAACAAAAAAAAAAAAAAAAAAAAAAAGEAA=</HashCode>
       <FileName>Input.cs</FileName>
@@ -79,8 +79,11 @@
   </Class>
   <Class Name="Spelprojekt2.Assets">
     <Position X="14.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Enum Name="Spelprojekt2.Assets.Location" Collapsed="true">
+      <Enum Name="Spelprojekt2.Assets.Location">
         <TypeIdentifier>
           <NewMemberFileName>Assets.cs</NewMemberFileName>
         </TypeIdentifier>
@@ -113,7 +116,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.DebugTextures">
-    <Position X="7.25" Y="8.25" Width="1.5" />
+    <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAEAAAAAAAAAAAEAAAQAAAQAAAAgAAA=</HashCode>
       <FileName>DebugTextures.cs</FileName>
@@ -142,28 +145,28 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.InteractiveElement">
-    <Position X="14.25" Y="10" Width="1.5" />
+    <Position X="12.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgQAQAAAAAAAAAAAACAAAAACAAAAAAA=</HashCode>
       <FileName>InteractiveElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.TextureElement">
-    <Position X="16.25" Y="10" Width="1.5" />
+    <Position X="10.25" Y="12" Width="1.5" />
     <TypeIdentifier>
       <HashCode>CAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
       <FileName>TextureElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.TowerElement">
-    <Position X="14.25" Y="7.5" Width="1.5" />
+    <Position X="12.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
       <FileName>TowerElement.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.UIElement">
-    <Position X="16.25" Y="7.5" Width="1.5" />
+    <Position X="10.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>UIElement.cs</FileName>

@@ -129,6 +129,18 @@ namespace Spelprojekt2
             wave++;
         }
 
+        public bool IsInsideLineRange(Vector2 pos)
+        {
+            for (int i = 0; i < waypoints.Count - 1; i++)
+            {
+                if (Global.GetDistanceFromLine(waypoints[i].point, waypoints[i + 1].point, pos) < 35f)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         public void Draw()
         {
             //splinePath.DrawSpline(Main.spriteBatch);

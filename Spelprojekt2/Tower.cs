@@ -14,6 +14,8 @@ namespace Spelprojekt2
         public static Tower GunTowerMK1 { get; private set; }
         public static Tower LaserTowerMK1 { get; private set; }
 
+        public static Color RangeColor { get; set; }
+
         [JsonIgnore]
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
@@ -78,6 +80,11 @@ namespace Spelprojekt2
 
         public virtual void OnPlaced()
         {
+            UpdateBounds();
+        }
+
+        public void UpdateBounds()
+        {
             Bounds = new Rectangle((position - bodyOrigin).ToPoint(), new Point(bodySprite.Width, bodySprite.Height));
         }
 
@@ -107,7 +114,7 @@ namespace Spelprojekt2
                 }
                 else
                 {
-                    LookRotation -= TurnSpeed * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    LookRotation -= TurnSpeed * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
                 }
             }
             prevRotation = LookRotation;
@@ -162,7 +169,7 @@ namespace Spelprojekt2
                 return;
             Main.spriteBatch.Begin(samplerState: SamplerState.PointClamp, effect: Assets.RangeEffect);
             Assets.RangeEffect.CurrentTechnique.Passes[0].Apply();
-            Main.spriteBatch.Draw(rangeSprite, selected.position, null, Color.White, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
 
@@ -175,17 +182,17 @@ namespace Spelprojekt2
         {
             public string name;
             public string type;
-            public string shortDesc;
+            public string desc;
             public int cost;
             public string icon;
             [JsonIgnore]
             public Texture2D iconSprite;
 
-            public TowerInfo(Type type, string name, string shortDesc, int cost, string icon)
+            public TowerInfo(Type type, string name, string desc, int cost, string icon)
             {
                 this.type = type.FullName;
                 this.name = name;
-                this.shortDesc = shortDesc;
+                this.desc = desc;
                 this.cost = cost;
                 this.icon = icon;
                 this.iconSprite = Main.instance.Content.Load<Texture2D>("graphics/ui/icons/towers/" + icon);

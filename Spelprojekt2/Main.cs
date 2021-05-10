@@ -94,13 +94,18 @@ namespace Spelprojekt2
             {
                 tower.Draw();
             }
-
-            GUI.Draw();
+            GUI.towerHeld?.Draw();
 
             spriteBatch.End();
 
-            Enemy.DrawHPBars();
             Tower.DrawRange();
+
+            // Rita GUI
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            GUI.Draw();
+            spriteBatch.End();
+
+            Enemy.DrawHPBars();
 
             GraphicsDevice.SetRenderTarget(null);
 

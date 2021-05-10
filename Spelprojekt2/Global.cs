@@ -62,6 +62,44 @@ namespace Spelprojekt2
             sw.Close();
         }
 
+        public static float GetDistanceFromLine(Vector2 a, Vector2 b, Vector2 p)
+        {
+            Vector2 AB = b - a;
+            Vector2 BP = p - b;
+            Vector2 AP = p - a;
+
+            float AB_BP = Vector2.Dot(AB, BP);
+            float AB_AP = Vector2.Dot(AB, AP);
+
+            if (AB_BP > 0)
+            {
+
+                // Finding the magnitude
+                Vector2 vec = p - b;
+                return (float)Math.Sqrt(vec.X * vec.X + vec.Y * vec.Y);
+            }
+
+            // Case 2
+            else if (AB_AP < 0)
+            {
+                Vector2 vec = p - a;
+                return (float)Math.Sqrt(vec.X * vec.X + vec.Y * vec.Y);
+            }
+
+            else
+            { // Vinkelrät
+                float mod = (float)Math.Sqrt(AB.X * AB.X + AB.Y * AB.Y);
+                return (float)Math.Abs(AB.X * AP.Y - AB.Y * AP.X) / mod;
+            }
+
+            return float.MaxValue;
+
+            //float num = Math.Abs((b.X - a.X) * (a.Y - p.Y) - (a.X - p.X) * (b.Y - a.Y));
+            //float den = (float)Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
+
+            //return a / den;
+        }
+
         public enum GameState
         {
             Playing, Paused, Idle
