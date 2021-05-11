@@ -92,8 +92,6 @@ namespace Spelprojekt2
                 return (float)Math.Abs(AB.X * AP.Y - AB.Y * AP.X) / mod;
             }
 
-            return float.MaxValue;
-
             //float num = Math.Abs((b.X - a.X) * (a.Y - p.Y) - (a.X - p.X) * (b.Y - a.Y));
             //float den = (float)Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
 

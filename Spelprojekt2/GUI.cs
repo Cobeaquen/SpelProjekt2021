@@ -119,7 +119,7 @@ namespace Spelprojekt2
                 }
                 foreach(var element in elements)
                 {
-                    if (element is InteractiveElement ie)
+                    if (element is ButtonElement ie)
                     { // Elementet är interaktivt - kör lämpliga funktioner
                         if (ie.bounds.Contains(Input.MousePosition))
                         {

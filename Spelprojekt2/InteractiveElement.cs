@@ -21,10 +21,6 @@ namespace Spelprojekt2
             this.texture = texture;
             bounds = new Rectangle(new Point((int)position.X, (int)position.Y) - origin.ToPoint(), new Point(width, height));
         }
-        public virtual void Clicked()
-        {
-
-        }
         public override void Draw()
         {
             base.Draw();

@@ -24,14 +24,13 @@ namespace Spelprojekt2
             this.toggleCallback = toggleCallback;
             state = startState;
         }
-        public override void Clicked()
+        public void Toggle()
         {
             state = !state;
             Console.WriteLine(state);
             // Förändra texturen
             SwitchTexture(state);
             toggleCallback(state);
-            base.Clicked();
         }
         public void SwitchTexture(bool second)
         {

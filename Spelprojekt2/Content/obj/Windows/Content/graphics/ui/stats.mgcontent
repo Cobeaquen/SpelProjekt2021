@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/stats.png</SourceFile>
-  <SourceTime>2021-04-27T20:15:53.3256666+02:00</SourceTime>
-  <DestFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/ui/stats.xnb</DestFile>
-  <DestTime>2021-05-07T22:23:45.81074+02:00</DestTime>
+  <SourceFile>C:/Users/user/Documents/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/stats.png</SourceFile>
+  <SourceTime>2021-04-29T08:49:05.4550427+02:00</SourceTime>
+  <DestFile>C:/Users/user/Documents/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/ui/stats.xnb</DestFile>
+  <DestTime>2021-05-10T10:00:58.9723796+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

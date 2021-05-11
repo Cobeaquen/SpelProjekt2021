@@ -62,24 +62,24 @@ namespace Spelprojekt2
         public static Level GenerateExampleLevel()
         {
             List<Vector2> points = new List<Vector2>();
-            points.Add(new Vector2(0, 191));
-            points.Add(new Vector2(87, 191));
-            points.Add(new Vector2(136, 144));
-            points.Add(new Vector2(168, 144));
-            points.Add(new Vector2(207, 184));
-            points.Add(new Vector2(207, 200));
-            points.Add(new Vector2(248, 239));
-            points.Add(new Vector2(312, 239));
-            points.Add(new Vector2(351, 199));
-            points.Add(new Vector2(351, 167));
-            points.Add(new Vector2(296, 112));
-            points.Add(new Vector2(231, 112));
-            points.Add(new Vector2(207, 88));
-            points.Add(new Vector2(207, 56));
-            points.Add(new Vector2(232, 32));
-            points.Add(new Vector2(328, 32));
-            points.Add(new Vector2(415, 120));
-            points.Add(new Vector2(415, 269));
+            points.Add(new Vector2(0 + 1, 191 + 1));
+            points.Add(new Vector2(87 + 1, 191 + 1));
+            points.Add(new Vector2(136 + 1, 144 + 1));
+            points.Add(new Vector2(168 + 1, 144 + 1));
+            points.Add(new Vector2(207 + 1, 184 + 1));
+            points.Add(new Vector2(207 + 1, 200 + 1));
+            points.Add(new Vector2(248 + 1, 239 + 1));
+            points.Add(new Vector2(312 + 1, 239 + 1));
+            points.Add(new Vector2(351 + 1, 199 + 1));
+            points.Add(new Vector2(351 + 1, 167 + 1));
+            points.Add(new Vector2(296 + 1, 112 + 1));
+            points.Add(new Vector2(231 + 1, 112 + 1));
+            points.Add(new Vector2(207 + 1, 88 + 1));
+            points.Add(new Vector2(207 + 1, 56 + 1));
+            points.Add(new Vector2(232 + 1, 32 + 1));
+            points.Add(new Vector2(328 + 1, 32 + 1));
+            points.Add(new Vector2(415 + 1, 120 + 1));
+            points.Add(new Vector2(415 + 1, 269 + 1));
             return new Level(Assets.Level1, points);
         }
 
