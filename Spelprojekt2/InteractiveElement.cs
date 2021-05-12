@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Spelprojekt2
 {
-    class InteractiveElement : UIElement
+    public class InteractiveElement : UIElement
     {
         protected Texture2D texture;
         public Rectangle bounds;

@@ -64,7 +64,13 @@ namespace Spelprojekt2
                         return;
                     }
                 }
-                foreach(var element in elements)
+                foreach (var element in elements)
+                {
+                    //if (element is TowerElement && ((TowerElement)element).bounds.Contains(Input.MousePosition))
+                    //{
+                    //    selectedTower = element.tower;
+                    //}
+                }
                 if (selectedTower != null)
                 {
                     selectedTower = null;
