@@ -7,12 +7,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Linq;
 using System.IO;
 
 namespace Spelprojekt2
 {
     public static class Global
     {
+        public static GameState gameState { get; set; }
+        public static float gameSpeed { get; set; }
+
         public static int ScreenWidth { get; private set; } = 1920;
         public static int GameWidth { get; private set; } = 480;
         public static int GameHeight { get; private set; } = 270;
@@ -26,32 +30,77 @@ namespace Spelprojekt2
         public static List<Tower> placedTowers;
         public static double time;
 
-        public static List<Wave> Waves;
-
         public static void Load()
         {
+            gameState = GameState.Idle;
+            gameSpeed = 1f;
             HP = StartHP;
             Coins = StartCoins;
-            //Waves.Add(new Wave(new List<Burst>() { new Burst(1, null, 1f) }));
             GUI.Load();
         }
 
         public static void Update(GameTime gameTime)
         {
             time += gameTime.ElapsedGameTime.TotalSeconds;
+            GUI.Update();
             GUI.HandleInput();
         }
 
         public static T LoadJSON<T>(string relativePath)
         {
-            string text = File.ReadAllText(relativePath);
-            return (T)JsonConvert.DeserializeObject(text);
+            string text = File.ReadAllText("data/" + relativePath);
+            object obj = JsonConvert.DeserializeObject<T>(text);
+
+
+            return (T)JsonConvert.DeserializeObject<T>(text);
         }
-        public static void SaveJSON(object item, string path)
+        public static void SaveJSON<T>(T item, string path)
         {
-            string obj = JsonConvert.SerializeObject(item);
-            StreamWriter sw = new StreamWriter(path, false);
+            string obj = JsonConvert.SerializeObject(item, Formatting.Indented);
+            StreamWriter sw = new StreamWriter("data/" + path, false);
             sw.Write(obj);
+            sw.Close();
+        }
+
+        public static float GetDistanceFromLine(Vector2 a, Vector2 b, Vector2 p)
+        {
+            Vector2 AB = b - a;
+            Vector2 BP = p - b;
+            Vector2 AP = p - a;
+
+            float AB_BP = Vector2.Dot(AB, BP);
+            float AB_AP = Vector2.Dot(AB, AP);
+
+            if (AB_BP > 0)
+            {
+
+                // Finding the magnitude
+                Vector2 vec = p - b;
+                return (float)Math.Sqrt(vec.X * vec.X + vec.Y * vec.Y);
+            }
+
+            // Case 2
+            else if (AB_AP < 0)
+            {
+                Vector2 vec = p - a;
+                return (float)Math.Sqrt(vec.X * vec.X + vec.Y * vec.Y);
+            }
+
+            else
+            { // Vinkelrät
+                float mod = (float)Math.Sqrt(AB.X * AB.X + AB.Y * AB.Y);
+                return (float)Math.Abs(AB.X * AP.Y - AB.Y * AP.X) / mod;
+            }
+
+            //float num = Math.Abs((b.X - a.X) * (a.Y - p.Y) - (a.X - p.X) * (b.Y - a.Y));
+            //float den = (float)Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
+
+            //return a / den;
+        }
+
+        public enum GameState
+        {
+            Playing, Paused, Idle
         }
     }
 }

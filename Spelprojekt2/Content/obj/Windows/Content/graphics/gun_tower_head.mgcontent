@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_head.png</SourceFile>
-  <SourceTime>2021-04-30T13:31:21.9580753+02:00</SourceTime>
-  <DestFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/gun_tower_head.xnb</DestFile>
-  <DestTime>2021-05-07T15:49:06.1628312+02:00</DestTime>
+  <SourceFile>C:/Users/user/Documents/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/gun_tower_head.png</SourceFile>
+  <SourceTime>2021-04-29T08:49:05.4201366+02:00</SourceTime>
+  <DestFile>C:/Users/user/Documents/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/gun_tower_head.xnb</DestFile>
+  <DestTime>2021-05-10T10:00:57.904396+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

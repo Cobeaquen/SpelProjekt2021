@@ -3,14 +3,14 @@
   <Class Name="Spelprojekt2.Main">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAEEAAAAAAAwAAAAAAAIAAAAFAAAgAAAAAAAAAAAY=</HashCode>
+      <HashCode>AAQAEEAAAAAAAwAAAAAAAIAAAAFAAAgAAAAAAAAAAAQ=</HashCode>
       <FileName>Main.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Enemy">
     <Position X="10.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>IQQAAACAAgAAAgAiAAIAICAARBBAASgAAIQAEAAAAAA=</HashCode>
+      <HashCode>IQQAAACAAgAAAgAiAAIAICAARBBAASgAAIRAEAAAAAA=</HashCode>
       <FileName>Enemy.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,35 +24,35 @@
   <Class Name="Spelprojekt2.Minion">
     <Position X="12.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Minion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.ProjectileTower">
-    <Position X="2.75" Y="9" Width="1.5" />
+    <Position X="2.75" Y="14.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>KAQAkAAIAAAAAgAAEAAAAAAAAAQEQAAAAQCAAAAAAAA=</HashCode>
       <FileName>ProjectileTower.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Wave">
-    <Position X="0.5" Y="11" Width="1.5" />
+    <Position X="0.5" Y="11.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAEAAAAAgCAEAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Wave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Burst">
-    <Position X="0.5" Y="13" Width="1.5" />
+    <Position X="0.5" Y="14.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAI=</HashCode>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAgAgAAAAAAAAIAAAAI=</HashCode>
       <FileName>Burst.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Level">
-    <Position X="0.5" Y="5.5" Width="1.5" />
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAAACAAAgAAAAAAAIAAABMAAAAAAIAAAAAAAAA=</HashCode>
+      <HashCode>AAQAAAAAACAAAgAAAAAQAIAQABMAAAAAAIgAABAEQAA=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -66,12 +66,12 @@
   <Class Name="Spelprojekt2.GUI">
     <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAgACAAAAAAgAAAAAAAAABAAAAAAAIAAAAAAAAAAI=</HashCode>
+      <HashCode>AAQEgACAAEAAKhAoAAAAAAABAAAACAAMAAACAAAgAAo=</HashCode>
       <FileName>GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Input">
-    <Position X="7.25" Y="5" Width="1.5" />
+    <Position X="7.25" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gIAAIAAAAAAAJAACAAAAAAAAAAAAAAAAAAAAAAAGEAA=</HashCode>
       <FileName>Input.cs</FileName>
@@ -79,15 +79,32 @@
   </Class>
   <Class Name="Spelprojekt2.Assets">
     <Position X="14.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="Spelprojekt2.Assets.Location">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>CFAQAgAQAgIIAUAAAIBABAAgBAAAkAADAAACAAAQhCA=</HashCode>
+      <HashCode>CFAQAgQSEoIIAWAAAIBABAAgBAAAkAADAAACABAQhCA=</HashCode>
       <FileName>Assets.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Global">
     <Position X="7.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Spelprojekt2.Global.GameState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Global.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>UAQBgAAAAkAAAAAAAAAACBAgQABAAAAAAAEAAAAAUAA=</HashCode>
+      <HashCode>UAQBgAAAAkAQAAAAAAAACBAgQABAAAAAAAEgAAAAEIA=</HashCode>
       <FileName>Global.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -99,7 +116,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.DebugTextures">
-    <Position X="7.25" Y="8.25" Width="1.5" />
+    <Position X="7.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAEAAAAAAAAAAAEAAAQAAAQAAAAgAAA=</HashCode>
       <FileName>DebugTextures.cs</FileName>
@@ -107,20 +124,77 @@
   </Class>
   <Class Name="Spelprojekt2.Tower">
     <Position X="2.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
     <NestedTypes>
-      <Enum Name="Spelprojekt2.Tower.TargetType" Collapsed="true">
+      <Enum Name="Spelprojekt2.Tower.TargetType">
         <TypeIdentifier>
           <NewMemberFileName>Tower.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
+      <Struct Name="Spelprojekt2.Tower.TowerInfo">
+        <TypeIdentifier>
+          <NewMemberFileName>Tower.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAwAQQCAAAAgCgAiAAGAMiQACABBJIgAAAAAAAABAiA=</HashCode>
+      <HashCode>AAwAQRCAAAAgCgAiAAGAMiRgCBJBJIgAAAAAAAABAiA=</HashCode>
       <FileName>Tower.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Spelprojekt2.InteractiveElement">
+    <Position X="13" Y="12.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgQAQAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>InteractiveElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.TextureElement">
+    <Position X="14.5" Y="11.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAgAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
+      <FileName>TextureElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.TowerElement">
+    <Position X="12.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>TowerElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.UIElement">
+    <Position X="10.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UIElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.TextElement">
+    <Position X="8.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgQAQAAAAAAAAAAAAACIAAAACAAAAAA=</HashCode>
+      <FileName>TextElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spelprojekt2.ToggleElement">
+    <Position X="11" Y="11.25" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Spelprojekt2.ToggleElement.ToggleInteract" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ToggleElement.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAACAAAAAAAAAAAAEAAABABAEAAAAAAAAAAA=</HashCode>
+      <FileName>ToggleElement.cs</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Spelprojekt2.Waypoint">
-    <Position X="0.5" Y="8.75" Width="1.5" />
+    <Position X="0.5" Y="9.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Waypoint.cs</FileName>

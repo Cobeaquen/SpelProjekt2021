@@ -27,14 +27,17 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float2 center = float2(0.5f, 0.5f);
 	float dist = distance(center, UV);
 	float a;
-	float e = 2.71828;
+	float4 clr = input.Color;
 
-	if (dist > 0.5f)
+	if (dist > 0.5f) {
+		clr.rgba = 0;
 		a = 0;
+	}
+	
 	else
 		a = dist * dist;
 
-	return float4(0, 0, 0, a) * input.Color;
+	return float4(clr.r, clr.g, clr.b, a);
 }
 
 technique SpriteDrawing

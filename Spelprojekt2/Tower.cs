@@ -5,12 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using Newtonsoft.Json;
 
 namespace Spelprojekt2
 {
     public class Tower
     {
+        public static Tower GunTowerMK1 { get; private set; }
+        public static Tower LaserTowerMK1 { get; private set; }
+
+        public static Color RangeColor { get; set; }
+
+        [JsonIgnore]
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
         protected Vector2 firePosition;
@@ -20,8 +26,12 @@ namespace Spelprojekt2
         public float DamageModifier { get; private set; }
         public float Damage { get; private set; }
         public float Range { get; private set; }
+        public float RangeModifier { get; private set; }
+        [JsonIgnore]
         public TargetType Targetting { get; private set; }
+        [JsonIgnore]
         public Enemy Target { get; private set; }
+        [JsonIgnore]
         public Rectangle Bounds { get; private set; }
 
         private float lookRotation;
@@ -41,6 +51,11 @@ namespace Spelprojekt2
 
         private bool viewRange = false;
 
+        public static void GenerateTowers()
+        {
+            GunTowerMK1 = new GunTower(Vector2.Zero);
+        }
+
         public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
@@ -49,7 +64,7 @@ namespace Spelprojekt2
             this.FireRate = fireRate;
             this.TurnSpeed = turnSpeed;
             this.Range = range;
-            this.LookRotation = 0;
+            this.LookRotation = -MathHelper.PiOver2;
             this.bodySprite = bodySprite;
             this.bodyOrigin = bodyOrigin;
             this.headSprite = headSprite;
@@ -61,6 +76,16 @@ namespace Spelprojekt2
             Targetting = TargetType.First;
 
             debugFirePoint = DebugTextures.GenerateRectangle(2, 2, Color.Red);
+        }
+
+        public virtual void OnPlaced()
+        {
+            UpdateBounds();
+        }
+
+        public void UpdateBounds()
+        {
+            Bounds = new Rectangle((position - bodyOrigin).ToPoint(), new Point(bodySprite.Width, bodySprite.Height));
         }
 
         public virtual void Update(GameTime gameTime)
@@ -89,7 +114,7 @@ namespace Spelprojekt2
                 }
                 else
                 {
-                    LookRotation -= TurnSpeed * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    LookRotation -= TurnSpeed * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
                 }
             }
             prevRotation = LookRotation;
@@ -101,21 +126,15 @@ namespace Spelprojekt2
             if (Main.instance.level.Enemies.Count == 0)
                 return null;
 
-            int recordProg = 0;
-            float maxT = 0;
+            float recordProg = 0f;
             Enemy enemy = null;
             foreach (var e in Main.instance.level.Enemies)
             {
                 if (Vector2.DistanceSquared(e.position, position) > Range * Range)
                     continue;
-                if (e.progress > recordProg)
+                if (e.progress + e.t > recordProg)
                 {
-                    recordProg = e.progress;
-                    enemy = e;
-                }
-                else if (e.progress == recordProg && e.t > maxT)
-                {
-                    maxT = e.t;
+                    recordProg = e.progress + e.t;
                     enemy = e;
                 }
             }
@@ -134,29 +153,58 @@ namespace Spelprojekt2
             viewRange = state;
         }
 
-        public virtual void Draw(SpriteBatch sb)
+        public virtual void Draw()
         {
             // Draw body
-            sb.Draw(bodySprite, position, null, Color.White, 0f, bodyOrigin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(bodySprite, position, null, Color.White, 0f, bodyOrigin, 1f, SpriteEffects.None, 0f);
 
             // Draw head
-            sb.Draw(headSprite, position, null, Color.White, LookRotation + rotOffset, headOrigin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(headSprite, position, null, Color.White, LookRotation + rotOffset, headOrigin, 1f, SpriteEffects.None, 0f);
         }
 
         public static void DrawRange()
         {
-            Tower selected = GUI.selectedTower;
+            Tower selected = GUI.towerHeld != null ? GUI.towerHeld : GUI.selectedTower;
             if (selected == null)
                 return;
             Main.spriteBatch.Begin(samplerState: SamplerState.PointClamp, effect: Assets.RangeEffect);
             Assets.RangeEffect.CurrentTechnique.Passes[0].Apply();
-            Main.spriteBatch.Draw(rangeSprite, selected.position, null, Color.White, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
 
         public enum TargetType
         {
             First, Last
+        }
+
+        public struct TowerInfo
+        {
+            public string name;
+            public string type;
+            public string desc;
+            public int cost;
+            public string icon;
+            [JsonIgnore]
+            public Texture2D iconSprite;
+
+            public TowerInfo(Type type, string name, string desc, int cost, string icon)
+            {
+                this.type = type.FullName;
+                this.name = name;
+                this.desc = desc;
+                this.cost = cost;
+                this.icon = icon;
+                this.iconSprite = Main.instance.Content.Load<Texture2D>("graphics/ui/icons/towers/" + icon);
+            }
+            public void SetSprite()
+            {
+                iconSprite = Main.instance.Content.Load<Texture2D>("graphics/ui/icons/towers/" + icon);
+            }
+            public Tower GetTowerDuplicate()
+            {
+                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero });
+            }
         }
     }
 }

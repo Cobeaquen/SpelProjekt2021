@@ -8,19 +8,18 @@ using System.Threading.Tasks;
 
 namespace Spelprojekt2
 {
-    class TextureElement : UIElement
+    public class TextureElement : UIElement
     {
         protected Texture2D texture;
-        public TextureElement(Vector2 position, int width, int height, Texture2D texture) : base(position, width, height)
+        protected Vector2 origin;
+        public TextureElement(Vector2 position, Texture2D texture, Vector2 origin) : base(position)
         {
-            this.position = position;
-            this.width = width;
-            this.height = height;
             this.texture = texture;
+            this.origin = origin;
         }
-        public void Draw()
+        public override void Draw()
         {
-            Main.spriteBatch.Draw(texture, position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
         }
     }
 }

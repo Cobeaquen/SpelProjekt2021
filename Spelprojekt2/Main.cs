@@ -18,8 +18,6 @@ namespace Spelprojekt2
 
         RenderTarget2D scene;
 
-        Enemy enemy;
-
         public Main()
         {
             instance = this;
@@ -52,9 +50,6 @@ namespace Spelprojekt2
 
             Global.placedTowers = new List<Tower>();
             Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
-
-            level.Enemies.Add(new Enemy());
-            level.Enemies.Add(new Enemy() { t = 0.5f});
         }
 
         protected override void UnloadContent()
@@ -97,15 +92,20 @@ namespace Spelprojekt2
 
             foreach (Tower tower in Global.placedTowers)
             {
-                tower.Draw(spriteBatch);
+                tower.Draw();
             }
-
-            GUI.Draw();
+            GUI.towerHeld?.Draw();
 
             spriteBatch.End();
 
-            Enemy.DrawHPBars();
             Tower.DrawRange();
+
+            // Rita GUI
+            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            GUI.Draw();
+            spriteBatch.End();
+
+            Enemy.DrawHPBars();
 
             GraphicsDevice.SetRenderTarget(null);
 
