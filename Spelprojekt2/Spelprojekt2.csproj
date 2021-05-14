@@ -52,6 +52,7 @@
     <Compile Include="Global.cs" />
     <Compile Include="GUI.cs" />
     <Compile Include="Bar.cs" />
+    <Compile Include="HoverElement.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="InteractiveElement.cs" />
     <Compile Include="Main.cs" />

@@ -34,11 +34,30 @@ namespace Spelprojekt2
             this.text = text;
             this.color = color;
             this.font = font;
+            
+            if (font.MeasureString(text).X > width)
+            {
+                StringBuilder sb = new StringBuilder();
+                string[] words = text.Split(' ');
+                foreach (var w in words)
+                {
+                    Vector2 newSize = font.MeasureString(sb + w);
+                    if (newSize.X < width)
+                    {
+                        sb.Append(w + " ");
+                    }
+                    else
+                    {
+                        sb.AppendLine().Append(w + " ");
+                    }
+                }
+                this.text = sb.ToString();
+            }
         }
 
         public override void Draw()
         {
-            Main.spriteBatch.DrawString(font, text, position, color);
+            Main.spriteBatch.DrawString(font, text, position + offsetPosition, color);
         }
     }
 }

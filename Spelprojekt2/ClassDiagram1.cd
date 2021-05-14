@@ -15,7 +15,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.GunTower">
-    <Position X="5" Y="8.25" Width="1.5" />
+    <Position X="5" Y="16" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GunTower.cs</FileName>
@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.ProjectileTower">
-    <Position X="2.75" Y="14.25" Width="1.5" />
+    <Position X="5" Y="10.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>KAQAkAAIAAAAAgAAEAAAAAAAAAQEQAAAAQCAAAAAAAA=</HashCode>
       <FileName>ProjectileTower.cs</FileName>
@@ -145,7 +145,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.InteractiveElement">
-    <Position X="13" Y="12.5" Width="1.5" />
+    <Position X="12.75" Y="11.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgQAQAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
       <FileName>InteractiveElement.cs</FileName>
@@ -173,7 +173,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.TextElement">
-    <Position X="8.5" Y="11.25" Width="1.5" />
+    <Position X="9.25" Y="11.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAgQAQAAAAAAAAAAAAACIAAAACAAAAAA=</HashCode>
       <FileName>TextElement.cs</FileName>

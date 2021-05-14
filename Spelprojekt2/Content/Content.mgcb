@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:graphics/bullet_small.png
 
+#begin graphics/enemies/minion.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/enemies/minion.png
+
 #begin graphics/gun_tower_body.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -97,6 +109,12 @@
 /processorParam:TextureFormat=Color
 /build:graphics/levels/level1_waypoints.png
 
+#begin graphics/shaders/button.fx
+/importer:EffectImporter
+/processor:EffectProcessor
+/processorParam:DebugMode=Auto
+/build:graphics/shaders/button.fx
+
 #begin graphics/shaders/hpbar.fx
 /importer:EffectImporter
 /processor:EffectProcessor
@@ -108,6 +126,18 @@
 /processor:EffectProcessor
 /processorParam:DebugMode=Auto
 /build:graphics/shaders/range.fx
+
+#begin graphics/ui/buttons/shop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/ui/buttons/shop.png
 
 #begin graphics/ui/fonts/default.spritefont
 /importer:FontDescriptionImporter
@@ -163,6 +193,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:graphics/ui/icons/waveflow/speed.png
+
+#begin graphics/ui/icons/waveflow/speed2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/ui/icons/waveflow/speed2.png
 
 #begin graphics/ui/icons/waveflow/start.png
 /importer:TextureImporter

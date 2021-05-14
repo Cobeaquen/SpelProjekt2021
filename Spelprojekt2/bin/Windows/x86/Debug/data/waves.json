@@ -2,33 +2,41 @@
   {
     "bursts": [
       {
-        "amount": 5,
+        "amount": 4,
         "enemyType": "Spelprojekt2.Minion",
         "timeInterval": 0.8
       },
 	  {
-        "amount": 3,
+        "amount": 4,
         "enemyType": "Spelprojekt2.Minion",
         "timeInterval": 0.4
       },
-    ]
+	  {
+        "amount": 5,
+        "enemyType": "Spelprojekt2.Minion",
+        "timeInterval": 0.9
+      },
+    ],
+	"restingTime": 1.0
   },
   {
     "bursts": [
       {
-        "amount": 7,
+        "amount": 4,
         "enemyType": "Spelprojekt2.Minion",
         "timeInterval": 0.5
       }
-    ]
+    ],
+	"restingTime": 1.0
   },
   {
     "bursts": [
       {
-        "amount": 8,
+        "amount": 4,
         "enemyType": "Spelprojekt2.Minion",
         "timeInterval": 0.4
       }
-    ]
+    ],
+	"restingTime": 1.0
   }
 ]

@@ -10,16 +10,20 @@ namespace Spelprojekt2
 {
     public class TextureElement : UIElement
     {
-        protected Texture2D texture;
+        public Texture2D texture { get; set; }
         protected Vector2 origin;
         public TextureElement(Vector2 position, Texture2D texture, Vector2 origin) : base(position)
         {
             this.texture = texture;
             this.origin = origin;
         }
+        public override void Update()
+        {
+
+        }
         public override void Draw()
         {
-            Main.spriteBatch.Draw(texture, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(texture, position + offsetPosition, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
         }
     }
 }

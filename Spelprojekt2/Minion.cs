@@ -9,7 +9,7 @@ namespace Spelprojekt2
 {
     public class Minion : Enemy
     {
-        public Minion() : base(50f, 10, 50f, DebugTextures.GenerateRectangle(20, 20, Color.Brown))
+        public Minion() : base(50f, 10, 50f, Assets.Minion, Assets.MinionOrigin)
         {
 
         }

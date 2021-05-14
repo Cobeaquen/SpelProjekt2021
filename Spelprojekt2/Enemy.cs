@@ -30,6 +30,8 @@ namespace Spelprojekt2
         [JsonIgnore]
         public Texture2D sprite;
         [JsonIgnore]
+        public Vector2 origin;
+        [JsonIgnore]
         public Texture2D textrect;
         [JsonIgnore]
         public Rectangle rectangle;
@@ -38,6 +40,8 @@ namespace Spelprojekt2
 
         [JsonIgnore]
         public float LookRotation { get; private set; }
+        private float prevRotation;
+        private float targetRotation;
         [JsonIgnore]
         public float t = 0;
         [JsonIgnore]
@@ -45,7 +49,9 @@ namespace Spelprojekt2
         [JsonIgnore]
         private Vector2 hpOffset = new Vector2(0, -15);
 
-        public Enemy(float maxHP, int value, float speed, Texture2D sprite)
+        private const float turnSpeedScalar = 0.04f;
+
+        public Enemy(float maxHP, int value, float speed, Texture2D sprite, Vector2 origin)
         {
             this.maxHP = maxHP;
             this.HP = maxHP;
@@ -53,8 +59,10 @@ namespace Spelprojekt2
             this.speed = speed;
             hpBar = new Bar(maxHP, 0.5f, Assets.HPBarFrame, 24, 4);
             this.sprite = sprite;// DebugTextures.GenerateRectangle(20, 20, Color.Brown);
+            this.origin = origin;
             progress = 1;
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Height, sprite.Height));
+            LookRotation = (float)Math.Atan2(Main.instance.level.StartDirection.Y, Main.instance.level.StartDirection.X) - MathHelper.Pi;
 
             textrect = DebugTextures.GenerateHollowRectangele(rectangle.Width, rectangle.Height, 1, Color.Red);
         }
@@ -69,12 +77,28 @@ namespace Spelprojekt2
             {
                 t = 0f;
                 progress++;
+                Vector2 dir = Main.instance.level.GetDirection(progress);
+                targetRotation = (float)Math.Atan2(dir.Y, dir.X) - MathHelper.Pi;
             }
             position = Main.instance.level.GetPosition(progress, t, out bool outOfBounds);
             if (outOfBounds)
             {
                 ReachEnd();
             }
+            if (LookRotation != targetRotation)
+            {
+                float angleDiff = -Global.GetShortestAngle(LookRotation, targetRotation);
+
+                if (Math.Abs(angleDiff) < 0.01f)
+                {
+                    LookRotation = targetRotation;
+                }
+                else
+                {
+                    LookRotation -= speed * turnSpeedScalar * Math.Sign(angleDiff) * (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
+                }
+            }
+            prevRotation = LookRotation;
 
             hpBar.Update(gameTime, position + hpOffset);
         }
@@ -105,7 +129,7 @@ namespace Spelprojekt2
 
         public virtual void Draw()
         {
-            Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, new Vector2(sprite.Width / 2, sprite.Height / 2), 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, origin, 1f, SpriteEffects.None, 0f);
             //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //base.Draw(Main.spriteBatch);
         }
@@ -113,6 +137,12 @@ namespace Spelprojekt2
         public void Destroy()
         {
             Main.instance.level.Enemies.Remove(this);
+            if (Main.instance.level.Enemies.Count == 0)
+            { // Den sista fienden har dött (eller tagit sig igenom) - waven är över
+                Global.gameState = Global.GameState.Idle;
+                GUI.WaveStartToggle.texture = Assets.StartWave;
+                Main.instance.level.wave++;
+            }
         }
 
         public static void DrawHPBars()
