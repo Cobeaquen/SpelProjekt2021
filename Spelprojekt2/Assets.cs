@@ -32,7 +32,9 @@ namespace Spelprojekt2
         public static Texture2D BombTower { get; internal set; }
         public static Texture2D BombTowerHead { get; internal set; }
         public static Texture2D SniperTower { get; internal set; }
+        public static Vector2 SniperTowerOrigin { get; internal set; }
         public static Texture2D SniperTowerHead { get; internal set; }
+        public static Vector2 SniperTowerHeadOrigin { get; internal set; }
         #endregion
 
         #region Bullets
