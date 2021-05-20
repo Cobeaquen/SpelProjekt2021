@@ -108,8 +108,9 @@ namespace Spelprojekt2
         public static void HandleInput()
         {
             HandleLeftClick();
+            HandleRightClick();
         }
-        public static void HandleLeftClick()
+        private static void HandleLeftClick()
         {
             if (Input.GetLeftClick())
             {
@@ -117,10 +118,6 @@ namespace Spelprojekt2
                 {
                     if (tower.Bounds.Contains(Input.MousePosition) && selectedTower != tower)
                     {
-                        if (placingTower)
-                        { // Avbryt placering
-
-                        }
                         Console.WriteLine("Selected tower");
                         SelectTower(tower);
                         return;
@@ -146,11 +143,22 @@ namespace Spelprojekt2
                 }
             }
         }
+        private static void HandleRightClick()
+        {
+            if (!Input.GetRightClick())
+                return;
+            if (placingTower)
+            { // Avbryt placering
+                towerHeld = null;
+                placingTower = false;
+            }
+        }
 
         public static void StartTowerPlacement(Tower tower)
         {
             placingTower = true;
             towerHeld = tower;
+            towerHeld.Position = Input.MousePosition;
         }
         public static void PlaceTower()
         {
