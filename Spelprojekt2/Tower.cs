@@ -34,8 +34,8 @@ namespace Spelprojekt2
         [JsonIgnore]
         public Rectangle Bounds { get; private set; }
 
-        private float lookRotation;
-        private float rotOffset = MathHelper.PiOver2;
+        protected float lookRotation;
+        protected float rotOffset = MathHelper.PiOver2;
         private Texture2D bodySprite;
         private Vector2 bodyOrigin;
         private Texture2D headSprite;

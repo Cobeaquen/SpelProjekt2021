@@ -47,7 +47,7 @@ namespace Spelprojekt2
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
 
             Global.placedTowers = new List<Tower>();
-            Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
+            //Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
         }
 
         protected override void UnloadContent()
