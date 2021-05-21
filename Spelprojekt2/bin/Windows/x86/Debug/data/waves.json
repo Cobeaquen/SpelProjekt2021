@@ -16,6 +16,11 @@
         "enemyType": "Spelprojekt2.Minion",
         "timeInterval": 0.9
       },
+	  {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Minion",
+        "timeInterval": 0.5
+      },
     ],
 	"restingTime": 1.0
   },
