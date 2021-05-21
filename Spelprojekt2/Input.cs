@@ -36,5 +36,9 @@ namespace Spelprojekt2
         {
             return Mstate.LeftButton == ButtonState.Pressed && PrevMstate.LeftButton == ButtonState.Released;
         }
+        public static bool GetRightClick()
+        {
+            return Mstate.RightButton == ButtonState.Pressed && PrevMstate.RightButton == ButtonState.Released;
+        }
     }
 }

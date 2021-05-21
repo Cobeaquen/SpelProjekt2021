@@ -57,7 +57,7 @@ namespace Spelprojekt2
             this.HP = maxHP;
             this.value = value;
             this.speed = speed;
-            hpBar = new Bar(maxHP, 0.5f, Assets.HPBarFrame, 24, 4);
+            hpBar = new Bar(maxHP, 0.2f, Assets.HPBarFrame, 24, 4);
             this.sprite = sprite;// DebugTextures.GenerateRectangle(20, 20, Color.Brown);
             this.origin = origin;
             progress = 1;
