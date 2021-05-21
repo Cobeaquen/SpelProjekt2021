@@ -27,6 +27,7 @@ namespace Spelprojekt2
             IsMouseVisible = true;
             IsFixedTimeStep = false;
             graphics.SynchronizeWithVerticalRetrace = false;
+            graphics.ToggleFullScreen();
         }
 
         protected override void Initialize()

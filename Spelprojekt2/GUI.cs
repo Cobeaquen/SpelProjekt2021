@@ -151,6 +151,7 @@ namespace Spelprojekt2
             { // Avbryt placering
                 towerHeld = null;
                 placingTower = false;
+                Tower.RangeColor = Color.Black;
             }
         }
 

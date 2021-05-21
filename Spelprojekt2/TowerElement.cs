@@ -28,7 +28,10 @@ namespace Spelprojekt2
         public override void Clicked()
         { // Skapa tornet för placering
             Tower t = tower.GetTowerDuplicate();
-            GUI.StartTowerPlacement(t);
+            if (Global.Buy(tower.cost))
+            {
+                GUI.StartTowerPlacement(t);
+            }
         }
         public void MouseOver(Vector2 position)
         {

@@ -25,7 +25,7 @@ namespace Spelprojekt2
 
         public static int StartHP = 200;
         public static int HP;
-        public static int StartCoins = 400;
+        public static int StartCoins = 100;
         public static int Coins;
 
         public static List<Tower> placedTowers;
@@ -61,6 +61,13 @@ namespace Spelprojekt2
         public static void Resume()
         {
             Paused = false;
+        }
+
+        public static bool Buy(int cost)
+        {
+            bool buy = cost <= Coins;
+            Coins = buy ? Coins - cost : Coins;
+            return buy;
         }
 
         public static T LoadJSON<T>(string relativePath)
