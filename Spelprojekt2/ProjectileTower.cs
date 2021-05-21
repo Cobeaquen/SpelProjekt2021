@@ -12,14 +12,12 @@ namespace Spelprojekt2
     {
         public float TotalDamage { get; set; }
         public List<Bullet> Bullets { get; private set; }
-        public List<Bullet> BulletDestroyQueue { get; private set; }
+        public List<Bullet> BulletDestroyQueue { get; protected set; }
 
         private double timeSinceFired = 0f;
 
-        Random ran = new Random();
-
-        float spreadModifier;
-        float spread;
+        protected float spreadModifier;
+        protected float spread;
 
         public float reach;
 
@@ -64,7 +62,7 @@ namespace Spelprojekt2
         /// <returns></returns>
         public virtual void Fire()
         {
-            float Offset = spread * (ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)ran.NextDouble();
+            float Offset = spread * (Global.ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)Global.ran.NextDouble();
 
             Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
             firePosition = Position + dir * cannonLength;

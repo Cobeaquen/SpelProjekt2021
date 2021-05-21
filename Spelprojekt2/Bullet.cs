@@ -11,22 +11,22 @@ namespace Spelprojekt2
 {
     public class Bullet
     {
-        public ProjectileTower Owner { get; private set; }
-        public float Velocity { get; private set; }
-        public float TimeAlive { get; private set; } = 2f;
-        public float Damage { get; private set; }
-        public Vector2 Position { get; private set; }
+        public ProjectileTower Owner { get; protected set; }
+        public float Velocity { get; protected set; }
+        public float TimeAlive { get; protected set; } = 2f;
+        public float Damage { get; protected set; }
+        public Vector2 Position { get; set; }
         
         public delegate void DestroyBulletCallback(Bullet bullet);
-        private DestroyBulletCallback destroyCallback;
-        private Rectangle rectangle;
+        protected DestroyBulletCallback destroyCallback;
+        protected Rectangle rectangle;
         
-        private Texture2D sprite;
-        private Texture2D textrect;
+        protected Texture2D sprite;
+        protected Texture2D textrect;
 
-        private float lookRotation;
-        private Vector2 lookDirection;
-        private float time;
+        protected float lookRotation;
+        protected Vector2 lookDirection;
+        protected float time;
         
         private float rotOffset = MathHelper.PiOver2;
 
@@ -42,7 +42,7 @@ namespace Spelprojekt2
             textrect = DebugTextures.GenerateHollowRectangele(Assets.Bullet.Height, Assets.Bullet.Height, 1, Color.Red);
         }
 
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             Position += lookDirection * Velocity * (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
             rectangle = new Rectangle(Position.ToPoint() - new Point(Assets.Bullet.Height / 2, Assets.Bullet.Height / 2), new Point(Assets.Bullet.Height, Assets.Bullet.Height));
@@ -64,7 +64,7 @@ namespace Spelprojekt2
 
         }
 
-        public Enemy CollisionCheck()
+        public virtual Enemy CollisionCheck()
         {
             foreach (var enemy in Main.instance.level.Enemies)
             {

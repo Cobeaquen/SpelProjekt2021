@@ -9,11 +9,23 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Spelprojekt2
 {
-    //public class BombTower : ProjectileTower
-    //{
-    //    public BombTower : base(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) 
-    //    {
+    public class BombTower : ProjectileTower
+    {
+        public BombTower(Vector2 position) : base(position, 10, 1, 0.2f, 10, 200, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
+        {
 
-    //    }
-    //}
+        }
+        public override void Fire()
+        {
+            float Offset = spread * (Global.ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)Global.ran.NextDouble();
+
+            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
+            firePosition = Position + dir * cannonLength;
+
+            Vector2 bulletDir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
+
+            var bullet = new BombBullet(this, 200f, firePosition, bulletDir, LookRotation + Offset, 1, DestroyBullet, 100f);
+            Bullets.Add(bullet);
+        }
+    }
 }

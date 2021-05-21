@@ -31,6 +31,8 @@ namespace Spelprojekt2
         public static List<Tower> placedTowers;
         public static double time;
 
+        public static Random ran = new Random();
+
         public static void Load()
         {
             gameState = GameState.Idle;
