@@ -11,7 +11,7 @@ namespace Spelprojekt2
 {
     public class BombTower : ProjectileTower
     {
-        public BombTower(Vector2 position) : base(position, 10, 1, 0.2f, 10, 200, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
+        public BombTower(Vector2 position, TowerInfo ti) : base(position, ti, 10, 1, 0.2f, 10, 200, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
         {
 
         }

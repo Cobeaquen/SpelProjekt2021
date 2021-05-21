@@ -33,6 +33,7 @@ namespace Spelprojekt2
         public Enemy Target { get; private set; }
         [JsonIgnore]
         public Rectangle Bounds { get; private set; }
+        public TowerInfo towerInfo;
 
         protected float lookRotation;
         protected float rotOffset = MathHelper.PiOver2;
@@ -53,12 +54,13 @@ namespace Spelprojekt2
 
         public static void GenerateTowers()
         {
-            GunTowerMK1 = new GunTower(Vector2.Zero);
+            //GunTowerMK1 = new GunTower(Vector2.Zero);
         }
 
-        public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
+            this.towerInfo = towerInfo;
             this.DamageModifier = 1f;
             this.Damage = damage;
             this.FireRate = fireRate;
@@ -81,6 +83,10 @@ namespace Spelprojekt2
         public virtual void OnPlaced()
         {
             UpdateBounds();
+            if (Global.Buy(towerInfo.cost))
+            {
+                Console.WriteLine("Bought");
+            }
         }
 
         public void UpdateBounds()
@@ -196,7 +202,7 @@ namespace Spelprojekt2
             }
             public Tower GetTowerDuplicate()
             {
-                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero });
+                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this });
             }
         }
     }

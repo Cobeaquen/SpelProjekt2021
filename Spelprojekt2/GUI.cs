@@ -152,6 +152,7 @@ namespace Spelprojekt2
                 towerHeld = null;
                 placingTower = false;
                 Tower.RangeColor = Color.Black;
+                selectedTower = null;
             }
         }
 

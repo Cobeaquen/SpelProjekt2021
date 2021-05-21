@@ -54,18 +54,26 @@ namespace Spelprojekt2
         public bool BombCollision()
         {
             Enemy collided = CollisionCheck();
-            for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
+            float dmg = 0;
+            if (collided != null)
             {
-                var enemy = Main.instance.level.Enemies[i];
-                float distance = Vector2.Distance(Position, enemy.position);
-                if (collided != null && distance <= bombRadius)
+                dmg = collided.Hit(50 * Damage + Owner.Damage * Owner.DamageModifier);
+                Owner.TotalDamage += dmg;
+
+                for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
                 {
-                    distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
-                    float dmg = enemy.Hit(50 * (Damage + Owner.Damage * Owner.DamageModifier) / distance);
-                    Owner.TotalDamage += dmg;
+                    var enemy = Main.instance.level.Enemies[i];
+                    float distance = Vector2.Distance(Position, enemy.position);
+                    if (collided != enemy && distance <= bombRadius)
+                    {
+                        distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
+                        dmg = enemy.Hit(50 * (Damage + Owner.Damage * Owner.DamageModifier) / distance);
+                        Owner.TotalDamage += (float)dmg;
+                    }
                 }
+                return true;
             }
-            return collided != null;
+            return false;
         }
         
     }
