@@ -15,6 +15,7 @@ namespace Spelprojekt2
     public static class Global
     {
         public static GameState gameState { get; set; }
+        public static bool Paused { get; private set; }
         public static float gameSpeed { get; set; }
 
         public static int ScreenWidth { get; private set; } = 1920;
@@ -41,9 +42,25 @@ namespace Spelprojekt2
 
         public static void Update(GameTime gameTime)
         {
-            time += gameTime.ElapsedGameTime.TotalSeconds;
+            if (!Paused)
+            {
+                time += gameTime.ElapsedGameTime.TotalSeconds;
+                foreach (Tower tower in placedTowers)
+                {
+                    tower.Update(gameTime);
+                }
+                Main.instance.level.Update(gameTime);
+            }
             GUI.Update();
             GUI.HandleInput();
+        }
+        public static void Pause()
+        {
+            Paused = true;
+        }
+        public static void Resume()
+        {
+            Paused = false;
         }
 
         public static T LoadJSON<T>(string relativePath)
@@ -97,10 +114,16 @@ namespace Spelprojekt2
 
             //return a / den;
         }
+        public static float GetShortestAngle(float from, float to)
+        {
+            float max_angle = MathHelper.TwoPi;
+            float difference = (to - from) % max_angle;
+            return ((2 * difference) % max_angle) - difference;
+        }
 
         public enum GameState
         {
-            Playing, Paused, Idle
+            Running, Idle, DoneWave
         }
     }
 }

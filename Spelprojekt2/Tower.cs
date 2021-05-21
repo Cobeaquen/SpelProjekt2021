@@ -106,7 +106,7 @@ namespace Spelprojekt2
             float targetAngle = (float)Math.Atan2(dir.Y, dir.X);
             if (LookRotation != targetAngle)
             {
-                float angleDiff = -GetShortestAngle(LookRotation, targetAngle);
+                float angleDiff = -Global.GetShortestAngle(LookRotation, targetAngle);
 
                 if (Math.Abs(angleDiff) < 0.01f)
                 {
@@ -139,13 +139,6 @@ namespace Spelprojekt2
                 }
             }
             return enemy;
-        }
-
-        private static float GetShortestAngle(float from, float to)
-        {
-            float max_angle = MathHelper.TwoPi;
-            float difference = (to - from) % max_angle;
-            return ((2 * difference) % max_angle) - difference;
         }
 
         public void SetRange(bool state)

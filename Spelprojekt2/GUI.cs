@@ -15,9 +15,10 @@ namespace Spelprojekt2
         public static List<UIElement> elements;
         public static TextElement HPElement;
         public static TextElement CoinsElement;
+        public static TextElement WaveElement;
         public static TextureElement TowerPurcahseMenu;
-        public static ToggleElement WaveStartToggle;
-        public static ToggleElement WavePauseToggle;
+        public static ButtonElement WaveStartToggle;
+        public static ButtonElement WavePauseToggle;
 
         private static bool placingTower;
         private static bool TowerOverLevel;
@@ -39,10 +40,12 @@ namespace Spelprojekt2
             elements.Add(CoinsElement);
             elements.Add(TowerPurcahseMenu);
 
-            WaveStartToggle = new ToggleElement(new Vector2(Assets.PauseWave.Width, Global.GameHeight), Assets.StartWave.Width, Assets.StartWave.Height, false, Assets.StartWave, Assets.WaveButtonOrigin, Assets.SpeedWave, WaveControl.ToggleStart);
-            WavePauseToggle = new ToggleElement(new Vector2(0, Global.GameHeight), Assets.PauseWave.Width, Assets.StartWave.Height, false, Assets.PauseWave, Assets.WaveButtonOrigin, Assets.PlayWave, WaveControl.TogglePause);
+            WaveStartToggle = new ButtonElement(new Vector2(Assets.PauseWave.Width, Global.GameHeight), Assets.StartWave.Width, Assets.StartWave.Height, WaveControl.ToggleStart, Assets.StartWave, Assets.WaveButtonOrigin);
+            WavePauseToggle = new ButtonElement(new Vector2(0, Global.GameHeight), Assets.PauseWave.Width, Assets.StartWave.Height, WaveControl.TogglePause, Assets.PauseWave, Assets.WaveButtonOrigin);
+            WaveElement = new TextElement(new Vector2(40, Global.GameHeight - 16), 100, 20, "Wave: " + Main.instance.level.wave.ToString(), Color.Black, Assets.DefaultFont);
             elements.Add(WaveStartToggle);
             elements.Add(WavePauseToggle);
+            elements.Add(WaveElement);
             //List<Tower.TowerInfo> tis = new List<Tower.TowerInfo>() { new Tower.TowerInfo(typeof(GunTower), "Gun Tower", "Most basic tower, great for medium-sized groups of enemies.", 50, "guntower") };
             //Global.SaveJSON(tis, "towers.json");
             //return;
@@ -59,6 +62,12 @@ namespace Spelprojekt2
         {
             HPElement.Text = Global.HP.ToString();
             CoinsElement.Text = Global.Coins.ToString();
+            WaveElement.Text = "Wave: " + (Main.instance.level.wave + 1).ToString();
+
+            foreach (var e in elements)
+            {
+                e.Update();
+            }
 
             if (placingTower)
             {
@@ -99,8 +108,9 @@ namespace Spelprojekt2
         public static void HandleInput()
         {
             HandleLeftClick();
+            HandleRightClick();
         }
-        public static void HandleLeftClick()
+        private static void HandleLeftClick()
         {
             if (Input.GetLeftClick())
             {
@@ -108,10 +118,6 @@ namespace Spelprojekt2
                 {
                     if (tower.Bounds.Contains(Input.MousePosition) && selectedTower != tower)
                     {
-                        if (placingTower)
-                        { // Avbryt placering
-
-                        }
                         Console.WriteLine("Selected tower");
                         SelectTower(tower);
                         return;
@@ -119,13 +125,11 @@ namespace Spelprojekt2
                 }
                 foreach(var element in elements)
                 {
-                    if (element is ButtonElement ie)
+                    element.Update();
+                    if (element is ButtonElement ie && ie.mouseOver)
                     { // Elementet är interaktivt - kör lämpliga funktioner
-                        if (ie.bounds.Contains(Input.MousePosition))
-                        {
-                            ie.Clicked();
-                            return;
-                        }
+                        ie.Clicked();
+                        return;
                     }
                 }
                 if (placingTower && !TowerOverLevel && !TowerOverTower)
@@ -139,11 +143,22 @@ namespace Spelprojekt2
                 }
             }
         }
+        private static void HandleRightClick()
+        {
+            if (!Input.GetRightClick())
+                return;
+            if (placingTower)
+            { // Avbryt placering
+                towerHeld = null;
+                placingTower = false;
+            }
+        }
 
         public static void StartTowerPlacement(Tower tower)
         {
             placingTower = true;
             towerHeld = tower;
+            towerHeld.Position = Input.MousePosition;
         }
         public static void PlaceTower()
         {

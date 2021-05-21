@@ -32,12 +32,19 @@ namespace Spelprojekt2
         public static Texture2D BombTower { get; internal set; }
         public static Texture2D BombTowerHead { get; internal set; }
         public static Texture2D SniperTower { get; internal set; }
+        public static Vector2 SniperTowerOrigin { get; internal set; }
         public static Texture2D SniperTowerHead { get; internal set; }
+        public static Vector2 SniperTowerHeadOrigin { get; internal set; }
         #endregion
 
         #region Bullets
         public static Texture2D Bullet { get; internal set; }
         public static Vector2 BulletOrigin { get; internal set; }
+        #endregion
+
+        #region Enemies
+        public static Texture2D Minion { get; internal set; }
+        public static Vector2 MinionOrigin { get; internal set; }
         #endregion
 
         #region GUI
@@ -48,10 +55,13 @@ namespace Spelprojekt2
         public static Vector2 MenyOrigin { get; internal set; }
         public static Texture2D StartWave { get; internal set; }
         public static Texture2D SpeedWave { get; internal set; }
+        public static Texture2D SpeedWave2 { get; internal set; }
         public static Texture2D PauseWave { get; internal set; }
         public static Texture2D PlayWave { get; internal set; }
         public static Vector2 WaveButtonOrigin { get; internal set; }
         public static Texture2D Level1 { get; internal set; }
+        public static Texture2D ShopButton { get; internal set; }
+        public static Vector2 ShopButtonOrigin { get; internal set; }
         public static Texture2D Level1Waypoints { get; internal set; }
         public static SpriteFont DefaultFont { get; internal set; }
         #endregion
@@ -59,6 +69,7 @@ namespace Spelprojekt2
         #region Effects
         public static Effect HPBarEffect { get; internal set; }
         public static Effect RangeEffect { get; internal set; }
+        public static Effect ButtonEffect { get; internal set; }
         #endregion
         public static void Initialize(ContentManager content)
         {
@@ -78,13 +89,19 @@ namespace Spelprojekt2
             BulletOrigin = GetOrigin(Bullet);
             #endregion
 
+            #region Enemies
+            Minion = content.Load<Texture2D>("graphics/enemies/minion");
+            MinionOrigin = GetOrigin(Minion);
+            #endregion
+
             #region Effects
             HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
-            HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
             RangeEffect = Content.Load<Effect>("graphics/shaders/range");
+            ButtonEffect = Content.Load<Effect>("graphics/shaders/button");
             #endregion
 
             #region GUI
+            HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
             Stats = Content.Load<Texture2D>("graphics/ui/stats");
             StatsOrigin = Vector2.Zero;
             Meny = Content.Load<Texture2D>("graphics/ui/meny");
@@ -95,9 +112,12 @@ namespace Spelprojekt2
 
             StartWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/start");
             SpeedWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/speed");
+            SpeedWave2 = Content.Load<Texture2D>("graphics/ui/icons/waveflow/speed2");
             PauseWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/pause");
             PlayWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/play");
             WaveButtonOrigin = GetLocation(StartWave, Location.BottomLeft);
+            ShopButton = Content.Load<Texture2D>("graphics/ui/buttons/shop");
+            ShopButtonOrigin = new Vector2(Global.GameWidth, 0f);
             #endregion
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");

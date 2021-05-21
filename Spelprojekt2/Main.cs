@@ -2,7 +2,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using MonoGame.SplineFlower.Content;
 using System.IO;
 
 namespace Spelprojekt2
@@ -40,10 +39,9 @@ namespace Spelprojekt2
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Assets.Initialize(Content);
             DebugTextures.LoadTextures(GraphicsDevice);
-            Global.Load();
-            Setup.Initialize(GraphicsDevice);
-            
             level = Level.GenerateExampleLevel();
+            level.LoadEnemies();
+            Global.Load();
 
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
@@ -64,13 +62,6 @@ namespace Spelprojekt2
                 Exit();
 
             Global.Update(gameTime);
-
-            foreach (Tower tower in Global.placedTowers)
-            {
-                tower.Update(gameTime);
-            }
-
-            level.Update(gameTime);
 
             if (Input.Pressed(Keys.F2))
             { // Ta skärmbild
@@ -99,13 +90,12 @@ namespace Spelprojekt2
             spriteBatch.End();
 
             Tower.DrawRange();
+            Enemy.DrawHPBars();
 
             // Rita GUI
-            spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+            spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);
             GUI.Draw();
             spriteBatch.End();
-
-            Enemy.DrawHPBars();
 
             GraphicsDevice.SetRenderTarget(null);
 

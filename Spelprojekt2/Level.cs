@@ -16,6 +16,7 @@ namespace Spelprojekt2
         public List<Enemy> Enemies = new List<Enemy>();
         public List<Waypoint> waypoints;
         public int wave = 0;
+        public Vector2 StartDirection { get; private set; }
         public List<Wave> Waves { get; private set; }
         //public HermiteSpline splinePath;
         public float[] splineLengths;
@@ -37,11 +38,17 @@ namespace Spelprojekt2
                 waypoints.Add(new Waypoint(point, len));
                 prevPoint = point;
             }
+            StartDirection = waypoints[0].point - waypoints[1].point;
 
             //Waves = new List<Wave>();
             //Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
             //Waves.Add(new Wave(new List<Burst>() { new Burst(1, typeof(Minion).FullName, 1f) }));
             Waves = Global.LoadJSON<List<Wave>>("waves.json");
+
+            //SaveJSON(Waves, "waves.json");
+        }
+        public void LoadEnemies()
+        {
             foreach (var w in Waves)
             {
                 foreach (var b in w.bursts)
@@ -50,8 +57,6 @@ namespace Spelprojekt2
                 }
             }
             waitTime = Waves[0].bursts[0].timeInterval;
-
-            //SaveJSON(Waves, "waves.json");
         }
         public Level(List<Waypoint> waypoints, Texture2D sprite)
         {
@@ -85,20 +90,22 @@ namespace Spelprojekt2
 
         public void Update(GameTime gameTime)
         {
-            if (spawnTime > waitTime && Global.gameState == Global.GameState.Playing)
+            if (spawnTime > waitTime && Global.gameState == Global.GameState.Running)
             { // Spawn new enemy
                 spawnTime = 0f;
                 if (Waves.Count > wave)
                 {
-                    waitTime = Waves[wave].GetCurrentTimeInterval() / Global.gameSpeed;
-                    Enemy enemy = Waves[wave].GetEnemy();
-                    if (enemy == null)
-                    { // Denna Wave är slut
-                        wave++;
-                        Global.gameState = Global.GameState.Idle;
+                    bool end = Waves[wave].GetEnemy(out Enemy enemy);
+                    Enemies.Add(enemy);
+                    if (end)
+                    { // Denna Wave har skickat ut alla sina fiender
+                        Global.gameState = Global.GameState.DoneWave;
+                        //wave++;
                     }
                     else
-                        Enemies.Add(enemy);
+                    {
+                        waitTime = Waves[wave].GetCurrentTimeInterval() + (Waves[wave].state == Wave.State.Waiting ? Waves[wave].restingTime : 0f);
+                    }
                 }
                 else
                 { // Inga fler waves
@@ -106,7 +113,7 @@ namespace Spelprojekt2
                 }
             }
 
-            spawnTime += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            spawnTime += (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
 
             for (int i = 0; i < Enemies.Count; i++)
             {
@@ -122,6 +129,14 @@ namespace Spelprojekt2
                 return Vector2.Zero;
             }
             return Vector2.Lerp(waypoints[progress - 1].point, waypoints[progress].point, t);
+        }
+        public Vector2 GetDirection(int progress)
+        {
+            if (waypoints.Count <= progress)
+            {
+                return Vector2.Zero;
+            }
+            return waypoints[progress - 1].point - waypoints[progress].point;
         }
 
         public void StartWave()
