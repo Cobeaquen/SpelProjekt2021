@@ -92,6 +92,7 @@ namespace Spelprojekt2
 
             Tower.DrawRange();
             Enemy.DrawHPBars();
+            Global.DrawEffects();
 
             // Rita GUI
             spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);

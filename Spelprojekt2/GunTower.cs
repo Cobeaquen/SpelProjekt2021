@@ -13,5 +13,12 @@ namespace Spelprojekt2
         {
             
         }
+
+        public override void Fire()
+        {
+            base.Fire();
+            var bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, DestroyBullet);
+            Bullets.Add(bullet);
+        }
     }
 }

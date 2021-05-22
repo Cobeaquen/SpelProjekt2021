@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Spelprojekt2.Effects;
 
 namespace Spelprojekt2
 {
@@ -29,12 +30,14 @@ namespace Spelprojekt2
         public static int Coins;
 
         public static List<Tower> placedTowers;
+        public static List<ParticleEffect> Effects;
         public static double time;
 
         public static Random ran = new Random();
 
         public static void Load()
         {
+            Effects = new List<ParticleEffect>();
             gameState = GameState.Idle;
             gameSpeed = 1f;
             HP = StartHP;
@@ -50,6 +53,10 @@ namespace Spelprojekt2
                 foreach (Tower tower in placedTowers)
                 {
                     tower.Update(gameTime);
+                }
+                for (int i = 0; i < Effects.Count; i++)
+                {
+                    Effects[i].Update(gameTime);
                 }
                 Main.instance.level.Update(gameTime);
             }
@@ -70,6 +77,14 @@ namespace Spelprojekt2
             bool buy = cost <= Coins;
             Coins = buy ? Coins - cost : Coins;
             return buy;
+        }
+
+        public static void DrawEffects()
+        {
+            for (int i = 0; i < Effects.Count; i++)
+            {
+                Effects[i].Draw();
+            }
         }
 
         public static T LoadJSON<T>(string relativePath)
@@ -117,17 +132,12 @@ namespace Spelprojekt2
                 float mod = (float)Math.Sqrt(AB.X * AB.X + AB.Y * AB.Y);
                 return (float)Math.Abs(AB.X * AP.Y - AB.Y * AP.X) / mod;
             }
-
-            //float num = Math.Abs((b.X - a.X) * (a.Y - p.Y) - (a.X - p.X) * (b.Y - a.Y));
-            //float den = (float)Math.Sqrt(Math.Pow(b.X - a.X, 2) + Math.Pow(b.Y - a.Y, 2));
-
-            //return a / den;
         }
         public static float GetShortestAngle(float from, float to)
         {
-            float max_angle = MathHelper.TwoPi;
-            float difference = (to - from) % max_angle;
-            return ((2 * difference) % max_angle) - difference;
+            float maxAngle = MathHelper.TwoPi;
+            float diff = (to - from) % maxAngle;
+            return ((2 * diff) % maxAngle) - diff;
         }
 
         public enum GameState

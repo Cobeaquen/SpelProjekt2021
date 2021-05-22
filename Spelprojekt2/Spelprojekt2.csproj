@@ -48,6 +48,7 @@
     <Compile Include="Burst.cs" />
     <Compile Include="ButtonElement.cs" />
     <Compile Include="DebugTextures.cs" />
+    <Compile Include="Effects\Shockwave.cs" />
     <Compile Include="Enemy.spline.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Global.cs" />
@@ -60,7 +61,9 @@
     <Compile Include="Level.cs" />
     <Compile Include="MapGenerator.cs" />
     <Compile Include="Minion.cs" />
+    <Compile Include="Effects\ParticleEffect.cs" />
     <Compile Include="ProjectileTower.cs" />
+    <Compile Include="RegularBullet.cs" />
     <Compile Include="SniperTower.cs" />
     <Compile Include="GunTower.cs" />
     <Compile Include="LaserTower.cs" />

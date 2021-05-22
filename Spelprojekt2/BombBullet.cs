@@ -11,8 +11,8 @@ namespace Spelprojekt2
 {
     public class BombBullet : Bullet
     {
-        protected float bombRadius;
-        public BombBullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, float bombRadius) : base(owner, velocity, position, lookDirection, lookRotation, damage, destroyCallback)
+        public float bombRadius;
+        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, float bombRadius) : base(owner, 100f, position, lookDirection, lookRotation, damage, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
         {
             this.bombRadius = bombRadius;
         }
@@ -30,6 +30,9 @@ namespace Spelprojekt2
             {
                 destroyCallback(this);
             }
+
+            lookRotation += 20f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             //if (enemy != null)
             //{
             //    float dmg = enemy.Hit(Damage + Owner.Damage * Owner.DamageModifier);
@@ -57,7 +60,7 @@ namespace Spelprojekt2
             float dmg = 0;
             if (collided != null)
             {
-                dmg = collided.Hit(50 * Damage + Owner.Damage * Owner.DamageModifier);
+                dmg = collided.Hit(Damage + Owner.Damage * Owner.DamageModifier);
                 Owner.TotalDamage += dmg;
 
                 for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
@@ -67,7 +70,7 @@ namespace Spelprojekt2
                     if (collided != enemy && distance <= bombRadius)
                     {
                         distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
-                        dmg = enemy.Hit(50 * (Damage + Owner.Damage * Owner.DamageModifier) / distance);
+                        dmg = enemy.Hit((Damage + Owner.Damage * Owner.DamageModifier) * (1 - distance / bombRadius));
                         Owner.TotalDamage += (float)dmg;
                     }
                 }

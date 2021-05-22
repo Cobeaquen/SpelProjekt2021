@@ -40,6 +40,8 @@ namespace Spelprojekt2
         #region Bullets
         public static Texture2D Bullet { get; internal set; }
         public static Vector2 BulletOrigin { get; internal set; }
+        public static Texture2D BombBullet { get; internal set; }
+        public static Vector2 BombBulletOrigin { get; internal set; }
         #endregion
 
         #region Enemies
@@ -70,6 +72,7 @@ namespace Spelprojekt2
         public static Effect HPBarEffect { get; internal set; }
         public static Effect RangeEffect { get; internal set; }
         public static Effect ButtonEffect { get; internal set; }
+        public static Effect ShockwaveEffect { get; internal set; }
         #endregion
         public static void Initialize(ContentManager content)
         {
@@ -87,6 +90,8 @@ namespace Spelprojekt2
             #region Bullets
             Bullet = Content.Load<Texture2D>("graphics/bullet_small");
             BulletOrigin = GetOrigin(Bullet);
+            BombBullet = Content.Load<Texture2D>("graphics/bomb_bullet");
+            BombBulletOrigin = GetOrigin(BombBullet);
             #endregion
 
             #region Enemies
@@ -98,6 +103,7 @@ namespace Spelprojekt2
             HPBarEffect = Content.Load<Effect>("graphics/shaders/hpbar");
             RangeEffect = Content.Load<Effect>("graphics/shaders/range");
             ButtonEffect = Content.Load<Effect>("graphics/shaders/button");
+            ShockwaveEffect = Content.Load<Effect>("graphics/shaders/shockwave");
             #endregion
 
             #region GUI
@@ -121,8 +127,8 @@ namespace Spelprojekt2
             #endregion
             //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
-            //BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");
-            //BombTowerHead = Content.Load<Texture2D>("graphics/bomb_tower_head");
+            BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");
+            BombTowerHead = Content.Load<Texture2D>("graphics/bomb_tower_head");
             //SniperTower = Content.Load<Texture2D>("graphics/sniper_tower_body");
             //SniperTowerHead = Content.Load<Texture2D>("graphics/sniper_tower_head");
         }

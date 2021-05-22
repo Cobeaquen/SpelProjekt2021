@@ -62,15 +62,13 @@ namespace Spelprojekt2
         /// <returns></returns>
         public virtual void Fire()
         {
-            float Offset = spread * (Global.ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)Global.ran.NextDouble();
-
             Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
             firePosition = Position + dir * cannonLength;
-
-            Vector2 bulletDir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
-
-            Bullet bullet = new Bullet(this, 200f, firePosition, bulletDir, LookRotation + Offset, 1, DestroyBullet);
-            Bullets.Add(bullet);
+        }
+        protected Vector2 GetBulletDirection(out float offset)
+        {
+            offset = spread * (Global.ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)Global.ran.NextDouble();
+            return new Vector2((float)Math.Cos(LookRotation + offset), (float)Math.Sin(LookRotation + offset));
         }
 
         public override void Draw()
