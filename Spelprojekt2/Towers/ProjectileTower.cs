@@ -31,10 +31,13 @@ namespace Spelprojekt2
         {
             base.Update(gameTime);
 
-            foreach (var bullet in Bullets)
+            for (int i = 0; i < Bullets.Count; i++)
             {
-                bullet.Update(gameTime);
+                Bullets[i].Update(gameTime);
+
             }
+            
+            
             foreach (var bullet in BulletDestroyQueue)
             {
                 Bullets.Remove(bullet);                               

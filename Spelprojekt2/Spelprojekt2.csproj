@@ -43,6 +43,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Bullets\BombBullet.cs" />
+    <Compile Include="Bullets\MiniBomb.cs" />
     <Compile Include="Towers\BombTower.cs" />
     <Compile Include="Bullets\Bullet.cs" />
     <Compile Include="Burst.cs" />

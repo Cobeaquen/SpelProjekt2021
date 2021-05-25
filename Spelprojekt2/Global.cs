@@ -62,10 +62,6 @@ namespace Spelprojekt2
                 }
                 Main.instance.level.Update(gameTime);
             }
-            if(HP <= 0)
-            {
-                Paused = true;
-            }
             GUI.Update();
             GUI.HandleInput();
         }

@@ -7,14 +7,16 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Bullets
 {
     public class BombBullet : Bullet
     {
         public float bombRadius;
-        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius) : base(owner, 100f, position, lookDirection, lookRotation, damage, 1, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
+        public int miniBombs;
+        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius, int miniBombs) : base(owner, 100f, position, lookDirection, lookRotation, damage, 1, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
         {
             this.bombRadius = bombRadius;
+            this.miniBombs = miniBombs;
         }
         public override void Update(GameTime gameTime)
         {
@@ -73,6 +75,12 @@ namespace Spelprojekt2
                         dmg = enemy.Hit((Damage + Owner.Damage * Owner.DamageModifier) * (1 - distance / bombRadius));
                         Owner.TotalDamage += (float)dmg;
                     }
+                }
+                for (float i = 0; i < 2*MathHelper.Pi; i += (2*MathHelper.Pi)/miniBombs)
+                {
+                    Vector2 dir = new Vector2((float)Math.Cos(i), (float)Math.Sin(i));
+                    MiniBomb bomb = new MiniBomb(Owner, Position, dir, 0f, 2f, hitCallback, 30);
+                    Owner.Bullets.Add(bomb);
                 }
                 return true;
             }
