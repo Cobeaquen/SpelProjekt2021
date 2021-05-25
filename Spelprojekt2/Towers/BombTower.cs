@@ -22,8 +22,6 @@ namespace Spelprojekt2
             base.Fire();
             var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit, 100f, 7);
             Bullets.Add(bullet);
-
-
         }
         protected override void Hit(Bullet bullet)
         {
