@@ -45,6 +45,15 @@ namespace Spelprojekt2
             HP = StartHP;
             Coins = StartCoins;
             GUI.Load();
+            Upgrade[][,] upgrades = new Upgrade[3][,];
+            for (int i = 0; i < upgrades.Length; i++)
+            {
+                upgrades[i] = new Upgrade[2, 3];
+                for (int y = 0; y < upgrades[i].GetLength(1); y++)
+                    for (int x = 0; x < upgrades[i].GetLength(0); x++)
+                        upgrades[i][x, y] = new Upgrade("damage mk1", "Increases damage by 10%", 20);
+            }
+            SaveJSON<Upgrade[][,]>(upgrades, "upgrades.json");
         }
 
         public static void Update(GameTime gameTime)

@@ -13,6 +13,8 @@ Towers:
 -Bomb
 -Sniper (High damage output, low speed)
 -Tesla/electric tower
+-Tack shooter
+-Spike factory
 
 Upgrades:
 -Speed
