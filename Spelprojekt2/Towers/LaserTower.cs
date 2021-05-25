@@ -17,7 +17,7 @@ namespace Spelprojekt2
         public bool rayVisible;
 
         private Vector2 hitPoint;
-        public LaserTower(Vector2 position, TowerInfo ti) : base(position, ti, 0.1f, 100f, 5f, 100f, Assets.LaserTower, Assets.GunTowerOrigin, Assets.LaserTowerHead, Assets.GunTowerHeadOrigin)
+        public LaserTower(Vector2 position, TowerInfo ti) : base(position, ti, 0.2f, 100f, 2, 1f, 250f, Assets.LaserTower, Assets.GunTowerOrigin, Assets.LaserTowerHead, Assets.GunTowerHeadOrigin)
         {
             //laserRay = Assets.LaserRay;
             rayVisible = true;
@@ -36,7 +36,7 @@ namespace Spelprojekt2
         }
         public override void Fire()
         { // Skjut en ray
-            if (ray.Intersecting(1, out List<CollisionResult> info, out hitPoint)) // DUPLICATE RESULTS !!!???????
+            if (ray.Intersecting(Pierce + PierceAdd, out List<CollisionResult> info, out hitPoint)) // DUPLICATE RESULTS !!!???????
             {
                 for (int i = 0; i < info.Count; i++)
                 {

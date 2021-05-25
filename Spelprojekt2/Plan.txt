@@ -7,11 +7,12 @@
 -enemies can burn and be poisoned
 -different types of turrets - can only be combined within their own type.
 
-Turrets:
+Towers:
 -Gun
 -Laser/energy
 -Bomb
 -Sniper (High damage output, low speed)
+-Tesla/electric tower
 
 Upgrades:
 -Speed

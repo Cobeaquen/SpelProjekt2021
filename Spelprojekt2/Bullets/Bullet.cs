@@ -15,34 +15,43 @@ namespace Spelprojekt2
         public float Velocity { get; protected set; }
         public float TimeAlive { get; protected set; } = 2f;
         public float Damage { get; protected set; }
+        public int DefaultPierce { get; protected set; }
         public Vector2 Position { get; set; }
         
-        public delegate void DestroyBulletCallback(Bullet bullet);
-        protected DestroyBulletCallback destroyCallback;
+        public delegate void HitCallback(Bullet bullet);
+        protected HitCallback hitCallback;
         protected Rectangle rectangle;
         
         protected Texture2D sprite;
         protected Vector2 spriteOrigin;
-        protected Texture2D textrect;
+        protected Texture2D debugRect;
 
         protected float lookRotation;
         protected Vector2 lookDirection;
         protected float time;
         
         private float rotOffset = MathHelper.PiOver2;
+        private int pierceLeft;
 
-        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, Texture2D sprite, Vector2 spriteOrigin)
+        private List<Enemy> collided;
+
+        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, int pierce, HitCallback hitCallback, Texture2D sprite, Vector2 spriteOrigin)
         {
             this.Owner = owner;
             this.Velocity = velocity;
             this.Position = position;
             this.lookDirection = lookDirection;
             this.lookRotation = lookRotation;
-            this.destroyCallback = destroyCallback;
+            this.hitCallback = hitCallback;
             this.Damage = damage;
             this.sprite = sprite;
             this.spriteOrigin = spriteOrigin;
-            textrect = DebugTextures.GenerateHollowRectangele(Assets.Bullet.Height, Assets.Bullet.Height, 1, Color.Red);
+            this.DefaultPierce = pierce;
+
+            collided = new List<Enemy>();
+
+            pierceLeft = DefaultPierce + owner.Pierce + owner.PierceAdd;
+            debugRect = DebugTextures.GenerateHollowRectangele(Assets.Bullet.Height, Assets.Bullet.Height, 1, Color.Red);
         }
 
         public virtual void Update(GameTime gameTime)
@@ -53,20 +62,28 @@ namespace Spelprojekt2
             if (time >= TimeAlive || Vector2.Distance(Owner.Position, Position) >= Owner.reach)
             {
                 time = 0f;
-                destroyCallback(this); // Destroy bullet
+                Hit();
             }
 
             Enemy enemy = CollisionCheck();
-            if (enemy != null)
+            if (enemy != null && !collided.Contains(enemy))
             {
+                collided.Add(enemy);
                 float dmg = enemy.Hit(Damage + Owner.Damage * Owner.DamageModifier);
                 Owner.TotalDamage += dmg;
                 Console.WriteLine("Hit enemy for {0} HP", dmg);
-                destroyCallback(this);
+                Hit();
             }
 
         }
 
+        public virtual void Hit()
+        {
+            if (--pierceLeft <= 0)
+            {
+                hitCallback(this);
+            }
+        }
         public virtual Enemy CollisionCheck()
         {
             foreach (var enemy in Main.instance.level.Enemies)

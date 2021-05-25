@@ -51,12 +51,13 @@ namespace Spelprojekt2.Collision
             point = Vector2.Zero;
             colInfo = new List<CollisionResult>();
             List<Vector2> colPoints = new List<Vector2>();
-
+            
+            float minDist;
             foreach (var col in Main.instance.level.Enemies)
             {
                 Vector2 colPoint;
                 CollisionResult res = CollisionResult.Empty;
-                float minDist = float.MaxValue;
+                float minDistEdge = float.MaxValue;
                 for (int x = 0; x < col.collider.edges.Length; x++)
                 {
                     Vector2 c = col.collider.edges[x].a;
@@ -71,9 +72,9 @@ namespace Spelprojekt2.Collision
                         collided = true;
                         colPoint = a + r * t;
                         float dist = Vector2.DistanceSquared(a, colPoint);
-                        if (dist < minDist)
+                        if (dist < minDistEdge)
                         {
-                            minDist = dist;
+                            minDistEdge = dist;
                             res = new CollisionResult(col, colPoint);
                         }
                         else
@@ -91,10 +92,10 @@ namespace Spelprojekt2.Collision
             }
             if (colInfo.Count > pierce)
             {
-                colInfo.OrderBy(e => Vector2.DistanceSquared(a, e.point));
+                colInfo = colInfo.OrderBy(e => Vector2.DistanceSquared(a, e.point)).ToList();
                 colInfo.RemoveRange(pierce, colInfo.Count - pierce);
             }
-            point = colInfo.Count > 0 ? colInfo.Last().point : Vector2.Zero;
+            point = colInfo.Count > 0 ? colInfo.First().point : Vector2.Zero;
             //for (int i = 0; i < colInfo.Count; i++)
             //{
             //    float shortestDistance = float.MaxValue;
