@@ -110,7 +110,7 @@ namespace Spelprojekt2
 
         public void ReachEnd()
         { // Förstör fienden och förlora liv
-            Global.HP -= value;
+            Global.HP -= (int)HP;
             Destroy();
             return;
         }
@@ -134,8 +134,8 @@ namespace Spelprojekt2
 
         public virtual void Draw()
         {
-            Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
-            Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, origin, 1f, SpriteEffects.None, 0f);
+            //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //base.Draw(Main.spriteBatch);
         }
 
