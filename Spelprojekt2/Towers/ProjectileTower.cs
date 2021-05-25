@@ -18,7 +18,7 @@ namespace Spelprojekt2
 
         public float reach;
 
-        public ProjectileTower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float spread, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, towerInfo, damage, fireRate, turnSpeed, range, bodySprite, bodyOrigin, headSprite, headOrigin)
+        public ProjectileTower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float spread, float turnSpeed, float range, int pierce, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, towerInfo, damage, fireRate, pierce, turnSpeed, range, bodySprite, bodyOrigin, headSprite, headOrigin)
         {
             Bullets = new List<Bullet>();
             BulletDestroyQueue = new List<Bullet>();
@@ -69,7 +69,7 @@ namespace Spelprojekt2
             }
         }
         
-        protected virtual void DestroyBullet(Bullet bullet)
+        protected virtual void Hit(Bullet bullet)
         {
             BulletDestroyQueue.Add(bullet);
         }

@@ -12,7 +12,7 @@ namespace Spelprojekt2
     public class BombBullet : Bullet
     {
         public float bombRadius;
-        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, float bombRadius) : base(owner, 100f, position, lookDirection, lookRotation, damage, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
+        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius) : base(owner, 100f, position, lookDirection, lookRotation, damage, 1, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
         {
             this.bombRadius = bombRadius;
         }
@@ -24,11 +24,11 @@ namespace Spelprojekt2
             if (time >= TimeAlive || Vector2.Distance(Owner.Position, Position) >= Owner.reach)
             {
                 time = 0f;
-                destroyCallback(this); // Destroy bullet
+                hitCallback(this); // Destroy bullet
             }
             if (BombCollision())
             {
-                destroyCallback(this);
+                hitCallback(this);
             }
 
             lookRotation += 20f * (float)gameTime.ElapsedGameTime.TotalSeconds;

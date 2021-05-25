@@ -12,21 +12,21 @@ namespace Spelprojekt2
 {
     public class BombTower : ProjectileTower
     {
-        public BombTower(Vector2 position, TowerInfo ti) : base(position, ti, 15, 1, 0.2f, 3, 200, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin)
+        public BombTower(Vector2 position, TowerInfo ti) : base(position, ti, 15, 1, 0.2f, 3, 200, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin)
         {
 
         }
         public override void Fire()
         {
             base.Fire();
-            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, DestroyBullet, 100f);
+            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit, 100f);
             Bullets.Add(bullet);
         }
-        protected override void DestroyBullet(Bullet bullet)
+        protected override void Hit(Bullet bullet)
         {
             Shockwave sw = new Shockwave(bullet.Position, 1f, ((BombBullet)bullet).bombRadius);
             Global.Effects.Add(sw);
-            base.DestroyBullet(bullet);
+            base.Hit(bullet);
         }
     }
 }

@@ -26,6 +26,8 @@ namespace Spelprojekt2
         public float Damage { get; private set; }
         public float Range { get; private set; }
         public float RangeModifier { get; private set; }
+        public int Pierce { get; private set; }
+        public int PierceAdd { get; private set; }
         public TargetType Targetting { get; private set; }
         public Enemy Target { get; private set; }
         public Rectangle Bounds { get; private set; }
@@ -54,7 +56,7 @@ namespace Spelprojekt2
             //GunTowerMK1 = new GunTower(Vector2.Zero);
         }
 
-        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, int pierce, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
             this.towerInfo = towerInfo;
@@ -69,6 +71,8 @@ namespace Spelprojekt2
             this.bodyOrigin = bodyOrigin;
             this.headSprite = headSprite;
             this.headOrigin = headOrigin;
+            this.Pierce = pierce;
+            this.PierceAdd = 0;
 
             Bounds = new Rectangle((position - bodyOrigin).ToPoint(), new Point(bodySprite.Width, bodySprite.Height));
             rangeSprite = DebugTextures.pixel;

@@ -31,7 +31,7 @@
   <Class Name="Spelprojekt2.ProjectileTower">
     <Position X="5" Y="11.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>KAQAkAAAAAAAAgAAAAAAAAAAAAQEQAAAAQCAAAAACAA=</HashCode>
+      <HashCode>KAQAkAAAAAAAAgAAAAIAAAAAAAAEAAAAAACAAAAACAA=</HashCode>
       <FileName>Towers\ProjectileTower.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -69,7 +69,7 @@
   <Class Name="Spelprojekt2.LaserTower">
     <Position X="5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAAAAIAAAAAgAAAAAAAAAAAAAEAAAAAAAAAQABAAA=</HashCode>
+      <HashCode>AAQAAAAIAAAAAgAAAAAAAAAAAAAEAAAAAAAABQABAAA=</HashCode>
       <FileName>Towers\LaserTower.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -153,7 +153,7 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAwAQQCAAAAgCgEiFAGAMiRgCAIFJIgAAAAAAAABAiA=</HashCode>
+      <HashCode>AAwAQQCAAAAgCgEiFAGAMiRgCAYFZIggAAAAAAABAiA=</HashCode>
       <FileName>Towers\Tower.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -277,14 +277,14 @@
   <Class Name="Spelprojekt2.Bullet">
     <Position X="7.5" Y="18.25" Width="1.5" />
     <NestedTypes>
-      <Delegate Name="Spelprojekt2.Bullet.DestroyBulletCallback" Collapsed="true">
+      <Delegate Name="Spelprojekt2.Bullet.HitCallback" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>Bullets\Bullet.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>kAQRAACAgAAAAgAgAAEAACAACBAAAAAAAAAAEABEAAA=</HashCode>
+      <HashCode>kAQRAACAAACAAgIgAAMAACAAKBgAAAAAAAAAAABEAAA=</HashCode>
       <FileName>Bullets\Bullet.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -340,7 +340,7 @@
   <Class Name="Spelprojekt2.BombTower">
     <Position X="5" Y="9.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAQAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Towers\BombTower.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -354,7 +354,7 @@
   <Struct Name="Spelprojekt2.Collision.CollisionResult">
     <Position X="2.75" Y="22.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAgAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Collision\CollisionResult.cs</FileName>
     </TypeIdentifier>
   </Struct>
