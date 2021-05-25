@@ -111,6 +111,10 @@ namespace Spelprojekt2
         public void ReachEnd()
         { // Förstör fienden och förlora liv
             Global.HP -= value;
+            if (Global.HP <= 0)
+            {
+                Global.GameOver();
+            }
             Destroy();
             return;
         }

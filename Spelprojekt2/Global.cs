@@ -65,6 +65,10 @@ namespace Spelprojekt2
             GUI.Update();
             GUI.HandleInput();
         }
+        public static void GameOver()
+        {
+            Pause();
+        }
         public static void Pause()
         {
             Paused = true;
