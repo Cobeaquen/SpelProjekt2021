@@ -99,8 +99,8 @@ namespace Spelprojekt2
             #endregion
 
             #region Enemies
-            Minion = content.Load<Texture2D>("graphics/enemies/minion");
-            MinionOrigin = GetOrigin(Minion);
+            Minion = content.Load<Texture2D>("graphics/enemies/enemy1");
+            MinionOrigin = new Vector2(12, 12);
             #endregion
 
             #region Effects
