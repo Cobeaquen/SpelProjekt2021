@@ -11,8 +11,8 @@ namespace Spelprojekt2
 {
     public class BombBullet : Bullet
     {
-        protected float bombRadius;
-        public BombBullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, float bombRadius) : base(owner, velocity, position, lookDirection, lookRotation, damage, destroyCallback)
+        public float bombRadius;
+        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, float bombRadius) : base(owner, 100f, position, lookDirection, lookRotation, damage, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
         {
             this.bombRadius = bombRadius;
         }
@@ -30,6 +30,9 @@ namespace Spelprojekt2
             {
                 destroyCallback(this);
             }
+
+            lookRotation += 20f * (float)gameTime.ElapsedGameTime.TotalSeconds;
+
             //if (enemy != null)
             //{
             //    float dmg = enemy.Hit(Damage + Owner.Damage * Owner.DamageModifier);
@@ -54,18 +57,26 @@ namespace Spelprojekt2
         public bool BombCollision()
         {
             Enemy collided = CollisionCheck();
-            for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
+            float dmg = 0;
+            if (collided != null)
             {
-                var enemy = Main.instance.level.Enemies[i];
-                float distance = Vector2.Distance(Position, enemy.position);
-                if (collided != null && distance <= bombRadius)
+                dmg = collided.Hit(Damage + Owner.Damage * Owner.DamageModifier);
+                Owner.TotalDamage += dmg;
+
+                for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
                 {
-                    distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
-                    float dmg = enemy.Hit(50 * (Damage + Owner.Damage * Owner.DamageModifier) / distance);
-                    Owner.TotalDamage += dmg;
+                    var enemy = Main.instance.level.Enemies[i];
+                    float distance = Vector2.Distance(Position, enemy.position);
+                    if (collided != enemy && distance <= bombRadius)
+                    {
+                        distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
+                        dmg = enemy.Hit((Damage + Owner.Damage * Owner.DamageModifier) * (1 - distance / bombRadius));
+                        Owner.TotalDamage += (float)dmg;
+                    }
                 }
+                return true;
             }
-            return collided != null;
+            return false;
         }
         
     }

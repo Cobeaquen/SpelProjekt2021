@@ -8,7 +8,7 @@
   },
   {
     "name": "Laser Tower",
-    "type": "Spelprojekt2.GunTower",
+    "type": "Spelprojekt2.LaserTower",
     "desc": "Epic laser tower, melts through enemies.",
     "cost": 50,
     "icon": "guntower"

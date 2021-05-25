@@ -23,6 +23,7 @@ namespace Spelprojekt2
         private static bool placingTower;
         private static bool TowerOverLevel;
         private static bool TowerOverTower;
+        private static bool CanPlace;
 
         public static void Load()
         {
@@ -114,7 +115,7 @@ namespace Spelprojekt2
         {
             if (Input.GetLeftClick())
             {
-                foreach (var tower in Global.placedTowers)
+                foreach (var tower in Global.PlacedTowers)
                 {
                     if (tower.Bounds.Contains(Input.MousePosition) && selectedTower != tower)
                     {
@@ -151,6 +152,8 @@ namespace Spelprojekt2
             { // Avbryt placering
                 towerHeld = null;
                 placingTower = false;
+                Tower.RangeColor = Color.Black;
+                selectedTower = null;
             }
         }
 
@@ -165,7 +168,12 @@ namespace Spelprojekt2
             towerHeld.Position = Input.MousePosition.ToPoint().ToVector2();
             towerHeld.UpdateBounds();
 
-            Vector2 temp = Vector2.Zero;
+            if (!Global.CanAfford(towerHeld.towerInfo.cost))
+            {
+                Tower.RangeColor = Color.Red;
+                CanPlace = false;
+                return;
+            }
 
             // Se om den inkräktar banans yta
             //over = over || Main.instance.level.IsInsideLineRange(new Vector2(towerHeld.Bounds.Left, towerHeld.Bounds.Top));
@@ -178,7 +186,7 @@ namespace Spelprojekt2
 
             if (!TowerOverLevel)
             {
-                foreach (var t in Global.placedTowers)
+                foreach (var t in Global.PlacedTowers)
                 {
                     if (towerHeld.Bounds.Intersects(t.Bounds))
                     {
@@ -188,7 +196,7 @@ namespace Spelprojekt2
                 }
             }
 
-            if (TowerOverLevel || TowerOverTower)
+            if (TowerOverLevel || TowerOverTower || CanPlace)
             { // Rita både tornet och range med röd färg.
                 Tower.RangeColor = Color.Red;
             }
@@ -199,11 +207,15 @@ namespace Spelprojekt2
         }
         public static void FinishTowerPlacement()
         {
-            placingTower = false;
-            Global.placedTowers.Add(towerHeld);
-            towerHeld.OnPlaced();
-            selectedTower = towerHeld;
-            towerHeld = null;
+            if (Global.Buy(towerHeld.towerInfo.cost))
+            {
+                placingTower = false;
+                Global.PlacedTowers.Add(towerHeld);
+                towerHeld.OnPlaced();
+                selectedTower = towerHeld;
+                towerHeld = null;
+                Console.WriteLine("Bought");
+            }
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Spelprojekt2
 {
     public class SniperTower : ProjectileTower
     {
-        public SniperTower(Vector2 position) : base(position, 10f, 0.4f, 0.1f, 0.2f, 100f, Assets.SniperTower, Assets.SniperTowerOrigin, Assets.SniperTowerHead, Assets.SniperTowerHeadOrigin)
+        public SniperTower(Vector2 position, TowerInfo ti) : base(position, ti, 10f, 0.4f, 0.1f, 0.2f, 100f, Assets.SniperTower, Assets.SniperTowerOrigin, Assets.SniperTowerHead, Assets.SniperTowerHeadOrigin)
         {
            
         }

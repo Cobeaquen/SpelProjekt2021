@@ -27,6 +27,7 @@ namespace Spelprojekt2
             IsMouseVisible = true;
             IsFixedTimeStep = false;
             graphics.SynchronizeWithVerticalRetrace = false;
+            //graphics.ToggleFullScreen();
         }
 
         protected override void Initialize()
@@ -46,7 +47,7 @@ namespace Spelprojekt2
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
 
-            Global.placedTowers = new List<Tower>();
+            Global.PlacedTowers = new List<Tower>();
             //Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
         }
 
@@ -81,7 +82,7 @@ namespace Spelprojekt2
 
             level.Draw();
 
-            foreach (Tower tower in Global.placedTowers)
+            foreach (Tower tower in Global.PlacedTowers)
             {
                 tower.Draw();
             }
@@ -91,6 +92,7 @@ namespace Spelprojekt2
 
             Tower.DrawRange();
             Enemy.DrawHPBars();
+            Global.DrawEffects();
 
             // Rita GUI
             spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);

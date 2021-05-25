@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/levels/level1_waypoints.png</SourceFile>
-  <SourceTime>2021-05-04T17:12:06.1473822+02:00</SourceTime>
-  <DestFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/levels/level1_waypoints.xnb</DestFile>
-  <DestTime>2021-05-24T11:53:34.6536461+02:00</DestTime>
+  <SourceFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/levels/level1_waypoints.png</SourceFile>
+  <SourceTime>2021-05-03T18:02:08.2920523+02:00</SourceTime>
+  <DestFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/levels/level1_waypoints.xnb</DestFile>
+  <DestTime>2021-05-21T20:59:02.819299+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

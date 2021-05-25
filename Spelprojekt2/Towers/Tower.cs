@@ -11,15 +11,14 @@ namespace Spelprojekt2
 {
     public class Tower
     {
-        public static Tower GunTowerMK1 { get; private set; }
-        public static Tower LaserTowerMK1 { get; private set; }
-
         public static Color RangeColor { get; set; }
-
-        [JsonIgnore]
+        public float TotalDamage { get; set; }
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
         protected Vector2 firePosition;
+        protected Vector2 fireDirection;
+        protected bool canFire;
+
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float TurnSpeed { get; private set; }
         public float FireRate { get; private set; }
@@ -27,12 +26,10 @@ namespace Spelprojekt2
         public float Damage { get; private set; }
         public float Range { get; private set; }
         public float RangeModifier { get; private set; }
-        [JsonIgnore]
         public TargetType Targetting { get; private set; }
-        [JsonIgnore]
         public Enemy Target { get; private set; }
-        [JsonIgnore]
         public Rectangle Bounds { get; private set; }
+        public TowerInfo towerInfo;
 
         protected float lookRotation;
         protected float rotOffset = MathHelper.PiOver2;
@@ -50,20 +47,23 @@ namespace Spelprojekt2
         private Enemy prevTarget;
 
         private bool viewRange = false;
+        private double timeSinceFired = 0f;
 
         public static void GenerateTowers()
         {
-            GunTowerMK1 = new GunTower(Vector2.Zero);
+            //GunTowerMK1 = new GunTower(Vector2.Zero);
         }
 
-        public Tower(Vector2 position, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
         {
             this.Position = position;
+            this.towerInfo = towerInfo;
             this.DamageModifier = 1f;
             this.Damage = damage;
             this.FireRate = fireRate;
             this.TurnSpeed = turnSpeed;
             this.Range = range;
+            this.RangeModifier = 1f;
             this.LookRotation = -MathHelper.PiOver2;
             this.bodySprite = bodySprite;
             this.bodyOrigin = bodyOrigin;
@@ -74,8 +74,15 @@ namespace Spelprojekt2
             rangeSprite = DebugTextures.pixel;
             cannonLength = this.headSprite.Height;
             Targetting = TargetType.First;
+            canFire = false;
 
             debugFirePoint = DebugTextures.GenerateRectangle(2, 2, Color.Red);
+        }
+
+        public virtual void Fire()
+        {
+            fireDirection = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
+            firePosition = Position + fireDirection * (cannonLength - 8);
         }
 
         public virtual void OnPlaced()
@@ -91,6 +98,15 @@ namespace Spelprojekt2
         public virtual void Update(GameTime gameTime)
         {
             TrackTarget(gameTime);
+            canFire = Target != null;
+            float fireTime = (1f / FireRate) / Global.gameSpeed;
+            timeSinceFired = timeSinceFired >= fireTime && !canFire ? fireTime : timeSinceFired + gameTime.ElapsedGameTime.TotalSeconds;
+
+            if (timeSinceFired >= fireTime && canFire)
+            {
+                timeSinceFired = 0f;
+                Fire();
+            }
             //Vector2 mouseDir = Input.MousePosition - position;
             //LookRotation = (float)Math.Atan2(mouseDir.Y, mouseDir.X);
         }
@@ -196,7 +212,7 @@ namespace Spelprojekt2
             }
             public Tower GetTowerDuplicate()
             {
-                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero });
+                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this });
             }
         }
     }

@@ -22,6 +22,7 @@ namespace Spelprojekt2
         protected Rectangle rectangle;
         
         protected Texture2D sprite;
+        protected Vector2 spriteOrigin;
         protected Texture2D textrect;
 
         protected float lookRotation;
@@ -30,7 +31,7 @@ namespace Spelprojekt2
         
         private float rotOffset = MathHelper.PiOver2;
 
-        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback)
+        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, DestroyBulletCallback destroyCallback, Texture2D sprite, Vector2 spriteOrigin)
         {
             this.Owner = owner;
             this.Velocity = velocity;
@@ -39,6 +40,8 @@ namespace Spelprojekt2
             this.lookRotation = lookRotation;
             this.destroyCallback = destroyCallback;
             this.Damage = damage;
+            this.sprite = sprite;
+            this.spriteOrigin = spriteOrigin;
             textrect = DebugTextures.GenerateHollowRectangele(Assets.Bullet.Height, Assets.Bullet.Height, 1, Color.Red);
         }
 
@@ -80,7 +83,7 @@ namespace Spelprojekt2
 
         public void Draw()
         {
-            Main.spriteBatch.Draw(Assets.Bullet, Position, null, Color.White, lookRotation + rotOffset, Assets.BulletOrigin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(sprite, Position, null, Color.White, lookRotation + rotOffset, spriteOrigin, 1f, SpriteEffects.None, 0f);
             //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }

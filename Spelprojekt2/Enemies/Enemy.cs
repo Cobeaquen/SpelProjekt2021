@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Spelprojekt2.Collision;
 
 namespace Spelprojekt2
 {
@@ -37,6 +38,8 @@ namespace Spelprojekt2
         public Rectangle rectangle;
         [JsonIgnore]
         public Vector2 position;
+        [JsonIgnore]
+        public RectCollider collider;
 
         [JsonIgnore]
         public float LookRotation { get; private set; }
@@ -64,13 +67,15 @@ namespace Spelprojekt2
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Height, sprite.Height));
             LookRotation = (float)Math.Atan2(Main.instance.level.StartDirection.Y, Main.instance.level.StartDirection.X) - MathHelper.Pi;
 
+            collider = new RectCollider(rectangle);
+
             textrect = DebugTextures.GenerateHollowRectangele(rectangle.Width, rectangle.Height, 1, Color.Red);
         }
         public void Update(GameTime gameTime)
         {
             //LookRotation = (float)Math.Atan2(dir.Y, dir.X);
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Width, sprite.Height));
-            //Console.WriteLine("Progress per edge: " + progressPerEdge);
+            collider.UpdateEdges(rectangle);
 
             t += (float)gameTime.ElapsedGameTime.TotalSeconds / Main.instance.level.waypoints[progress].length * speed * Global.gameSpeed;
             if (t > 1f)
@@ -129,15 +134,15 @@ namespace Spelprojekt2
 
         public virtual void Draw()
         {
-            Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, origin, 1f, SpriteEffects.None, 0f);
-            //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(sprite, position, null, Color.White, 0f, origin, 1f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
             //base.Draw(Main.spriteBatch);
         }
 
         public void Destroy()
         {
             Main.instance.level.Enemies.Remove(this);
-            if (Main.instance.level.Enemies.Count == 0)
+            if (Main.instance.level.Enemies.Count == 0 && Global.gameState == Global.GameState.DoneWave)
             { // Den sista fienden har dött (eller tagit sig igenom) - waven är över
                 Global.gameState = Global.GameState.Idle;
                 GUI.WaveStartToggle.texture = Assets.StartWave;
