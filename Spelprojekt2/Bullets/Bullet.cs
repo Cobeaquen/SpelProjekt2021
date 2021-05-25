@@ -30,7 +30,7 @@ namespace Spelprojekt2
         protected Vector2 lookDirection;
         protected float time;
         
-        private float rotOffset = MathHelper.PiOver2;
+        protected float rotOffset = MathHelper.PiOver2;
         private int pierceLeft;
 
         private List<Enemy> collided;
@@ -98,7 +98,7 @@ namespace Spelprojekt2
             return null;
         }
 
-        public void Draw()
+        public virtual void Draw()
         {
             Main.spriteBatch.Draw(sprite, Position, null, Color.White, lookRotation + rotOffset, spriteOrigin, 1f, SpriteEffects.None, 0f);
             //Main.spriteBatch.Draw(textrect, rectangle.Location.ToVector2(), null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
