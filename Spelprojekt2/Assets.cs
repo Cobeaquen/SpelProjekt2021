@@ -84,6 +84,10 @@ namespace Spelprojekt2
             GunTower = Content.Load<Texture2D>("graphics/gun_tower_body");
             GunTowerOrigin = GetOrigin(GunTower);
             GunTowerHead = Content.Load<Texture2D>("graphics/gun_tower_head");
+            LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
+            LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
+            BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");
+            BombTowerHead = Content.Load<Texture2D>("graphics/bomb_tower_head");
             GunTowerHeadOrigin = new Vector2(16, 24);
             #endregion
 
@@ -125,10 +129,6 @@ namespace Spelprojekt2
             ShopButton = Content.Load<Texture2D>("graphics/ui/buttons/shop");
             ShopButtonOrigin = new Vector2(Global.GameWidth, 0f);
             #endregion
-            //LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
-            //LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
-            BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");
-            BombTowerHead = Content.Load<Texture2D>("graphics/bomb_tower_head");
             //SniperTower = Content.Load<Texture2D>("graphics/sniper_tower_body");
             //SniperTowerHead = Content.Load<Texture2D>("graphics/sniper_tower_head");
         }

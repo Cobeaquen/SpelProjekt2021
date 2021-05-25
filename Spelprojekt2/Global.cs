@@ -10,6 +10,7 @@ using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using Spelprojekt2.Effects;
+using Spelprojekt2.Collision;
 
 namespace Spelprojekt2
 {
@@ -29,7 +30,8 @@ namespace Spelprojekt2
         public static int StartCoins = 100;
         public static int Coins;
 
-        public static List<Tower> placedTowers;
+        public static List<Tower> PlacedTowers;
+        public static List<Collider> Colliders;
         public static List<ParticleEffect> Effects;
         public static double time;
 
@@ -50,7 +52,7 @@ namespace Spelprojekt2
             if (!Paused)
             {
                 time += gameTime.ElapsedGameTime.TotalSeconds;
-                foreach (Tower tower in placedTowers)
+                foreach (Tower tower in PlacedTowers)
                 {
                     tower.Update(gameTime);
                 }
@@ -74,9 +76,13 @@ namespace Spelprojekt2
 
         public static bool Buy(int cost)
         {
-            bool buy = cost <= Coins;
+            bool buy = CanAfford(cost);
             Coins = buy ? Coins - cost : Coins;
             return buy;
+        }
+        public static bool CanAfford(int cost)
+        {
+            return cost <= Coins;
         }
 
         public static void DrawEffects()

@@ -38,7 +38,7 @@ namespace Spelprojekt2.Effects
                 Destroy();
                 return;
             }
-            time += (float)gameTime.ElapsedGameTime.TotalSeconds;
+            time += (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
         }
 
         void Destroy()

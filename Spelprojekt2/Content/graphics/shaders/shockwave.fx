@@ -30,7 +30,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float dist = distance(center, UV);
 
 	if (dist < 0.5f && dist > time - 0.1f && dist < time) {
-		return float4(.75f, .75f, .75f, 1) * (0.5f - dist);
+		return float4(1, 1, 1, 1) * (0.5f - dist) * 10 * (0.1f - (time - dist));
 	}
 
 	return float4(0, 0, 0, 0);

@@ -18,14 +18,8 @@ namespace Spelprojekt2
         }
         public override void Fire()
         {
-            float Offset = spread * (Global.ran.Next(0, 2) == 1 ? 1 : -1) * spreadModifier * (float)Global.ran.NextDouble();
-
-            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
-            firePosition = Position + dir * cannonLength;
-
-            Vector2 bulletDir = new Vector2((float)Math.Cos(LookRotation + Offset), (float)Math.Sin(LookRotation + Offset));
-
-            var bullet = new BombBullet(this, firePosition, bulletDir, LookRotation + Offset, 1, DestroyBullet, 100f);
+            base.Fire();
+            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, DestroyBullet, 100f);
             Bullets.Add(bullet);
         }
         protected override void DestroyBullet(Bullet bullet)

@@ -10,18 +10,13 @@ namespace Spelprojekt2
 {
     public class ProjectileTower : Tower
     {
-        public float TotalDamage { get; set; }
         public List<Bullet> Bullets { get; private set; }
         public List<Bullet> BulletDestroyQueue { get; protected set; }
-
-        private double timeSinceFired = 0f;
 
         protected float spreadModifier;
         protected float spread;
 
         public float reach;
-
-        protected bool canFire;
 
         public ProjectileTower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, float spread, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin) : base(position, towerInfo, damage, fireRate, turnSpeed, range, bodySprite, bodyOrigin, headSprite, headOrigin)
         {
@@ -30,20 +25,11 @@ namespace Spelprojekt2
             spreadModifier = 1;
             this.spread = spread;
             reach = 300;
-            canFire = false;
         }
 
         public override void Update(GameTime gameTime)
         {
-            canFire = Target != null;
-            float fireTime = (1f / FireRate) / Global.gameSpeed;
-            timeSinceFired = timeSinceFired >= fireTime && !canFire ? fireTime : timeSinceFired + gameTime.ElapsedGameTime.TotalSeconds;
-            
-            if (timeSinceFired >= fireTime && canFire)
-            {
-                timeSinceFired = 0f;
-                Fire();
-            }
+            base.Update(gameTime);
 
             foreach (var bullet in Bullets)
             {
@@ -60,10 +46,9 @@ namespace Spelprojekt2
         /// Fires a projectile in the turret's look direction
         /// </summary>
         /// <returns></returns>
-        public virtual void Fire()
+        public override void Fire()
         {
-            Vector2 dir = new Vector2((float)Math.Cos(LookRotation), (float)Math.Sin(LookRotation));
-            firePosition = Position + dir * cannonLength;
+            base.Fire();
         }
         protected Vector2 GetBulletDirection(out float offset)
         {
