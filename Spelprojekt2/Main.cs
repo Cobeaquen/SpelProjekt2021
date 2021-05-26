@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System.IO;
 using Spelprojekt2.Enemies;
+using Spelprojekt2.UI;
 
 namespace Spelprojekt2
 {
