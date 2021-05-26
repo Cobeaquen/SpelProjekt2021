@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public class TowerElement : ButtonElement
     {
@@ -22,6 +22,14 @@ namespace Spelprojekt2
         }
         public override void Update()
         {
+            if (!Global.CanAfford(tower.cost))
+            {
+                color = Color.Red;
+            }
+            else
+            {
+                color = Color.White;
+            }
             hoverElement.Update();
             base.Update();
         }

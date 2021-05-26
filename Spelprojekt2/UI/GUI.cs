@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public static class GUI
     {
@@ -17,6 +17,7 @@ namespace Spelprojekt2
         public static TextElement CoinsElement;
         public static TextElement WaveElement;
         public static TextureElement TowerPurcahseMenu;
+        public static TowerWindow TowerMenu;
         public static ButtonElement WaveStartToggle;
         public static ButtonElement WavePauseToggle;
 
@@ -36,7 +37,8 @@ namespace Spelprojekt2
 
             HPElement = new TextElement(new Vector2(18, 1), 100, 12, Global.HP.ToString(), Color.Black, Assets.DefaultFont);
             CoinsElement = new TextElement(new Vector2(18, 17), 100, 12, Global.Coins.ToString(), Color.Black, Assets.DefaultFont);
-            TowerPurcahseMenu = new TextureElement(new Vector2(Global.GameWidth, 0), Assets.Meny, Assets.MenyOrigin);
+            TowerPurcahseMenu = new TextureElement(new Vector2(Global.GameWidth, 0), Assets.Meny, Assets.MenyOrigin, Color.White);
+            TowerMenu = new TowerWindow(new Vector2(40, 40));
             elements.Add(HPElement);
             elements.Add(CoinsElement);
             elements.Add(TowerPurcahseMenu);
@@ -69,6 +71,7 @@ namespace Spelprojekt2
             {
                 e.Update();
             }
+            TowerMenu.Update();
 
             if (placingTower)
             {
@@ -84,6 +87,8 @@ namespace Spelprojekt2
             }
             selectedTower = tower;
             selectedTower.SetRange(true);
+            TowerMenu.visible = true;
+            TowerMenu.tower = tower;
         }
 
         public static void Draw()
@@ -105,6 +110,7 @@ namespace Spelprojekt2
             {
                 element.Draw();
             }
+            TowerMenu.Draw();
         }
         public static void HandleInput()
         {

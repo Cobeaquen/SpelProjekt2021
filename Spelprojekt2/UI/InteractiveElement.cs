@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public class InteractiveElement : TextureElement
     {
@@ -16,7 +16,7 @@ namespace Spelprojekt2
 
         public bool mouseOver;
 
-        public InteractiveElement(Vector2 position, int width, int height, Texture2D texture, Vector2 origin) : base(position, texture, origin)
+        public InteractiveElement(Vector2 position, int width, int height, Texture2D texture, Vector2 origin) : base(position, texture, origin, Color.White)
         {
             this.width = width;
             this.height = height;

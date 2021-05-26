@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Spelprojekt2.Collision;
+using Spelprojekt2.UI;
 
 namespace Spelprojekt2.Enemies
 {
