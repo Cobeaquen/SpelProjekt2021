@@ -33,9 +33,9 @@ namespace Spelprojekt2
         protected float rotOffset = MathHelper.PiOver2;
         private int pierceLeft;
 
-        private List<Enemy> collided;
+        protected List<Enemy> collided;
 
-        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, int pierce, HitCallback hitCallback, Texture2D sprite, Vector2 spriteOrigin)
+        public Bullet(ProjectileTower owner, float velocity, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, int pierce, HitCallback hitCallback, Texture2D sprite, Vector2 spriteOrigin, Enemy[] avoid = null)
         {
             this.Owner = owner;
             this.Velocity = velocity;
@@ -62,23 +62,27 @@ namespace Spelprojekt2
             if (time >= TimeAlive || Vector2.Distance(Owner.Position, Position) >= Owner.reach)
             {
                 time = 0f;
-                Hit();
+                Hit(null, GetDamage());
             }
 
             Enemy enemy = CollisionCheck();
             if (enemy != null && !collided.Contains(enemy))
             {
                 collided.Add(enemy);
-                float dmg = enemy.Hit(Damage + Owner.Damage * Owner.DamageModifier);
+                float dmg = enemy.Hit(GetDamage());
                 Owner.TotalDamage += dmg;
-                Console.WriteLine("Hit enemy for {0} HP", dmg);
-                Hit();
+                Hit(enemy, dmg);
             }
 
         }
-
-        public virtual void Hit()
+        public virtual float GetDamage()
         {
+            return Damage + Owner.Damage * Owner.DamageModifier;
+        }
+
+        public virtual void Hit(Enemy enemy, float dmg)
+        {
+            Console.WriteLine("Hit enemy for {0} HP", dmg);
             if (--pierceLeft <= 0)
             {
                 hitCallback(this);

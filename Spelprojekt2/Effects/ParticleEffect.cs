@@ -21,14 +21,14 @@ namespace Spelprojekt2.Effects
         private Texture2D sprite;
         private Vector2 origin;
 
-        public ParticleEffect(Vector2 position, float timeActive, Texture2D sprite, Vector2 origin, Vector2 scale, Effect effect)
+        public ParticleEffect(Vector2 position, float timeActive, Texture2D sprite, Vector2 origin, Vector2 scale, Effect effect, Color color)
         {
             this.position = position;
             this.timeActive = timeActive;
             this.sprite = sprite;
             this.origin = origin;
             this.effect = effect;
-            this.color = Color.White;
+            this.color = color;
             this.scale = scale;
         }
         public virtual void Update(GameTime gameTime)

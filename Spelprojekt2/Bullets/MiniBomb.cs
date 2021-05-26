@@ -11,9 +11,14 @@ namespace Spelprojekt2.Bullets
 {
     class MiniBomb : BombBullet
     {
-        public MiniBomb(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius) : base(owner, position, lookDirection, lookRotation, damage, destroyCallback, bombRadius, 0)
+        public MiniBomb(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius, Enemy avoid) : base(owner, position, lookDirection, lookRotation, damage, destroyCallback, bombRadius, 0)
         {
-
+            collided.Add(avoid);
+            TimeAlive = 0.5f;
+        }
+        public override float GetDamage()
+        {
+            return base.GetDamage() * 0.5f;
         }
         public override void Draw()
         {

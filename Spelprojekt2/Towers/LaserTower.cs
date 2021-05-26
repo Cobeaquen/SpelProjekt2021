@@ -50,7 +50,7 @@ namespace Spelprojekt2
         }
         public override void Draw()
         {
-            if (ray != null)
+            if (ray != null && rayVisible)
             {
                 DebugTextures.DrawDebugLine(ray.a, hitPoint == Vector2.Zero ? ray.b : hitPoint, Color.Red, 1);
             }

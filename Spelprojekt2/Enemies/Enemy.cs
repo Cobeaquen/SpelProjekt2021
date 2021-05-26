@@ -17,7 +17,7 @@ namespace Spelprojekt2
         public int value { get; private set; }
         public float maxHP { get; private set; }
         [JsonIgnore]
-        public float HP;
+        public float HP { get; private set; }
 
         [JsonIgnore]
         public Bar hpBar;

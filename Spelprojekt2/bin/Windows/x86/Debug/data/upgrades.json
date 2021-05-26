@@ -1,110 +1,116 @@
 [
-  [
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
-    ],
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
+  {
+    "Spelprojekt2.GunTower": [
+      [
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ],
+      [
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ]
     ]
-  ],
-  [
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
-    ],
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
+  },
+  {
+    "Spelprojekt2.LaserTower": [
+      [
+        {
+          "name": "SPACE LASER",
+          "desc": "Makes lasers go strong",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ],
+      [
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ]
     ]
-  ],
-  [
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
-    ],
-    [
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      },
-      {
-        "name": "damage mk1",
-        "desc": "Increases damage by 10%",
-        "cost": 20
-      }
+  },
+  {
+    "Spelprojekt2.BombTower": [
+      [
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ],
+      [
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        },
+        {
+          "name": "damage mk1",
+          "desc": "Increases damage by 10%",
+          "cost": 20
+        }
+      ]
     ]
-  ]
+  }
 ]

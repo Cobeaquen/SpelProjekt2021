@@ -35,6 +35,8 @@ namespace Spelprojekt2
         public static List<ParticleEffect> Effects;
         public static double time;
 
+        public static Dictionary<string, Upgrade[,]>[] Upgrades;
+
         public static Random ran = new Random();
 
         public static void Load()
@@ -44,16 +46,21 @@ namespace Spelprojekt2
             gameSpeed = 1f;
             HP = StartHP;
             Coins = StartCoins;
+            Upgrades = LoadJSON<Dictionary<string, Upgrade[,]>[]>("upgrades.json");
             GUI.Load();
-            Upgrade[][,] upgrades = new Upgrade[3][,];
-            for (int i = 0; i < upgrades.Length; i++)
-            {
-                upgrades[i] = new Upgrade[2, 3];
-                for (int y = 0; y < upgrades[i].GetLength(1); y++)
-                    for (int x = 0; x < upgrades[i].GetLength(0); x++)
-                        upgrades[i][x, y] = new Upgrade("damage mk1", "Increases damage by 10%", 20);
-            }
-            SaveJSON<Upgrade[][,]>(upgrades, "upgrades.json");
+
+            //Dictionary<string, Upgrade[,]>[] upgrades = new Dictionary<string, Upgrade[,]>[3];
+
+            //for (int i = 0; i < upgrades.Length; i++)
+            //{
+            //    Upgrade[,] upgrade = new Upgrade[2, 3];
+            //    upgrades[i] = new Dictionary<string, Upgrade[,]>();
+            //    for (int y = 0; y < upgrade.GetLength(1); y++)
+            //        for (int x = 0; x < upgrade.GetLength(0); x++)
+            //            upgrade[x, y] = new Upgrade(typeof(GunTower), "damage mk1", "Increases damage by 10%", 20);
+            //    upgrades[i].Add(typeof(GunTower).FullName, upgrade);
+            //}
+            //SaveJSON<Dictionary<string, Upgrade[,]>[]>(upgrades, "upgrades.json");
         }
 
         public static void Update(GameTime gameTime)

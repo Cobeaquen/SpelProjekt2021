@@ -30,7 +30,7 @@ float4 MainPS(VertexShaderOutput input) : COLOR
 	float dist = distance(center, UV);
 
 	if (dist < 0.5f && dist > time - 0.1f && dist < time) {
-		return float4(1, 1, 1, 1) * (0.5f - dist) * 10 * (0.1f - (time - dist));
+		return lerp(float4(1, 1, 1, 1), input.Color, 1.5f*time) * (0.5f - dist) * 10 * (0.1f - (time - dist));
 	}
 
 	return float4(0, 0, 0, 0);
