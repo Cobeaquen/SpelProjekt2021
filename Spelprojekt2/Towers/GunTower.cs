@@ -9,17 +9,23 @@ namespace Spelprojekt2
 {
     public class GunTower : ProjectileTower
     {
-        public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1f, 1.5f, 0.1f, 2, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
+        public int numberOfBullets;
+        public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1f, 10, 0.1f, 2, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
-            
+            this.numberOfBullets = 20;
+            spreadModifier = 2;
         }
 
         public override void Fire()
         {
             base.Fire();
-            var bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
-            Bullets.Add(bullet);
+            for (int i = 0; i < numberOfBullets; i++)
+            {
+                RegularBullet bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
+                Bullets.Add(bullet);
+            }
         }
+
         protected override void Upgrade(int path, int tier)
         {
             switch (path)
@@ -47,18 +53,20 @@ namespace Spelprojekt2
                     switch (tier)
                     {
                         case 1:
-                            RangeModifier = 1.5f;
+                            DamageModifier = 1.25f;
                             FireRateModifier = 1.5f;
                             break;
                         case 2:
-                            
+                            numberOfBullets = 5;
+                            spreadModifier = 1f;
                             break;
                         case 3:
-                            
+                            numberOfBullets = 10;
+                            spreadModifier = 2f;
+                            DamageModifier = 1.5f;
                             break;
                     }
                     break;
-
             }
         }
     }
