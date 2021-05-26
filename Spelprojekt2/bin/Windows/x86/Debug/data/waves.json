@@ -3,22 +3,22 @@
     "bursts": [
       {
         "amount": 4,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
         "timeInterval": 0.8
       },
 	  {
         "amount": 4,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
         "timeInterval": 0.4
       },
 	  {
         "amount": 5,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
         "timeInterval": 0.9
       },
 	  {
         "amount": 20,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
         "timeInterval": 0.5
       },
     ],
@@ -28,7 +28,7 @@
     "bursts": [
       {
         "amount": 4,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
         "timeInterval": 0.5
       }
     ],
@@ -38,7 +38,7 @@
     "bursts": [
       {
         "amount": 4,
-        "enemyType": "Spelprojekt2.Minion",
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
         "timeInterval": 0.4
       }
     ],

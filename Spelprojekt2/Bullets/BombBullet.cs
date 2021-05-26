@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2.Bullets
 {
@@ -35,14 +36,14 @@ namespace Spelprojekt2.Bullets
         public override void Hit(Enemy enemy, float damage)
         {
             float radius = ((BombTower)Owner).bombRadius * ((BombTower)Owner).radiusModifier * radiusModifier;
-            for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
+            for (int i = 0; i < Main.instance.level.enemies.Count; i++)
             {                
-                var e = Main.instance.level.Enemies[i];
+                var e = Main.instance.level.enemies[i];
                 float distance = Vector2.Distance(Position, e.position);
                 if (enemy != e && distance <= radius)
                 {
                     distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
-                    damage = e.Hit(GetDamage() * (1 - distance / radius));
+                    damage = e.Hit(GetDamage() * (1 - distance / radius), this);
                     Owner.TotalDamage += (float)damage;
                 }
             }

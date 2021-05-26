@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Spelprojekt2.Collision;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Enemies
 {
     public class Enemy
     {
@@ -115,20 +115,23 @@ namespace Spelprojekt2
             return;
         }
 
-        public float Hit(float damage)
+        public float Hit(float damage, Bullet bullet)
         {
             float dmg = damage / masterResistance;
             HP -= dmg;
             if (HP <= 0)
-                Die();
+            {
+                float modifier = bullet == null ? 1 : bullet.Owner.MoneyModifier;
+                Die(modifier);
+            }
 
             hpBar.SetValue(Math.Max(HP, 0f));
             return Math.Min(dmg, HP + dmg);
         }
 
-        public void Die()
+        public void Die(float modifier)
         {
-            Global.Coins += value;
+            Global.Coins += (int)(value * modifier);
             Destroy();
         }
 
@@ -141,8 +144,8 @@ namespace Spelprojekt2
 
         public void Destroy()
         {
-            Main.instance.level.Enemies.Remove(this);
-            if (Main.instance.level.Enemies.Count == 0 && Global.gameState == Global.GameState.DoneWave)
+            Main.instance.level.enemies.Remove(this);
+            if (Main.instance.level.enemies.Count == 0 && Global.gameState == Global.GameState.DoneWave)
             { // Den sista fienden har dött (eller tagit sig igenom) - waven är över
                 Global.gameState = Global.GameState.Idle;
                 GUI.WaveStartToggle.texture = Assets.StartWave;
@@ -153,7 +156,7 @@ namespace Spelprojekt2
         public static void DrawHPBars()
         {
             Main.spriteBatch.Begin(SpriteSortMode.Immediate, samplerState: SamplerState.PointClamp);
-            foreach (var enemy in Main.instance.level.Enemies)
+            foreach (var enemy in Main.instance.level.enemies)
             {
                 enemy.hpBar.Draw();
             }

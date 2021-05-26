@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Bullets\BombBullet.cs" />
     <Compile Include="Bullets\MiniBomb.cs" />
+    <Compile Include="Enemies\Enemy2.cs" />
     <Compile Include="Towers\BombTower.cs" />
     <Compile Include="Bullets\Bullet.cs" />
     <Compile Include="Burst.cs" />
@@ -64,7 +65,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="MapGenerator.cs" />
-    <Compile Include="Enemies\Minion.cs" />
+    <Compile Include="Enemies\Enemy1.cs" />
     <Compile Include="Effects\ParticleEffect.cs" />
     <Compile Include="Towers\ProjectileTower.cs" />
     <Compile Include="Collision\Raycast.cs" />

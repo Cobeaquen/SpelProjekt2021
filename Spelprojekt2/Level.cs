@@ -8,12 +8,13 @@ using Microsoft.Xna.Framework.Graphics;
 using MonoGame.SplineFlower;
 using MonoGame.SplineFlower.Spline;
 using MonoGame.SplineFlower.Spline.Types;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2
 {
     public class Level
     {
-        public List<Enemy> Enemies = new List<Enemy>();
+        public List<Enemy> enemies = new List<Enemy>();
         public List<Waypoint> waypoints;
         public int wave = 0;
         public Vector2 StartDirection { get; private set; }
@@ -96,7 +97,7 @@ namespace Spelprojekt2
                 if (Waves.Count > wave)
                 {
                     bool end = Waves[wave].GetEnemy(out Enemy enemy);
-                    Enemies.Add(enemy);
+                    enemies.Add(enemy);
                     if (end)
                     { // Denna Wave har skickat ut alla sina fiender
                         Global.gameState = Global.GameState.DoneWave;
@@ -115,9 +116,9 @@ namespace Spelprojekt2
 
             spawnTime += (float)gameTime.ElapsedGameTime.TotalSeconds * Global.gameSpeed;
 
-            for (int i = 0; i < Enemies.Count; i++)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                Enemies[i].Update(gameTime);
+                enemies[i].Update(gameTime);
             }
         }
 
@@ -162,7 +163,7 @@ namespace Spelprojekt2
             // Rita bakgrunden
             Main.spriteBatch.Draw(sprite, Vector2.Zero, Color.White);
 
-            foreach (var enemy in Enemies)
+            foreach (var enemy in enemies)
             {
                 enemy.Draw();
             }

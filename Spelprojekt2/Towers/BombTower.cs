@@ -16,16 +16,18 @@ namespace Spelprojekt2
         public bool miniBombsActive;
         public float bombRadius;
         public float radiusModifier;
+        private int miniBombsAdd;
 
         public BombTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 2f, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
             bombRadius = 100f;
             radiusModifier = 1;
+            miniBombsAdd = 0;
         }
         public override void Fire()
         {
             base.Fire();
-            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 2f, Hit, 6);
+            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 2f, Hit, 4 + miniBombsAdd);
             Bullets.Add(bullet);
         }
         protected override void Hit(Bullet bullet)
@@ -42,26 +44,32 @@ namespace Spelprojekt2
                     switch(tier)
                     {
                         case 1:
-                            DamageModifier = 2;
+                            DamageModifier = 1.5f;
+                            radiusModifier = 1.5f;
                             break;
                         case 2:
-                            DamageModifier = 4;
+                            DamageModifier = 2f;
+                            RangeModifier = 1.5f;
                             break;
                         case 3:
-                            DamageModifier = 8;
+                            DamageModifier = 3f;
+                            RangeModifier = 2.5f;
                             break;
-
                     }
                     break;
                 case 2:
                     switch (tier)
                     {
                         case 1:
-                            radiusModifier = 1.5f;
+                            RangeModifier = 1.5f;
+                            FireRateModifier = 1.5f;
                             break;
-
-                               
-                            
+                        case 2:
+                            miniBombsActive = true;
+                            break;
+                        case 3:
+                            miniBombsAdd = 6;
+                            break;
                     }
                     break;
 

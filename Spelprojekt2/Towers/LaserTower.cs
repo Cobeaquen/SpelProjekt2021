@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Spelprojekt2.Collision;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2
 {
@@ -43,7 +44,7 @@ namespace Spelprojekt2
                     if (info[i].owner is Enemy)
                     {
                         Enemy e = info[i].owner as Enemy;
-                        e.Hit(Damage * DamageModifier);
+                        e.Hit(Damage * DamageModifier, null);
                     }
                 }
             }
