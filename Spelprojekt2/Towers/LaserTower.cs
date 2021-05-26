@@ -17,7 +17,7 @@ namespace Spelprojekt2
         public bool rayVisible;
 
         private Vector2 hitPoint;
-        public LaserTower(Vector2 position, TowerInfo ti) : base(position, ti, 0.2f, 100f, 2, 1f, 250f, Assets.LaserTower, Assets.GunTowerOrigin, Assets.LaserTowerHead, Assets.GunTowerHeadOrigin)
+        public LaserTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 0.2f, 100f, 2, 1f, 250f, Assets.LaserTower, Assets.GunTowerOrigin, Assets.LaserTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
             //laserRay = Assets.LaserRay;
             rayVisible = true;

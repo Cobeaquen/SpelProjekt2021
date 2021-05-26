@@ -22,12 +22,14 @@ namespace Spelprojekt2
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float TurnSpeed { get; private set; }
         public float FireRate { get; private set; }
-        public float DamageModifier { get; private set; }
+        public float DamageModifier { get; protected set; }
         public float Damage { get; private set; }
         public float Range { get; private set; }
         public float RangeModifier { get; private set; }
         public int Pierce { get; private set; }
         public int PierceAdd { get; private set; }
+        public int Path { get; private set; }
+        public int Tier { get; private set; }
         public TargetType Targetting { get; private set; }
         public Enemy Target { get; private set; }
         public Rectangle Bounds { get; private set; }
@@ -57,7 +59,7 @@ namespace Spelprojekt2
             //GunTowerMK1 = new GunTower(Vector2.Zero);
         }
 
-        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, int pierce, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, int pierce, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin, int path, int tier)
         {
             this.Position = position;
             this.towerInfo = towerInfo;
@@ -74,6 +76,8 @@ namespace Spelprojekt2
             this.headOrigin = headOrigin;
             this.Pierce = pierce;
             this.PierceAdd = 0;
+            this.Path = path;
+            this.Tier = tier;
 
             string key = GetType().FullName;
             bool success = Global.Upgrades.Where(u => u.ContainsKey(key)).First().TryGetValue(key, out Upgrades);
@@ -189,6 +193,10 @@ namespace Spelprojekt2
             Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
+        protected virtual void Upgrade(int path, int tier)
+        {
+
+        }
 
         public enum TargetType
         {
@@ -220,8 +228,8 @@ namespace Spelprojekt2
             }
             public Tower GetTowerDuplicate()
             {
-                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this });
-            }
+                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this, 0, 0 });
+            }           
         }
     }
 }
