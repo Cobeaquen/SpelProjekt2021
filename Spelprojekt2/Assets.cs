@@ -52,6 +52,8 @@ namespace Spelprojekt2
         #region GUI
         public static Texture2D Stats { get; internal set; }
         public static Vector2 StatsOrigin { get; internal set; }
+        public static Texture2D TowerMenu { get; internal set; }
+        public static Vector2 TowerMenuOrigin { get; internal set; }
         public static Texture2D HPBarFrame { get; internal set; }
         public static Texture2D Meny { get; internal set; }
         public static Vector2 MenyOrigin { get; internal set; }
@@ -114,6 +116,9 @@ namespace Spelprojekt2
             HPBarFrame = content.Load<Texture2D>("graphics/hpbar_frame");
             Stats = Content.Load<Texture2D>("graphics/ui/stats");
             StatsOrigin = Vector2.Zero;
+            TowerMenu = Content.Load<Texture2D>("graphics/ui/menues/tower_menu");
+            TowerMenuOrigin = Vector2.Zero;
+            StatsOrigin = Vector2.Zero;
             Meny = Content.Load<Texture2D>("graphics/ui/meny");
             MenyOrigin = new Vector2(Meny.Width, 0);
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
@@ -128,6 +133,7 @@ namespace Spelprojekt2
             WaveButtonOrigin = GetLocation(StartWave, Location.BottomLeft);
             ShopButton = Content.Load<Texture2D>("graphics/ui/buttons/shop");
             ShopButtonOrigin = new Vector2(Global.GameWidth, 0f);
+
             #endregion
             //SniperTower = Content.Load<Texture2D>("graphics/sniper_tower_body");
             //SniperTowerHead = Content.Load<Texture2D>("graphics/sniper_tower_head");

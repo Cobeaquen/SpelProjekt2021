@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public class HoverElement : UIElement
     {
@@ -24,7 +24,7 @@ namespace Spelprojekt2
             this.bounds = bounds;
             this.elements = elements;
 
-            background = new TextureElement(position, DebugTextures.GenerateRectangle(150, 75, Color.Gray), new Vector2(150, 0));
+            background = new TextureElement(position, DebugTextures.GenerateRectangle(150, 75, Color.Gray), new Vector2(150, 0), Color.White);
             display = false;
         }
         public override void Update()

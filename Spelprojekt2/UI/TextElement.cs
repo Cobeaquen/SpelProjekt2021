@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public class TextElement : UIElement
     {

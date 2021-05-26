@@ -30,11 +30,13 @@
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/speed.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/speed2.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/icons/waveflow/start.png</File>
+    <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/menues/tower_menu.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/meny.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/menytest.png</File>
     <File>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/stats.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Spelprojekt2
+namespace Spelprojekt2.UI
 {
     public class UIElement
     {
