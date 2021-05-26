@@ -9,7 +9,7 @@ namespace Spelprojekt2
 {
     public class Minion : Enemy
     {
-        public Minion() : base(10f, 10, 50f, Assets.Minion, Assets.MinionOrigin)
+        public Minion() : base(20f, 10, 50f, Assets.Minion, Assets.MinionOrigin)
         {
 
         }

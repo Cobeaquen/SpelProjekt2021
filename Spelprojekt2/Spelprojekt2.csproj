@@ -83,6 +83,7 @@
     <Compile Include="GUI\TowerElement.cs" />
     <Compile Include="GUI\UIElement.cs" />
     <Compile Include="Upgrade.cs" />
+    <Compile Include="UpgradeCollection.cs" />
     <Compile Include="Wave.cs" />
     <Compile Include="GUI\WaveControl.cs" />
     <Compile Include="Waypoint.cs" />

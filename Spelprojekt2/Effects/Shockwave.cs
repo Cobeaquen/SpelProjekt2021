@@ -11,7 +11,7 @@ namespace Spelprojekt2.Effects
     public class Shockwave : ParticleEffect
     {
         public float radius;
-        public Shockwave(Vector2 position, float timeActive, float radius) : base(position, timeActive, DebugTextures.pixel, new Vector2(0.5f, 0.5f), new Vector2(radius * 2, radius * 2), Assets.ShockwaveEffect)
+        public Shockwave(Vector2 position, float timeActive, float radius) : base(position, timeActive, DebugTextures.pixel, new Vector2(0.5f, 0.5f), new Vector2(radius * 2, radius * 2), Assets.ShockwaveEffect, Color.Red)
         {
             this.radius = radius;
         }

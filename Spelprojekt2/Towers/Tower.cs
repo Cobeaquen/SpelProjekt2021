@@ -15,10 +15,10 @@ namespace Spelprojekt2
         public float TotalDamage { get; set; }
         public Vector2 Position { get { return position; } set { position = value; } }
         private Vector2 position;
+
         protected Vector2 firePosition;
         protected Vector2 fireDirection;
         protected bool canFire;
-
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float TurnSpeed { get; private set; }
         public float FireRate { get; private set; }
@@ -32,6 +32,7 @@ namespace Spelprojekt2
         public Enemy Target { get; private set; }
         public Rectangle Bounds { get; private set; }
         public TowerInfo towerInfo;
+        public Upgrade[,] Upgrades;
 
         protected float lookRotation;
         protected float rotOffset = MathHelper.PiOver2;
@@ -73,6 +74,9 @@ namespace Spelprojekt2
             this.headOrigin = headOrigin;
             this.Pierce = pierce;
             this.PierceAdd = 0;
+
+            string key = GetType().FullName;
+            bool success = Global.Upgrades.Where(u => u.ContainsKey(key)).First().TryGetValue(key, out Upgrades);
 
             Bounds = new Rectangle((position - bodyOrigin).ToPoint(), new Point(bodySprite.Width, bodySprite.Height));
             rangeSprite = DebugTextures.pixel;

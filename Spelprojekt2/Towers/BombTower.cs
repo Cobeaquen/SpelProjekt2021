@@ -13,14 +13,14 @@ namespace Spelprojekt2
 {
     public class BombTower : ProjectileTower
     {
-        public BombTower(Vector2 position, TowerInfo ti) : base(position, ti, 5, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin)
+        public BombTower(Vector2 position, TowerInfo ti) : base(position, ti, 2f, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin)
         {
 
         }
         public override void Fire()
         {
             base.Fire();
-            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit, 100f, 7);
+            var bullet = new BombBullet(this, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 2f, Hit, 100f, 6);
             Bullets.Add(bullet);
         }
         protected override void Hit(Bullet bullet)
