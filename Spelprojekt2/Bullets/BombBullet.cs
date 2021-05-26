@@ -6,17 +6,18 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2.Bullets
 {
     public class BombBullet : Bullet
     {
-        public float bombRadius;
         public int miniBombs;
-        public BombBullet(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius, int miniBombs) : base(owner, 100f, position, lookDirection, lookRotation, damage, 0, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
+        public float radiusModifier;
+        public BombBullet(BombTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, int miniBombs) : base(owner, 100f, position, lookDirection, lookRotation, damage, 0, destroyCallback, Assets.BombBullet, Assets.BombBulletOrigin)
         {
-            this.bombRadius = bombRadius;
             this.miniBombs = miniBombs;
+            radiusModifier = 1f;
         }
         public override void Update(GameTime gameTime)
         {
@@ -34,14 +35,15 @@ namespace Spelprojekt2.Bullets
         }
         public override void Hit(Enemy enemy, float damage)
         {
-            for (int i = 0; i < Main.instance.level.Enemies.Count; i++)
-            {
-                var e = Main.instance.level.Enemies[i];
+            float radius = ((BombTower)Owner).bombRadius * ((BombTower)Owner).radiusModifier * radiusModifier;
+            for (int i = 0; i < Main.instance.level.enemies.Count; i++)
+            {                
+                var e = Main.instance.level.enemies[i];
                 float distance = Vector2.Distance(Position, e.position);
-                if (enemy != e && distance <= bombRadius)
+                if (enemy != e && distance <= radius)
                 {
                     distance = MathHelper.Clamp(distance, 1f, float.MaxValue);
-                    damage = e.Hit(GetDamage() * (1 - distance / bombRadius));
+                    damage = e.Hit(GetDamage() * (1 - distance / radius), this);
                     Owner.TotalDamage += (float)damage;
                 }
             }
@@ -50,7 +52,7 @@ namespace Spelprojekt2.Bullets
                 for (float i = 0; i < 2 * MathHelper.Pi; i += (2 * MathHelper.Pi) / miniBombs)
                 {
                     Vector2 dir = new Vector2((float)Math.Cos(i), (float)Math.Sin(i));
-                    MiniBomb bomb = new MiniBomb(Owner, Position, dir, 0f, 0f, hitCallback, 30, enemy);
+                    MiniBomb bomb = new MiniBomb((BombTower)Owner, Position, dir, 0f, 0f, hitCallback, enemy, 0);
                     Owner.Bullets.Add(bomb);
                 }
             }

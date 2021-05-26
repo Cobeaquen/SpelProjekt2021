@@ -9,7 +9,7 @@ namespace Spelprojekt2
 {
     public class GunTower : ProjectileTower
     {
-        public GunTower(Vector2 position, TowerInfo ti) : base(position, ti, 1f, 1.5f, 0.1f, 2, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin)
+        public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1f, 1.5f, 0.1f, 2, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
             
         }
@@ -19,6 +19,47 @@ namespace Spelprojekt2
             base.Fire();
             var bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
             Bullets.Add(bullet);
+        }
+        protected override void Upgrade(int path, int tier)
+        {
+            switch (path)
+            {
+                case 1:
+                    switch (tier)
+                    {
+                        case 1:
+                            DamageModifier = 1.5f;
+                            FireRateModifier = 2f;
+                            break;
+                        case 2:
+                            RangeModifier = 1.5f;
+                            DamageModifier = 2f;
+                            PierceAdd = 2;
+                            break;
+                        case 3:
+                            DamageModifier = 3f;
+                            RangeModifier = 2.5f;
+                            MoneyModifier = 1.5f;
+                            break;
+                    }
+                    break;
+                case 2:
+                    switch (tier)
+                    {
+                        case 1:
+                            RangeModifier = 1.5f;
+                            FireRateModifier = 1.5f;
+                            break;
+                        case 2:
+                            
+                            break;
+                        case 3:
+                            
+                            break;
+                    }
+                    break;
+
+            }
         }
     }
 }

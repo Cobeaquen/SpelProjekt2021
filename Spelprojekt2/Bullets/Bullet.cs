@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2
 {
@@ -69,7 +70,7 @@ namespace Spelprojekt2
             if (enemy != null && !collided.Contains(enemy))
             {
                 collided.Add(enemy);
-                float dmg = enemy.Hit(GetDamage());
+                float dmg = enemy.Hit(GetDamage(), this);
                 Owner.TotalDamage += dmg;
                 Hit(enemy, dmg);
             }
@@ -90,7 +91,7 @@ namespace Spelprojekt2
         }
         public virtual Enemy CollisionCheck()
         {
-            foreach (var enemy in Main.instance.level.Enemies)
+            foreach (var enemy in Main.instance.level.enemies)
             {
                 bool collided = rectangle.Intersects(enemy.rectangle);
 

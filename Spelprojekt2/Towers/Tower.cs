@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
-using Spelprojekt2.UI;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2
 {
@@ -20,15 +20,19 @@ namespace Spelprojekt2
         protected Vector2 firePosition;
         protected Vector2 fireDirection;
         protected bool canFire;
+        public float MoneyModifier { get; protected set; }
         public float LookRotation { get { return lookRotation; } set { lookRotation = value; } }
         public float TurnSpeed { get; private set; }
         public float FireRate { get; private set; }
-        public float DamageModifier { get; private set; }
+        public float FireRateModifier { get; protected set; }
+        public float DamageModifier { get; protected set; }
         public float Damage { get; private set; }
         public float Range { get; private set; }
-        public float RangeModifier { get; private set; }
+        public float RangeModifier { get; protected set; }
         public int Pierce { get; private set; }
-        public int PierceAdd { get; private set; }
+        public int PierceAdd { get; protected set; }
+        public int Path { get; private set; }
+        public int Tier { get; private set; }
         public TargetType Targetting { get; private set; }
         public Enemy Target { get; private set; }
         public Rectangle Bounds { get; private set; }
@@ -58,13 +62,14 @@ namespace Spelprojekt2
             //GunTowerMK1 = new GunTower(Vector2.Zero);
         }
 
-        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, int pierce, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin)
+        public Tower(Vector2 position, TowerInfo towerInfo, float damage, float fireRate, int pierce, float turnSpeed, float range, Texture2D bodySprite, Vector2 bodyOrigin, Texture2D headSprite, Vector2 headOrigin, int path, int tier)
         {
             this.Position = position;
             this.towerInfo = towerInfo;
             this.DamageModifier = 1f;
             this.Damage = damage;
             this.FireRate = fireRate;
+            this.FireRateModifier = 1f;
             this.TurnSpeed = turnSpeed;
             this.Range = range;
             this.RangeModifier = 1f;
@@ -75,6 +80,9 @@ namespace Spelprojekt2
             this.headOrigin = headOrigin;
             this.Pierce = pierce;
             this.PierceAdd = 0;
+            this.Path = path;
+            this.Tier = tier;
+            this.MoneyModifier = 1f;
 
             string key = GetType().FullName;
             bool success = Global.Upgrades.Where(u => u.ContainsKey(key)).First().TryGetValue(key, out Upgrades);
@@ -108,7 +116,7 @@ namespace Spelprojekt2
         {
             TrackTarget(gameTime);
             canFire = Target != null;
-            float fireTime = (1f / FireRate) / Global.gameSpeed;
+            float fireTime = (1f / (FireRate * FireRateModifier)) / Global.gameSpeed;
             timeSinceFired = timeSinceFired >= fireTime && !canFire ? fireTime : timeSinceFired + gameTime.ElapsedGameTime.TotalSeconds;
 
             if (timeSinceFired >= fireTime && canFire)
@@ -148,14 +156,14 @@ namespace Spelprojekt2
 
         public Enemy FindTarget()
         {
-            if (Main.instance.level.Enemies.Count == 0)
+            if (Main.instance.level.enemies.Count == 0)
                 return null;
 
             float recordProg = 0f;
             Enemy enemy = null;
-            foreach (var e in Main.instance.level.Enemies)
+            foreach (var e in Main.instance.level.enemies)
             {
-                if (Vector2.DistanceSquared(e.position, position) > Range * Range)
+                if (Vector2.DistanceSquared(e.position, position) > Range * Range * RangeModifier * RangeModifier)
                     continue;
                 if (e.progress + e.t > recordProg)
                 {
@@ -190,6 +198,10 @@ namespace Spelprojekt2
             Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
+        protected virtual void Upgrade(int path, int tier)
+        {
+
+        }
 
         public enum TargetType
         {
@@ -221,8 +233,8 @@ namespace Spelprojekt2
             }
             public Tower GetTowerDuplicate()
             {
-                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this });
-            }
+                return (Tower)Type.GetType(type).GetConstructors()[0].Invoke(new object[] { Vector2.Zero, this, 0, 0 });
+            }           
         }
     }
 }

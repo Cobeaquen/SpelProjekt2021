@@ -16,10 +16,6 @@ namespace Spelprojekt2
     {
         public static ContentManager Content { get; internal set; }
 
-        #region Enemies
-        public static Texture2D Enemy1 { get; internal set; }
-        #endregion
-
         #region Towers
         public static Texture2D GunTower { get; internal set; }
         public static Vector2 GunTowerOrigin { get; internal set; }
@@ -45,7 +41,7 @@ namespace Spelprojekt2
         #endregion
 
         #region Enemies
-        public static Texture2D Minion { get; internal set; }
+        public static Texture2D Enemy1 { get; internal set; }
         public static Vector2 MinionOrigin { get; internal set; }
         #endregion
 
@@ -81,7 +77,7 @@ namespace Spelprojekt2
             Content = content;
 
             //Level1 = Content.Load<Texture2D>("graphics/level1");
-            //Enemy1 = Content.Load<Texture2D>("graphics/enemy1");
+
             #region Towers
             GunTower = Content.Load<Texture2D>("graphics/gun_tower_body");
             GunTowerOrigin = GetOrigin(GunTower);
@@ -101,7 +97,7 @@ namespace Spelprojekt2
             #endregion
 
             #region Enemies
-            Minion = content.Load<Texture2D>("graphics/enemies/enemy1");
+            Enemy1 = content.Load<Texture2D>("graphics/enemies/enemy1");
             MinionOrigin = new Vector2(12, 12);
             #endregion
 

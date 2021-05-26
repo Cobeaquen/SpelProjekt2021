@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2.Collision
 {
@@ -53,7 +54,7 @@ namespace Spelprojekt2.Collision
             List<Vector2> colPoints = new List<Vector2>();
             
             float minDist;
-            foreach (var col in Main.instance.level.Enemies)
+            foreach (var col in Main.instance.level.enemies)
             {
                 Vector2 colPoint;
                 CollisionResult res = CollisionResult.Empty;

@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Spelprojekt2.Enemies;
 
 namespace Spelprojekt2.Bullets
 {
-    class MiniBomb : BombBullet
+    public class MiniBomb : BombBullet
     {
-        public MiniBomb(ProjectileTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, float bombRadius, Enemy avoid) : base(owner, position, lookDirection, lookRotation, damage, destroyCallback, bombRadius, 0)
+        public MiniBomb(BombTower owner, Vector2 position, Vector2 lookDirection, float lookRotation, float damage, HitCallback destroyCallback, Enemy avoid, int miniBombs) : base(owner, position, lookDirection, lookRotation, damage, destroyCallback, miniBombs)
         {
             collided.Add(avoid);
             TimeAlive = 0.5f;
+            radiusModifier = 0.5f;
         }
         public override float GetDamage()
         {
