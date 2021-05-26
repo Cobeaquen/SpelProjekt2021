@@ -22,7 +22,8 @@ namespace Spelprojekt2
         {
             bombRadius = 100f;
             radiusModifier = 1;
-            miniBombsAdd = 0;
+            miniBombsAdd = 100;
+            DamageModifier = 5f;
         }
         public override void Fire()
         {

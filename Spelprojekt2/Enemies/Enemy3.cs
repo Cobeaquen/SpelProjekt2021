@@ -10,9 +10,9 @@ using Spelprojekt2.Collision;
 
 namespace Spelprojekt2.Enemies
 {
-    class Enemy2 : Enemy
+    class Enemy3 : Enemy
     {
-        public Enemy2() : base(50f, 15, 60f, Assets.Enemy2, Assets.EnemyOrigin)
+        public Enemy3() : base(250f, 30, 20f, Assets.Enemy5, Assets.EnemyOrigin)
         {
 
         }

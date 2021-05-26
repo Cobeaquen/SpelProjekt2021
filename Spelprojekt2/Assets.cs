@@ -42,7 +42,10 @@ namespace Spelprojekt2
 
         #region Enemies
         public static Texture2D Enemy1 { get; internal set; }
-        public static Vector2 MinionOrigin { get; internal set; }
+        public static Texture2D Enemy2 { get; internal set; }
+        public static Texture2D Enemy3 { get; internal set; }
+        public static Texture2D Enemy5 { get; internal set; }
+        public static Vector2 EnemyOrigin { get; internal set; }
         #endregion
 
         #region GUI
@@ -98,7 +101,11 @@ namespace Spelprojekt2
 
             #region Enemies
             Enemy1 = content.Load<Texture2D>("graphics/enemies/enemy1");
-            MinionOrigin = new Vector2(12, 12);
+            Enemy2 = content.Load<Texture2D>("graphics/enemies/enemy2");
+            Enemy3 = content.Load<Texture2D>("graphics/enemies/enemy3");
+            Enemy5 = content.Load<Texture2D>("graphics/enemies/enemy5");
+
+            EnemyOrigin = new Vector2(12, 12);
             #endregion
 
             #region Effects
