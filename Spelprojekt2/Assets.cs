@@ -56,6 +56,7 @@ namespace Spelprojekt2
         public static Texture2D HPBarFrame { get; internal set; }
         public static Texture2D Meny { get; internal set; }
         public static Vector2 MenyOrigin { get; internal set; }
+        public static Texture2D UpgradeButton { get; internal set; }
         public static Texture2D StartWave { get; internal set; }
         public static Texture2D SpeedWave { get; internal set; }
         public static Texture2D SpeedWave2 { get; internal set; }
@@ -124,9 +125,11 @@ namespace Spelprojekt2
             StatsOrigin = Vector2.Zero;
             Meny = Content.Load<Texture2D>("graphics/ui/meny");
             MenyOrigin = new Vector2(Meny.Width, 0);
+            UpgradeButton = Content.Load<Texture2D>("graphics/ui/buttons/upgrade_button");
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
             Level1Waypoints = Content.Load<Texture2D>("graphics/levels/level1_waypoints");
             DefaultFont = Content.Load<SpriteFont>("graphics/ui/fonts/default");
+            DefaultFont.LineSpacing = 14;
 
             StartWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/start");
             SpeedWave = Content.Load<Texture2D>("graphics/ui/icons/waveflow/speed");

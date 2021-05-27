@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Content;
 
 namespace Spelprojekt2.UI
 {
@@ -87,8 +88,7 @@ namespace Spelprojekt2.UI
             }
             selectedTower = tower;
             selectedTower.SetRange(true);
-            TowerMenu.visible = true;
-            TowerMenu.tower = tower;
+            TowerMenu.SelectTower(tower);
         }
 
         public static void Draw()

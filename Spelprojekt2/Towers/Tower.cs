@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using Spelprojekt2.Enemies;
+using Spelprojekt2.UI;
 
 namespace Spelprojekt2
 {
@@ -37,13 +38,13 @@ namespace Spelprojekt2
         public Enemy Target { get; private set; }
         public Rectangle Bounds { get; private set; }
         public TowerInfo towerInfo;
-        public Upgrade[,] Upgrades;
+        public Upgrade[][] Upgrades;
 
         protected float lookRotation;
         protected float rotOffset = MathHelper.PiOver2;
-        private Texture2D bodySprite;
+        public Texture2D bodySprite;
         private Vector2 bodyOrigin;
-        private Texture2D headSprite;
+        public Texture2D headSprite;
         private static Texture2D rangeSprite;
         private Vector2 headOrigin;
         protected int cannonLength;
@@ -198,9 +199,10 @@ namespace Spelprojekt2
             Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
-        protected virtual void Upgrade(int path, int tier)
+        public virtual void Upgrade(int path, int tier)
         {
-
+            this.Path = path;
+            this.Tier = tier;
         }
 
         public enum TargetType

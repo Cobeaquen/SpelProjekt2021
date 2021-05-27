@@ -37,8 +37,9 @@ namespace Spelprojekt2
             Global.Effects.Add(sw);
             base.Hit(bullet);
         }
-        protected override void Upgrade(int path, int tier)
+        public override void Upgrade(int path, int tier)
         {
+            base.Upgrade(path, tier);
             switch (path)
             {
                 case 1:

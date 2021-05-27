@@ -19,12 +19,14 @@ namespace Spelprojekt2.UI
         }
         public override void Update()
         {
+            if (!Visible)
+                return;
             base.Update();
         }
         public virtual void Clicked()
         {
             Console.WriteLine("clicked");
-            clickCallback();
+            clickCallback?.Invoke();
         }
         public override void Draw()
         {
