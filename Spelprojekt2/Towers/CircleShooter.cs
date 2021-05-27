@@ -36,17 +36,17 @@ namespace Spelprojekt2.Towers
                         case 1:
                             DamageModifier *= 1.5f;
                             RangeModifier *= 1.2f;
-                            reach = Range;
+                            reach = Range * RangeModifier;
                             break;
                         case 2:
                             RangeModifier *= 1.5f;
                             DamageModifier *= 1.5f;
-                            reach = Range;
+                            reach = Range * RangeModifier;
                             break;
                         case 3:
                             DamageModifier *= 1.5f;
                             RangeModifier *= 1.5f;
-                            reach = Range;
+                            reach = Range * RangeModifier;
                             break;
                     }
                     break;
