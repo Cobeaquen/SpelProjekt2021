@@ -34,18 +34,19 @@ namespace Spelprojekt2.Towers
                     switch (tier)
                     {
                         case 1:
-                            DamageModifier = 1.5f;
-                            FireRateModifier = 2f;
+                            DamageModifier *= 1.5f;
+                            RangeModifier *= 1.2f;
+                            reach = Range;
                             break;
                         case 2:
-                            RangeModifier = 1.5f;
-                            DamageModifier = 2f;
-                            PierceAdd = 2;
+                            RangeModifier *= 1.5f;
+                            DamageModifier *= 1.5f;
+                            reach = Range;
                             break;
                         case 3:
-                            DamageModifier = 3f;
-                            RangeModifier = 2.5f;
-                            MoneyModifier = 1.5f;
+                            DamageModifier *= 1.5f;
+                            RangeModifier *= 1.5f;
+                            reach = Range;
                             break;
                     }
                     break;
@@ -53,18 +54,16 @@ namespace Spelprojekt2.Towers
                     switch (tier)
                     {
                         case 1:
-                            DamageModifier = 1.25f;
+                            bulletAmount += bulletAmount/2;
                             FireRateModifier = 1.5f;
                             break;
                         case 2:
-                            bulletAmount *= 2;
-                            spreadModifier = 2f;
-                            reach = Range;
+                            bulletAmount += bulletAmount / 2;
+                            FireRateModifier = 1.5f;
                             break;
                         case 3:
-                            bulletAmount *= 2;
-                            spreadModifier = 2f;
-                            DamageModifier = 1.5f;
+                            bulletAmount += bulletAmount / 2;
+                            FireRateModifier = 1.5f;
                             break;
                     }
                     break;

@@ -62,7 +62,7 @@
   {
     "bursts": [
       {
-        "amount": 2,
+        "amount": 3,
         "enemyType": "Spelprojekt2.Enemies.Enemy3",
         "timeInterval": 0.5
       },
@@ -77,7 +77,7 @@
   {
     "bursts": [
       {
-        "amount": 5,
+        "amount": 8,
         "enemyType": "Spelprojekt2.Enemies.Enemy2",
         "timeInterval": 0.5
       },
@@ -132,6 +132,87 @@
         "timeInterval": 0.5
       }
     ],
-	"restingTime": 10.0
-  }
+	"restingTime": 8.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 1,
+        "enemyType": "Spelprojekt2.Enemies.Enemy5",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 4.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 1.0
+      },
+	  {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 5.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 100,
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
+        "timeInterval": 0.7
+      },
+	  {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 15,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 5.0
+  },
+  
 ]

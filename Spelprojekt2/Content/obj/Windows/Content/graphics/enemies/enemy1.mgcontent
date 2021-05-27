@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/enemies/enemy1.png</SourceFile>
-  <SourceTime>2021-05-27T15:36:54.3844041+02:00</SourceTime>
-  <DestFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/enemies/enemy1.xnb</DestFile>
-  <DestTime>2021-05-27T15:37:09.6184075+02:00</DestTime>
+  <SourceFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/enemies/enemy1.png</SourceFile>
+  <SourceTime>2021-05-27T15:54:28.807137+02:00</SourceTime>
+  <DestFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/enemies/enemy1.xnb</DestFile>
+  <DestTime>2021-05-27T15:58:54.3068738+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
