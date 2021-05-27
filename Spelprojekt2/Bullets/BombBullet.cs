@@ -47,7 +47,7 @@ namespace Spelprojekt2.Bullets
                     Owner.TotalDamage += (float)damage;
                 }
             }
-            if (miniBombs != 0)
+            if (miniBombs != 0 && ((BombTower)Owner).miniBombsActive)
             {
                 for (float i = 0; i < 2 * MathHelper.Pi; i += (2 * MathHelper.Pi) / miniBombs)
                 {

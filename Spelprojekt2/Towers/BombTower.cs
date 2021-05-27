@@ -21,9 +21,7 @@ namespace Spelprojekt2
         public BombTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 2f, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
             bombRadius = 100f;
-            radiusModifier = 1;
-            miniBombsAdd = 100;
-            DamageModifier = 5f;
+            radiusModifier = 1f;          
         }
         public override void Fire()
         {
