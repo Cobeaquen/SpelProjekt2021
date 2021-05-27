@@ -12,10 +12,16 @@ namespace Spelprojekt2.Enemies
 {
     class Enemy5 : Enemy
     {
-        public Enemy5() : base(1000f, 100, 20f, Assets.Enemy5, Assets.EnemyOrigin)
+        private float acceleration;
+        public Enemy5() : base(250f, 100, 20f, Assets.Enemy5, Assets.EnemyOrigin)
         {
-
+            acceleration = 0.25f;
         }
-      
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            speed += acceleration;
+        }
+
     }
 }

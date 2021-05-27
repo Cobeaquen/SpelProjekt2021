@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Towers
 {
     public class ProjectileTower : Tower
     {

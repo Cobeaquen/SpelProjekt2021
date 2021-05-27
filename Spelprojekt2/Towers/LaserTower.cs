@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Input;
 using Spelprojekt2.Collision;
 using Spelprojekt2.Enemies;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Towers
 {
     public class LaserTower : Tower
     {

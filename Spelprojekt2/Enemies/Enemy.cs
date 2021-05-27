@@ -72,7 +72,7 @@ namespace Spelprojekt2.Enemies
 
             textrect = DebugTextures.GenerateHollowRectangele(rectangle.Width, rectangle.Height, 1, Color.Red);
         }
-        public void Update(GameTime gameTime)
+        public virtual void Update(GameTime gameTime)
         {
             //LookRotation = (float)Math.Atan2(dir.Y, dir.X);
             rectangle = new Rectangle(position.ToPoint() - new Point(sprite.Height / 2, sprite.Height / 2), new Point(sprite.Width, sprite.Height));

@@ -12,6 +12,7 @@ using System.IO;
 using Spelprojekt2.Effects;
 using Spelprojekt2.Collision;
 using Spelprojekt2.UI;
+using Spelprojekt2.Towers;
 
 namespace Spelprojekt2
 {

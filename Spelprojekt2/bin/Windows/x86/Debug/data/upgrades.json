@@ -1,6 +1,6 @@
 [
   {
-    "Spelprojekt2.GunTower": [
+    "Spelprojekt2.Towers.GunTower": [
       [
         {
           "name": "AR mk1",
@@ -38,7 +38,7 @@
     ]
   },
   {
-    "Spelprojekt2.LaserTower": [
+    "Spelprojekt2.Towers.LaserTower": [
       [
         {
           "name": "SPACE LASER",
@@ -76,7 +76,7 @@
     ]
   },
   {
-    "Spelprojekt2.BombTower": [
+    "Spelprojekt2.Towers.BombTower": [
       [
         {
           "name": "Big Bombs mk1",
@@ -86,12 +86,12 @@
         {
           "name": "Big Bombs mk2",
           "desc": "Increases Range and Damage",
-          "cost": 20
+          "cost": 200
         },
         {
           "name": "Big Bombs mk3",
           "desc": "Bigger is Always Better",
-          "cost": 20
+          "cost": 200
         }
       ],
       [
@@ -103,12 +103,50 @@
         {
           "name": "Much Bombs mk2",
           "desc": "Bombs spawn MiniBombs on Impact",
-          "cost": 20
+          "cost": 100
         },
         {
           "name": "Much Bombs mk3",
           "desc": "MiniBombs spawn more MiniBombs on Impact",
-          "cost": 20
+          "cost": 200
+        }
+      ]
+    ]
+  },
+  {
+    "Spelprojekt2.Towers.CircleShooter": [
+      [
+        {
+          "name": "AR mk1",
+          "desc": "Increases Damage and Firerate",
+          "cost": 50
+        },
+        {
+          "name": "AR mk2",
+          "desc": "Increases Range, Piercing and Firerate",
+          "cost": 150
+        },
+        {
+          "name": "AR mk3",
+          "desc": "More Money from kills and Higher pierce",
+          "cost": 300
+        }
+      ],
+      [
+        {
+          "name": "Shotgun mk1",
+          "desc": "Increases Damage",
+          "cost": 50
+        },
+        {
+          "name": "Shotgun mk2",
+          "desc": "Shoots more Bullets at once",
+          "cost": 150
+        },
+        {
+          "name": "Shotgun mk3",
+          "desc": "Shoots bursts",
+          "cost": 200
         }
       ]
     ]

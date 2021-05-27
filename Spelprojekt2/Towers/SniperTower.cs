@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using Microsoft.Xna.Framework;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Towers
 {
     public class SniperTower : ProjectileTower
     {

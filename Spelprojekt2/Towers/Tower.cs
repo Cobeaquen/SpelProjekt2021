@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 using Spelprojekt2.Enemies;
 using Spelprojekt2.UI;
 
-namespace Spelprojekt2
+namespace Spelprojekt2.Towers
 {
     public class Tower
     {

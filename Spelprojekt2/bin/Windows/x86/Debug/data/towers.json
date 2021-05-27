@@ -1,23 +1,30 @@
 [
   {
     "name": "Gun Tower",
-    "type": "Spelprojekt2.GunTower",
+    "type": "Spelprojekt2.Towers.GunTower",
     "desc": "Most basic tower, great for medium-sized groups of enemies.",
     "cost": 80,
     "icon": "guntower"
   },
   {
     "name": "Laser Tower",
-    "type": "Spelprojekt2.LaserTower",
+    "type": "Spelprojekt2.Towers.LaserTower",
     "desc": "Epic laser tower, melts through enemies.",
     "cost": 180,
     "icon": "guntower"
   },
   {
     "name": "Bomb Tower",
-    "type": "Spelprojekt2.BombTower",
+    "type": "Spelprojekt2.Towers.BombTower",
     "desc": "Big bombs, much damage.",
     "cost": 130,
+    "icon": "guntower"
+  },
+  {
+    "name": "Circle Shooter",
+    "type": "Spelprojekt2.Towers.CircleShooter",
+    "desc": "Very wow",
+    "cost": 50,
     "icon": "guntower"
   }
 ]

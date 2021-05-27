@@ -22,6 +22,16 @@
   {
     "bursts": [
       {
+        "amount": 8,
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
         "amount": 1,
         "enemyType": "Spelprojekt2.Enemies.Enemy2",
         "timeInterval": 0.5

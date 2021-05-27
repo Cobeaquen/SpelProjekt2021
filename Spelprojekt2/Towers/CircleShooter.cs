@@ -7,18 +7,19 @@ using Microsoft.Xna.Framework;
 
 namespace Spelprojekt2.Towers
 {
-    class CircleShooter : GunTower
+    class CircleShooter : ProjectileTower
     {
-        public CircleShooter(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, path, tier)
+        public int bulletAmount;
+        public CircleShooter(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1.5f, 1f, 0.1f, 2.5f, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
-            numberOfBullets = 20;
+            bulletAmount = 20;
         }
         public override void Fire()
         {
             base.Fire();
-            for (float i = 0; i < 2*MathHelper.Pi; i += (2*MathHelper.Pi) / numberOfBullets)
+            for (float i = 0; i < 2*MathHelper.Pi; i += (2*MathHelper.Pi) / bulletAmount)
             {
-                RegularBullet bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
+                RegularBullet bullet = new RegularBullet((ProjectileTower)this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
                 Bullets.Add(bullet);
             }
         }

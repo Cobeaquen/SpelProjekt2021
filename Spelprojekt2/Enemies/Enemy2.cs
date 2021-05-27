@@ -12,13 +12,8 @@ namespace Spelprojekt2.Enemies
 {
     class Enemy2 : Enemy
     {
-        public Enemy2() : base(50f, 15, 60f, Assets.Enemy2, Assets.EnemyOrigin)
+        public Enemy2() : base(50f, 15, 40f, Assets.Enemy2, Assets.EnemyOrigin)
         {
-
-        }
-        public override void Draw()
-        {
-            Main.spriteBatch.Draw(sprite, position, null, Color.White, LookRotation, origin, 1f, SpriteEffects.None, 0f);
-        }
+        }        
     }
 }

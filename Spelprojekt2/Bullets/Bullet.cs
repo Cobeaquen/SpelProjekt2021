@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Spelprojekt2.Enemies;
+using Spelprojekt2.Towers;
 
 namespace Spelprojekt2
 {
