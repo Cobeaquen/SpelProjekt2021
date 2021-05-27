@@ -5,7 +5,7 @@
         {
           "name": "AR mk1",
           "desc": "Increases Damage and Firerate",
-          "cost": 100
+          "cost": 50
         },
         {
           "name": "AR mk2",
@@ -96,17 +96,17 @@
       ],
       [
         {
-          "name": "BOOM mk1",
+          "name": "Much Bombs mk1",
           "desc": "Increases Firerate and Range",
           "cost": 50
         },
         {
-          "name": "BOOM mk2",
+          "name": "Much Bombs mk2",
           "desc": "Bombs spawn MiniBombs on Impact",
           "cost": 20
         },
         {
-          "name": "BOOM mk3",
+          "name": "Much Bombs mk3",
           "desc": "MiniBombs spawn more MiniBombs on Impact",
           "cost": 20
         }

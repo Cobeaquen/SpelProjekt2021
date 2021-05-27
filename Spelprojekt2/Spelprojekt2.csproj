@@ -64,6 +64,7 @@
     <Compile Include="MapGenerator.cs" />
     <Compile Include="Enemies\Enemy1.cs" />
     <Compile Include="Effects\ParticleEffect.cs" />
+    <Compile Include="Towers\CircleShooter.cs" />
     <Compile Include="Towers\ProjectileTower.cs" />
     <Compile Include="Collision\Raycast.cs" />
     <Compile Include="Collision\RectCollider.cs" />

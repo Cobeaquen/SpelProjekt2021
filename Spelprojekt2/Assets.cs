@@ -122,7 +122,7 @@ namespace Spelprojekt2
             TowerMenu = Content.Load<Texture2D>("graphics/ui/menues/tower_menu");
             TowerMenuOrigin = Vector2.Zero;
             StatsOrigin = Vector2.Zero;
-            Meny = Content.Load<Texture2D>("graphics/ui/meny");
+            Meny = Content.Load<Texture2D>("graphics/ui/menues/meny");
             MenyOrigin = new Vector2(Meny.Width, 0);
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
             Level1Waypoints = Content.Load<Texture2D>("graphics/levels/level1_waypoints");
