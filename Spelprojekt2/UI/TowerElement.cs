@@ -20,6 +20,7 @@ namespace Spelprojekt2.UI
                 new TextElement(new Vector2(-150, 16), 200, 100, tower.desc, Color.White, Assets.DefaultFont),
                 new TextElement(new Vector2(-150, 32), 100, 100, tower.cost.ToString(), Color.White, Assets.DefaultFont)
             });
+            GUI.hoverElements.Add(hoverElement);
         }
         public override void Update()
         {
@@ -31,7 +32,6 @@ namespace Spelprojekt2.UI
             {
                 color = Color.White;
             }
-            hoverElement.Update();
             base.Update();
         }
         public override void Clicked()
@@ -49,7 +49,6 @@ namespace Spelprojekt2.UI
         public override void Draw()
         {
             base.Draw();
-            hoverElement.Draw();
         }
     }
 }
