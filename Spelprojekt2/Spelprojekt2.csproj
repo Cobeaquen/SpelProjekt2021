@@ -49,7 +49,6 @@
     <Compile Include="Towers\BombTower.cs" />
     <Compile Include="Bullets\Bullet.cs" />
     <Compile Include="Burst.cs" />
-    <Compile Include="GUI\ButtonElement.cs" />
     <Compile Include="Collision\Collider.cs" />
     <Compile Include="Collision\CollisionResult.cs" />
     <Compile Include="DebugTextures.cs" />
@@ -58,11 +57,7 @@
     <Compile Include="Enemy.spline.cs" />
     <Compile Include="Enemies\Enemy.cs" />
     <Compile Include="Global.cs" />
-    <Compile Include="GUI\GUI.cs" />
-    <Compile Include="GUI\Bar.cs" />
-    <Compile Include="GUI\HoverElement.cs" />
     <Compile Include="Input.cs" />
-    <Compile Include="GUI\InteractiveElement.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="MapGenerator.cs" />
@@ -78,16 +73,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Assets.cs" />
-    <Compile Include="GUI\TextElement.cs" />
-    <Compile Include="GUI\TextureElement.cs" />
-    <Compile Include="GUI\ToggleElement.cs" />
     <Compile Include="Towers\Tower.cs" />
-    <Compile Include="GUI\TowerElement.cs" />
-    <Compile Include="GUI\UIElement.cs" />
+    <Compile Include="UI\Bar.cs" />
+    <Compile Include="UI\ButtonElement.cs" />
+    <Compile Include="UI\GUI.cs" />
+    <Compile Include="UI\HoverElement.cs" />
+    <Compile Include="UI\InteractiveElement.cs" />
+    <Compile Include="UI\TextElement.cs" />
+    <Compile Include="UI\TextureElement.cs" />
+    <Compile Include="UI\ToggleElement.cs" />
+    <Compile Include="UI\TowerElement.cs" />
+    <Compile Include="UI\TowerWindow.cs" />
+    <Compile Include="UI\UIElement.cs" />
+    <Compile Include="UI\UpgradeElement.cs" />
+    <Compile Include="UI\WaveControl.cs" />
     <Compile Include="Upgrade.cs" />
     <Compile Include="UpgradeCollection.cs" />
     <Compile Include="Wave.cs" />
-    <Compile Include="GUI\WaveControl.cs" />
     <Compile Include="Waypoint.cs" />
   </ItemGroup>
   <ItemGroup>
