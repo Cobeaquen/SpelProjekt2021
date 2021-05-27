@@ -9,16 +9,16 @@ namespace Spelprojekt2.Towers
 {
     public class GunTower : ProjectileTower
     {
-        public int numberOfBullets;
+        public int bulletAmount;
         public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1.5f, 1f, 0.1f, 2.5f, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
-            numberOfBullets = 1;
+            bulletAmount = 1;
         }
 
         public override void Fire()
         {
             base.Fire();
-            for (int i = 0; i < numberOfBullets; i++)
+            for (int i = 0; i < bulletAmount; i++)
             {
                 RegularBullet bullet = new RegularBullet(this, 200f, firePosition, GetBulletDirection(out float offset), LookRotation + offset, 1, Hit);
                 Bullets.Add(bullet);
@@ -57,12 +57,12 @@ namespace Spelprojekt2.Towers
                             FireRateModifier = 1.5f;
                             break;
                         case 2:
-                            numberOfBullets = 5;
+                            bulletAmount = 5;
                             spreadModifier = 2f;
                             reach = Range;
                             break;
                         case 3:
-                            numberOfBullets = 10;
+                            bulletAmount = 10;
                             spreadModifier = 2f;
                             DamageModifier = 1.5f;
                             break;

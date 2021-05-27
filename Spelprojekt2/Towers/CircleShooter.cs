@@ -25,5 +25,50 @@ namespace Spelprojekt2.Towers
                 Bullets.Add(bullet);
             }
         }
+        public override void Upgrade(int path, int tier)
+        {
+            base.Upgrade(path, tier);
+            switch (path)
+            {
+                case 0:
+                    switch (tier)
+                    {
+                        case 1:
+                            DamageModifier = 1.5f;
+                            FireRateModifier = 2f;
+                            break;
+                        case 2:
+                            RangeModifier = 1.5f;
+                            DamageModifier = 2f;
+                            PierceAdd = 2;
+                            break;
+                        case 3:
+                            DamageModifier = 3f;
+                            RangeModifier = 2.5f;
+                            MoneyModifier = 1.5f;
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch (tier)
+                    {
+                        case 1:
+                            DamageModifier = 1.25f;
+                            FireRateModifier = 1.5f;
+                            break;
+                        case 2:
+                            bulletAmount *= 2;
+                            spreadModifier = 2f;
+                            reach = Range;
+                            break;
+                        case 3:
+                            bulletAmount *= 2;
+                            spreadModifier = 2f;
+                            DamageModifier = 1.5f;
+                            break;
+                    }
+                    break;
+            }
+        }
     }
 }
