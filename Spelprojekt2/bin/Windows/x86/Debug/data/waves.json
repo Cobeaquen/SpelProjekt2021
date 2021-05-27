@@ -2,46 +2,126 @@
   {
     "bursts": [
       {
-        "amount": 4,
+        "amount": 3,
         "enemyType": "Spelprojekt2.Enemies.Enemy1",
+        "timeInterval": 0.5    
+	  }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 5,
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 1,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
         "timeInterval": 0.5
       },
 	  {
-        "amount": 4,
+		 "amount": 3,
+		 "enemyType": "Spelprojekt2.Enemies.Enemy1",
+		 "timeInterval": 0.5
+	  }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 2,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      },
+	  {
+		 "amount": 10,
+        "enemyType": "Spelprojekt2.Enemies.Enemy1",
+        "timeInterval": 0.5
+	  }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 2,
         "enemyType": "Spelprojekt2.Enemies.Enemy3",
-        "timeInterval": 0.4
+        "timeInterval": 0.5
+      },
+	  {
+		 "amount": 5,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+	  }
+    ],
+	"restingTime": 1.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 5,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 5,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
       },
 	  {
         "amount": 5,
         "enemyType": "Spelprojekt2.Enemies.Enemy3",
-        "timeInterval": 0.9
-      },
-	  {
-        "amount": 20,
+        "timeInterval": 0.5
+      }
+    ],
+	"restingTime": 5.0
+  },
+  {
+    "bursts": [
+      {
+        "amount": 5,
         "enemyType": "Spelprojekt2.Enemies.Enemy3",
         "timeInterval": 0.5
       },
-    ],
-	"restingTime": 1.0
-  },
-  {
-    "bursts": [
-      {
-        "amount": 4,
-        "enemyType": "Spelprojekt2.Enemies.Enemy1",
+	  {
+        "amount": 5,
+        "enemyType": "Spelprojekt2.Enemies.Enemy3",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 2,
+        "enemyType": "Spelprojekt2.Enemies.Enemy5",
         "timeInterval": 0.5
       }
     ],
-	"restingTime": 1.0
+	"restingTime": 5.0
   },
   {
     "bursts": [
       {
-        "amount": 4,
-        "enemyType": "Spelprojekt2.Enemies.Enemy1",
-        "timeInterval": 0.4
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 1,
+        "enemyType": "Spelprojekt2.Enemies.Enemy5",
+        "timeInterval": 0.5
+      },
+	  {
+        "amount": 20,
+        "enemyType": "Spelprojekt2.Enemies.Enemy2",
+        "timeInterval": 0.5
       }
     ],
-	"restingTime": 1.0
+	"restingTime": 10.0
   }
 ]
