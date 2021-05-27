@@ -196,7 +196,7 @@ namespace Spelprojekt2.Towers
                 return;
             Main.spriteBatch.Begin(samplerState: SamplerState.PointClamp, effect: Assets.RangeEffect);
             Assets.RangeEffect.CurrentTechnique.Passes[0].Apply();
-            Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f, SpriteEffects.None, 0f);
+            Main.spriteBatch.Draw(rangeSprite, selected.position, null, RangeColor, 0f, new Vector2(0.5f), selected.Range * 2f * selected.RangeModifier, SpriteEffects.None, 0f);
             Main.spriteBatch.End();
         }
         public virtual void Upgrade(int path, int tier)

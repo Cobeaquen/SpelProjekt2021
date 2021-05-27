@@ -47,6 +47,13 @@ namespace Spelprojekt2.UI
             elements.Add(TowerPreviewHead);
             elements.Add(TowerName);
             elements.Add(SellButton);
+
+            int paths = 2;
+            Upgrades = new UpgradeElement[paths];
+            for (int path = 0; path < paths; path++)
+            {
+                Upgrades[path] = new UpgradeElement(Position + new Vector2(Bounds.Width / 2, 9 + 71 * path), 149, 69, UpgradeTower);
+            }
         }
         public void UpdateBounds()
         {
@@ -117,13 +124,19 @@ namespace Spelprojekt2.UI
         public void SelectTower(Tower tower)
         {
             this.tower = tower;
-            int paths = tower.Upgrades.GetLength(0);
-            Upgrades = new UpgradeElement[paths];
             TowerName.Text = tower.towerInfo.name;
-            for (int path = 0; path < paths; path++)
+            if (tower.Tier == 0)
             {
-                Upgrades[path] = new UpgradeElement(Position + new Vector2(Bounds.Width / 2, 9 + 71 * path), 149, 69, tower, tower.Upgrades[path], tower.Tier, path, UpgradeTower);
+                for (int i = 0; i < Upgrades.Length; i++)
+                {
+                    Upgrades[i].SelectTower(tower, tower.Upgrades[i], tower.Tier, i);
+                }
             }
+            else
+            {
+                Upgrades[tower.Path].SelectTower(tower, tower.Upgrades[tower.Path], tower.Tier, tower.Path);
+            }
+            
             visible = true;
             TowerPreviewBody.texture = tower.bodySprite;
             TowerPreviewHead.texture = tower.headSprite;
