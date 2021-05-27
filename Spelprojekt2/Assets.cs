@@ -31,6 +31,10 @@ namespace Spelprojekt2
         public static Vector2 SniperTowerOrigin { get; internal set; }
         public static Texture2D SniperTowerHead { get; internal set; }
         public static Vector2 SniperTowerHeadOrigin { get; internal set; }
+        public static Texture2D CircleShooter { get; internal set; }
+        public static Vector2 CircleShooterOrigin { get; internal set; }
+        public static Texture2D CircleShooterHead { get; internal set; }
+        public static Vector2 CircleShooterHeadOrigin { get; internal set; }
         #endregion
 
         #region Bullets
@@ -87,11 +91,15 @@ namespace Spelprojekt2
             GunTower = Content.Load<Texture2D>("graphics/gun_tower_body");
             GunTowerOrigin = GetOrigin(GunTower);
             GunTowerHead = Content.Load<Texture2D>("graphics/gun_tower_head");
+            GunTowerHeadOrigin = new Vector2(16, 24);
             LaserTower = Content.Load<Texture2D>("graphics/laser_tower_body");
             LaserTowerHead = Content.Load<Texture2D>("graphics/laser_tower_head");
             BombTower = Content.Load<Texture2D>("graphics/bomb_tower_body");
             BombTowerHead = Content.Load<Texture2D>("graphics/bomb_tower_head");
-            GunTowerHeadOrigin = new Vector2(16, 24);
+            CircleShooterHead = Content.Load<Texture2D>("graphics/circleshooter_head");
+            CircleShooter = Content.Load<Texture2D>("graphics/circleshooter_body");
+            CircleShooterOrigin = GetOrigin(CircleShooter);
+            CircleShooterHeadOrigin = GetOrigin(CircleShooterHead);
             #endregion
 
             #region Bullets

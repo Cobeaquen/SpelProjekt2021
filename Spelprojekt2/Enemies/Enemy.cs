@@ -151,6 +151,7 @@ namespace Spelprojekt2.Enemies
                 Global.gameState = Global.GameState.Idle;
                 GUI.WaveStartToggle.texture = Assets.StartWave;
                 Main.instance.level.wave++;
+                Global.Coins += 50;
             }
         }
 

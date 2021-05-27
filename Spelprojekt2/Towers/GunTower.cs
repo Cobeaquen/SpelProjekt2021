@@ -58,7 +58,8 @@ namespace Spelprojekt2.Towers
                             break;
                         case 2:
                             numberOfBullets = 5;
-                            spreadModifier = 1f;
+                            spreadModifier = 2f;
+                            reach = Range;
                             break;
                         case 3:
                             numberOfBullets = 10;

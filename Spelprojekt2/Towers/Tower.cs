@@ -155,7 +155,7 @@ namespace Spelprojekt2.Towers
             prevTarget = Target;
         }
 
-        public Enemy FindTarget()
+        public virtual Enemy FindTarget()
         {
             if (Main.instance.level.enemies.Count == 0)
                 return null;
