@@ -11,20 +11,20 @@
     "type": "Spelprojekt2.Towers.LaserTower",
     "desc": "Epic laser tower, melts through enemies.",
     "cost": 180,
-    "icon": "guntower"
+    "icon": "lasertower"
   },
   {
     "name": "Bomb Tower",
     "type": "Spelprojekt2.Towers.BombTower",
     "desc": "Big bombs, much damage.",
     "cost": 130,
-    "icon": "guntower"
+    "icon": "bombtower"
   },
   {
     "name": "Circle Shooter",
     "type": "Spelprojekt2.Towers.CircleShooter",
     "desc": "Very wow",
     "cost": 50,
-    "icon": "guntower"
+    "icon": "circleshooter"
   }
 ]

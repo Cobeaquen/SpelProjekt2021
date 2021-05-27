@@ -15,6 +15,7 @@ namespace Spelprojekt2.UI
         public static Tower selectedTower;
         public static Tower towerHeld;
         public static List<UIElement> elements;
+        public static List<HoverElement> hoverElements;
         public static TextElement HPElement;
         public static TextElement CoinsElement;
         public static TextElement WaveElement;
@@ -35,6 +36,7 @@ namespace Spelprojekt2.UI
             TowerOverTower = false;
 
             elements = new List<UIElement>();
+            hoverElements = new List<HoverElement>();
             elements.Add(new InteractiveElement(Vector2.Zero, Assets.Stats.Width, Assets.Stats.Height, Assets.Stats, Vector2.Zero));
 
             HPElement = new TextElement(new Vector2(18, 1), 100, 12, Global.HP.ToString(), Color.Black, Assets.DefaultFont);
@@ -59,7 +61,7 @@ namespace Spelprojekt2.UI
             for (int i = 0; i < towerInfos.Length; i++)
             {
                 towerInfos[i].SetSprite();
-                elements.Add(new TowerElement(new Vector2(TowerPurcahseMenu.position.X - 58f, 10 + i * 40), 32, 32, towerInfos[i]));
+                elements.Add(new TowerElement(new Vector2(TowerPurcahseMenu.position.X - 44f, 7 + i * 37), 32, 32, towerInfos[i]));
             }
         }
 
@@ -70,6 +72,10 @@ namespace Spelprojekt2.UI
             WaveElement.Text = "Wave: " + (Main.instance.level.wave + 1).ToString();
 
             foreach (var e in elements)
+            {
+                e.Update();
+            }
+            foreach (var e in hoverElements)
             {
                 e.Update();
             }
@@ -108,6 +114,10 @@ namespace Spelprojekt2.UI
             //Main.spriteBatch.Draw(Assets.Meny, new Vector2(Global.GameWidth, 40), null, Color.White, 0f, new Vector2(Assets.Meny.Width, 0), 1f, SpriteEffects.None, 0f);
             
             foreach(var element in elements)
+            {
+                element.Draw();
+            }
+            foreach (var element in hoverElements)
             {
                 element.Draw();
             }

@@ -37,7 +37,6 @@ namespace Spelprojekt2.UI
                 {
                     e.offsetPosition = Input.MousePosition.ToPoint().ToVector2();
                 }
-                Console.WriteLine("Hover");
                 display = true;
             }
             base.Update();
@@ -46,6 +45,8 @@ namespace Spelprojekt2.UI
         {
             if (!display)
                 return;
+            Assets.ButtonEffect.Parameters["mouseOver"].SetValue(false);
+            Assets.ButtonEffect.CurrentTechnique.Passes[0].Apply();
             background.Draw();
             foreach (var e in elements)
             {
