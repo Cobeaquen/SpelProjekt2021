@@ -217,3 +217,4 @@ C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\C
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\enemies\Enemy3.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\enemies\enemy5.xnb
 C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\buttons\upgrade_button.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\buttons\sell.xnb

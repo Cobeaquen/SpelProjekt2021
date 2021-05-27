@@ -241,6 +241,18 @@
 /processorParam:DebugMode=Auto
 /build:graphics/shaders/shockwave.fx
 
+#begin graphics/ui/buttons/sell.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/ui/buttons/sell.png
+
 #begin graphics/ui/buttons/shop.png
 /importer:TextureImporter
 /processor:TextureProcessor

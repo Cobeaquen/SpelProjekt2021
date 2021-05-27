@@ -22,6 +22,7 @@ namespace Spelprojekt2.UI
         public TextElement TowerName { get; private set; }
         public TextElement TotalDamage { get; private set; }
         public TextElement CashEarned { get; private set; }
+        public ButtonElement SellButton { get; private set; }
         public UpgradeElement[] Upgrades { get; private set; }
 
         private List<UIElement> elements;
@@ -32,15 +33,19 @@ namespace Spelprojekt2.UI
         {
             this.Position = position;
             prevPos = Position;
-            visible = true;
+            visible = false;
             move = false;
             UpdateBounds();
             elements = new List<UIElement>();
             TowerPreviewBody = new TextureElement(Position + new Vector2(3, 11), null, Vector2.Zero, Color.White);
             TowerPreviewHead = new TextureElement(Position + new Vector2(19, 27), null, Assets.GunTowerHeadOrigin, Color.White, MathHelper.PiOver2);
+            TowerName = new TextElement(Position + new Vector2(48, 22), 200, 100, "", Color.White, Assets.DefaultFont);
+            SellButton = new ButtonElement(position + new Vector2(48, 112), Assets.SellButton.Width, Assets.SellButton.Height, SellTower, Assets.SellButton, Vector2.Zero);
 
             elements.Add(TowerPreviewBody);
             elements.Add(TowerPreviewHead);
+            elements.Add(TowerName);
+            elements.Add(SellButton);
         }
         public void UpdateBounds()
         {
@@ -73,6 +78,7 @@ namespace Spelprojekt2.UI
                 foreach (var e in elements)
                 {
                     e.position += newPos;
+                    SellButton.UpdateBounds();
                 }
                 if (Upgrades != null)
                 {
@@ -96,6 +102,11 @@ namespace Spelprojekt2.UI
                     }
                 }
             }
+            SellButton.Update();
+            if (Input.GetLeftClick() && SellButton.mouseOver)
+            {
+                SellButton.Clicked();
+            }
             prevPos = Input.MousePosition;
         }
         public void HandleInput()
@@ -107,6 +118,7 @@ namespace Spelprojekt2.UI
             this.tower = tower;
             int paths = tower.Upgrades.GetLength(0);
             Upgrades = new UpgradeElement[paths];
+            TowerName.Text = tower.towerInfo.name;
             for (int path = 0; path < paths; path++)
             {
                 Upgrades[path] = new UpgradeElement(Position + new Vector2(Bounds.Width / 2, 9 + 71 * path), 149, 69, tower, tower.Upgrades[path], tower.Tier, path, UpgradeTower);
@@ -121,6 +133,12 @@ namespace Spelprojekt2.UI
             tower.Upgrade(path, tier);
             int not = path == 0 ? 1 : 0;
             Upgrades[not].Visible = false;
+        }
+        public void SellTower()
+        {
+            Console.WriteLine("Sell tower");
+            Global.Sell(tower);
+            visible = false;
         }
         public void Draw()
         {

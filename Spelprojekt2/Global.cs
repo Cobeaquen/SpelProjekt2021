@@ -105,6 +105,12 @@ namespace Spelprojekt2
         {
             return cost <= Coins;
         }
+        public static void Sell(Tower tower)
+        {
+            int money = tower.towerInfo.cost / 2;
+            Coins += money;
+            PlacedTowers.Remove(tower);
+        }
 
         public static void DrawEffects()
         {

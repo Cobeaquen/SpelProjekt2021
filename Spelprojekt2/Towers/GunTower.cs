@@ -33,16 +33,16 @@ namespace Spelprojekt2
                 case 0:
                     switch (tier)
                     {
-                        case 0:
+                        case 1:
                             DamageModifier = 1.5f;
                             FireRateModifier = 2f;
                             break;
-                        case 1:
+                        case 2:
                             RangeModifier = 1.5f;
                             DamageModifier = 2f;
                             PierceAdd = 2;
                             break;
-                        case 2:
+                        case 3:
                             DamageModifier = 3f;
                             RangeModifier = 2.5f;
                             MoneyModifier = 1.5f;
@@ -52,15 +52,15 @@ namespace Spelprojekt2
                 case 1:
                     switch (tier)
                     {
-                        case 0:
+                        case 1:
                             DamageModifier = 1.25f;
                             FireRateModifier = 1.5f;
                             break;
-                        case 1:
+                        case 2:
                             numberOfBullets = 5;
                             spreadModifier = 1f;
                             break;
-                        case 2:
+                        case 3:
                             numberOfBullets = 10;
                             spreadModifier = 2f;
                             DamageModifier = 1.5f;

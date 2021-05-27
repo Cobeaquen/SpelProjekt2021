@@ -40,7 +40,7 @@ namespace Spelprojekt2
             base.Upgrade(path, tier);
             switch (path)
             {
-                case 1:
+                case 0:
                     switch(tier)
                     {
                         case 1:
@@ -57,7 +57,7 @@ namespace Spelprojekt2
                             break;
                     }
                     break;
-                case 2:
+                case 1:
                     switch (tier)
                     {
                         case 1:

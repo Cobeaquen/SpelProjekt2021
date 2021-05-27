@@ -57,6 +57,7 @@ namespace Spelprojekt2
         public static Texture2D Meny { get; internal set; }
         public static Vector2 MenyOrigin { get; internal set; }
         public static Texture2D UpgradeButton { get; internal set; }
+        public static Texture2D SellButton { get; internal set; }
         public static Texture2D StartWave { get; internal set; }
         public static Texture2D SpeedWave { get; internal set; }
         public static Texture2D SpeedWave2 { get; internal set; }
@@ -126,6 +127,7 @@ namespace Spelprojekt2
             Meny = Content.Load<Texture2D>("graphics/ui/meny");
             MenyOrigin = new Vector2(Meny.Width, 0);
             UpgradeButton = Content.Load<Texture2D>("graphics/ui/buttons/upgrade_button");
+            SellButton = Content.Load<Texture2D>("graphics/ui/buttons/sell");
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
             Level1Waypoints = Content.Load<Texture2D>("graphics/levels/level1_waypoints");
             DefaultFont = Content.Load<SpriteFont>("graphics/ui/fonts/default");

@@ -50,6 +50,7 @@ namespace Spelprojekt2.UI
         }
         public override void Update()
         {
+            color = Global.CanAfford(display.cost) ? Color.White : Color.Red;
             name.position = position + new Vector2(4, 4);
             if (desc != null)
                 desc.position = position + new Vector2(4, 20);
@@ -71,10 +72,13 @@ namespace Spelprojekt2.UI
                 cost = null;
                 return;
             }
-            tier++;
-            upgradeCallback(upgrades[tier], path, tier);
-            NextUpgrade();
-            base.Clicked();
+            if (Global.Buy(upgrades[tier].cost))
+            {
+                tier++;
+                upgradeCallback(upgrades[tier], path, tier);
+                NextUpgrade();
+                base.Clicked();
+            }
         }
         public override void Draw()
         {
