@@ -29,7 +29,7 @@ namespace Spelprojekt2
 
         public static int StartHP = 200;
         public static int HP;
-        public static int StartCoins = 100;
+        public static int StartCoins = 1000;
         public static int Coins;
 
         public static List<Tower> PlacedTowers;

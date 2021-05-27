@@ -24,8 +24,9 @@ namespace Spelprojekt2.UI
         private TextElement cost;
 
         private bool doneUpgrading;
-        public UpgradeElement(Vector2 position, int width, int height, UpgradeTower upgradeCallback) : base(position, width, height, null, Assets.UpgradeButton, Vector2.Zero)
+        public UpgradeElement(Vector2 position, int width, int height, int path, UpgradeTower upgradeCallback) : base(position, width, height, null, Assets.UpgradeButton, Vector2.Zero)
         {
+            this.path = path;
             Visible = tier == 0 || path == tower.Path;
             this.upgradeCallback = upgradeCallback;
             name = new TextElement(position + new Vector2(4, 4), width, height, "", Color.White, Assets.DefaultFont);
@@ -44,6 +45,7 @@ namespace Spelprojekt2.UI
         {
             if (upgrades.Length <= tier)
             {
+                doneUpgrading = true;
                 name.Text = "All upgrades bought!";
                 color = Color.White;
                 desc = null;
@@ -57,7 +59,8 @@ namespace Spelprojekt2.UI
         }
         public override void Update()
         {
-            color = Global.CanAfford(display.cost) ? Color.White : Color.Red;
+            if (!doneUpgrading)
+                color = Global.CanAfford(display.cost) ? Color.White : Color.Red;
             name.position = position + new Vector2(4, 4);
             if (desc != null)
                 desc.position = position + new Vector2(4, 20);

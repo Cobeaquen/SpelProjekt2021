@@ -52,7 +52,7 @@ namespace Spelprojekt2.UI
             Upgrades = new UpgradeElement[paths];
             for (int path = 0; path < paths; path++)
             {
-                Upgrades[path] = new UpgradeElement(Position + new Vector2(Bounds.Width / 2, 9 + 71 * path), 149, 69, UpgradeTower);
+                Upgrades[path] = new UpgradeElement(Position + new Vector2(Bounds.Width / 2, 9 + 71 * path), 149, 69, path, UpgradeTower);
             }
         }
         public void UpdateBounds()
@@ -135,6 +135,8 @@ namespace Spelprojekt2.UI
             else
             {
                 Upgrades[tower.Path].SelectTower(tower, tower.Upgrades[tower.Path], tower.Tier, tower.Path);
+                int not = tower.Path == 0 ? 1 : 0;
+                Upgrades[not].Visible = false;
             }
             
             visible = true;
