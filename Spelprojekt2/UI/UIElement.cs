@@ -13,8 +13,10 @@ namespace Spelprojekt2.UI
     {
         public Vector2 position;
         public Vector2 offsetPosition;
+        public bool Visible { get; set; }
         public UIElement(Vector2 position)
         {
+            Visible = true;
             this.position = position;
             offsetPosition = Vector2.Zero;
         }

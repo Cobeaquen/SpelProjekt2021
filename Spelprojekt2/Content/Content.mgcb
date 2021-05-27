@@ -13,30 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../../../Downloads/enemy1.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../../../Downloads/enemy1.png;graphics/enemies/enemy1.png
-
-#begin ../../../../../../Downloads/enemy3.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../../../Downloads/enemy3.png;graphics/enemies/enemy3.png
-
 #begin graphics/bomb_bullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -97,6 +73,18 @@
 /processorParam:TextureFormat=Color
 /build:graphics/bullet_small.png
 
+#begin graphics/enemies/enemy1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/enemies/enemy1.png
+
 #begin graphics/enemies/enemy2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -108,6 +96,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:graphics/enemies/enemy2.png
+
+#begin graphics/enemies/Enemy3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/enemies/Enemy3.png
 
 #begin graphics/enemies/enemy5.png
 /importer:TextureImporter
@@ -241,6 +241,18 @@
 /processorParam:DebugMode=Auto
 /build:graphics/shaders/shockwave.fx
 
+#begin graphics/ui/buttons/sell.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/ui/buttons/sell.png
+
 #begin graphics/ui/buttons/shop.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -252,6 +264,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:graphics/ui/buttons/shop.png
+
+#begin graphics/ui/buttons/upgrade_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:graphics/ui/buttons/upgrade_button.png
 
 #begin graphics/ui/fonts/default.spritefont
 /importer:FontDescriptionImporter

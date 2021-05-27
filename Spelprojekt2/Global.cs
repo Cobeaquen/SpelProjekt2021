@@ -36,7 +36,7 @@ namespace Spelprojekt2
         public static List<ParticleEffect> Effects;
         public static double time;
 
-        public static Dictionary<string, Upgrade[,]>[] Upgrades;
+        public static Dictionary<string, Upgrade[][]>[] Upgrades;
 
         public static Random ran = new Random();
 
@@ -47,7 +47,7 @@ namespace Spelprojekt2
             gameSpeed = 1f;
             HP = StartHP;
             Coins = StartCoins;
-            Upgrades = LoadJSON<Dictionary<string, Upgrade[,]>[]>("upgrades.json");
+            Upgrades = LoadJSON<Dictionary<string, Upgrade[][]>[]>("upgrades.json");
             GUI.Load();
 
             //Dictionary<string, Upgrade[,]>[] upgrades = new Dictionary<string, Upgrade[,]>[3];
@@ -104,6 +104,12 @@ namespace Spelprojekt2
         public static bool CanAfford(int cost)
         {
             return cost <= Coins;
+        }
+        public static void Sell(Tower tower)
+        {
+            int money = tower.towerInfo.cost / 2;
+            Coins += money;
+            PlacedTowers.Remove(tower);
         }
 
         public static void DrawEffects()

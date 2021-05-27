@@ -21,6 +21,10 @@ namespace Spelprojekt2.UI
             this.width = width;
             this.height = height;
             this.texture = texture;
+            UpdateBounds();
+        }
+        public virtual void UpdateBounds()
+        {
             bounds = new Rectangle(new Point((int)position.X + (int)offsetPosition.X, (int)position.Y + (int)offsetPosition.Y) - origin.ToPoint(), new Point(width, height));
         }
         public override void Update()

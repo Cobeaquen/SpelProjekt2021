@@ -25,11 +25,12 @@ namespace Spelprojekt2
             }
         }
 
-        protected override void Upgrade(int path, int tier)
+        public override void Upgrade(int path, int tier)
         {
+            base.Upgrade(path, tier);
             switch (path)
             {
-                case 1:
+                case 0:
                     switch (tier)
                     {
                         case 1:
@@ -48,7 +49,7 @@ namespace Spelprojekt2
                             break;
                     }
                     break;
-                case 2:
+                case 1:
                     switch (tier)
                     {
                         case 1:

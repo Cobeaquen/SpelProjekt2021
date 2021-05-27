@@ -53,7 +53,6 @@ namespace Spelprojekt2.Collision
             colInfo = new List<CollisionResult>();
             List<Vector2> colPoints = new List<Vector2>();
             
-            float minDist;
             foreach (var col in Main.instance.level.enemies)
             {
                 Vector2 colPoint;

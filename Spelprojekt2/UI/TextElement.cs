@@ -57,7 +57,7 @@ namespace Spelprojekt2.UI
 
         public override void Draw()
         {
-            Main.spriteBatch.DrawString(font, text, position + offsetPosition, color);
+            Main.spriteBatch.DrawString(font, text, (position + offsetPosition).ToPoint().ToVector2(), color, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
         }
     }
 }
