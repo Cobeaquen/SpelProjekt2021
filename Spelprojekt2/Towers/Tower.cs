@@ -7,6 +7,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
 using Spelprojekt2.Enemies;
+using Spelprojekt2.UI;
 
 namespace Spelprojekt2
 {

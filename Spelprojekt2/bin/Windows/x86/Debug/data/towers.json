@@ -10,14 +10,14 @@
     "name": "Laser Tower",
     "type": "Spelprojekt2.LaserTower",
     "desc": "Epic laser tower, melts through enemies.",
-    "cost": 50,
+    "cost": 100,
     "icon": "guntower"
   },
   {
     "name": "Bomb Tower",
     "type": "Spelprojekt2.BombTower",
     "desc": "Big bombs, much damage.",
-    "cost": 50,
+    "cost": 80,
     "icon": "guntower"
   }
 ]

@@ -18,7 +18,7 @@ namespace Spelprojekt2
         public float radiusModifier;
         private int miniBombsAdd;
 
-        public BombTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 2f, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin, path, tier)
+        public BombTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 5f, 0.3f, 0.2f, 1, 100, 1, Assets.BombTower, Assets.GunTowerOrigin, Assets.BombTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
             bombRadius = 100f;
             radiusModifier = 1f;          

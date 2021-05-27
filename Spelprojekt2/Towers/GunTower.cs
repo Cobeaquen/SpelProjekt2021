@@ -10,10 +10,9 @@ namespace Spelprojekt2
     public class GunTower : ProjectileTower
     {
         public int numberOfBullets;
-        public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1f, 10, 0.1f, 2, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
+        public GunTower(Vector2 position, TowerInfo ti, int path, int tier) : base(position, ti, 1.5f, 1f, 0.1f, 2.5f, 120f, 1, Assets.GunTower, Assets.GunTowerOrigin, Assets.GunTowerHead, Assets.GunTowerHeadOrigin, path, tier)
         {
-            this.numberOfBullets = 20;
-            spreadModifier = 2;
+            numberOfBullets = 1;
         }
 
         public override void Fire()
