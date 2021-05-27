@@ -53,7 +53,7 @@ namespace Spelprojekt2.Towers
                     switch (tier)
                     {
                         case 1:
-                            DamageModifier = 1.25f;
+                            DamageModifier = 1.2f;
                             FireRateModifier = 1.5f;
                             break;
                         case 2:

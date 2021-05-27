@@ -15,7 +15,7 @@ namespace Spelprojekt2.Enemies
         private float acceleration;
         public Enemy5() : base(250f, 100, 20f, Assets.Enemy5, Assets.EnemyOrigin)
         {
-            acceleration = 0.15f;
+            acceleration = 2f;
         }
         public override void Update(GameTime gameTime)
         {
