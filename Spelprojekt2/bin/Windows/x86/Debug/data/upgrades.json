@@ -117,36 +117,36 @@
     "Spelprojekt2.Towers.CircleShooter": [
       [
         {
-          "name": "AR mk1",
-          "desc": "Increases Damage and Firerate",
-          "cost": 50
+          "name": "Wide Boi mk1",
+          "desc": "Increases Range and Damage",
+          "cost": 100
         },
         {
-          "name": "AR mk2",
-          "desc": "Increases Range, Piercing and Firerate",
+          "name": "Wide Boi mk2",
+          "desc": "Increases Firerate and Bullet Amount",
           "cost": 150
         },
         {
-          "name": "AR mk3",
-          "desc": "More Money from kills and Higher pierce",
-          "cost": 300
+          "name": "Widest Boi",
+          "desc": "WIDE",
+          "cost": 250
         }
       ],
       [
         {
-          "name": "Shotgun mk1",
-          "desc": "Increases Damage",
-          "cost": 50
+          "name": "Spam mk1",
+          "desc": "Increases Firerate and Bullet Amount",
+          "cost": 100
         },
         {
-          "name": "Shotgun mk2",
-          "desc": "Shoots more Bullets at once",
+          "name": "Spam mk2",
+          "desc": "Increases Firerate and Bullet Amount",
           "cost": 150
         },
         {
-          "name": "Shotgun mk3",
-          "desc": "Shoots bursts",
-          "cost": 200
+          "name": "Spam mk3",
+          "desc": "Many Bullets make Pain go Away",
+          "cost": 300
         }
       ]
     ]
