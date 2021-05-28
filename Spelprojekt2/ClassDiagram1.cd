@@ -55,7 +55,7 @@
   <Class Name="Spelprojekt2.Level">
     <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQAQAAAACAIAgAAAAAQAIAQABIAAAABAIgAQBAEQAA=</HashCode>
+      <HashCode>AAQAQAAAACAYAgAAAAAQAIAQABIAAAABAIgAQBAEQAE=</HashCode>
       <FileName>Level.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -86,7 +86,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>CFAQIoQSEqYIBWAgQIjBBACgBAIAkAADAgACABAQhDA=</HashCode>
+      <HashCode>CFAQIoQSEqYIBWAgQIjBBAKgBAIAkAADAgACABAQhDA=</HashCode>
       <FileName>Assets.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -103,7 +103,7 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>UAYhgAAIQkAQAAAAQAQACAAgQABAAAAQAAEgABgAEIE=</HashCode>
+      <HashCode>UAYhgABIQkAQAAAAQAQACAAgQABAAAAQIAEgABgAEIE=</HashCode>
       <FileName>Global.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -240,7 +240,7 @@
   <Class Name="Spelprojekt2.UI.GUI">
     <Position X="14.5" Y="8.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQEgACAAMAAKhAoABAAAAABAAAACAAMAAQCAAGgAAo=</HashCode>
+      <HashCode>AAQEgACAAMAAKhAoAhAAAAABAAAACAAMAAQCAAGgAAo=</HashCode>
       <FileName>UI\GUI.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -333,7 +333,7 @@
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>ABQQAACAAAAAAkAAAAACAAABAAEUACBABAAABAAAAIA=</HashCode>
+      <HashCode>ABQQAACAAABAAkAAAAgCAAABAAEUACBABAAABAAAAIA=</HashCode>
       <FileName>UI\UpgradeElement.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -355,7 +355,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Spelprojekt2.Bullets.BombBullet">
-    <Position X="9.5" Y="22.25" Width="1.5" />
+    <Position X="11.5" Y="23.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQAAAAAAAgAAAIAAAIAAAABAAAAAAAAAAAAAABAAAA=</HashCode>
       <FileName>Bullets\BombBullet.cs</FileName>

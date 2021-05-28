@@ -30,7 +30,7 @@ namespace Spelprojekt2
 
         public static int StartHP = 200;
         public static int HP;
-        public static int StartCoins = 1000;
+        public static int StartCoins = 100;
         public static int Coins;
 
         public static List<Tower> PlacedTowers;
@@ -52,7 +52,7 @@ namespace Spelprojekt2
             Upgrades = LoadJSON<Dictionary<string, Upgrade[][]>[]>("upgrades.json");
             PlacedTowers = new List<Tower>();
             GUI.Load();
-            Main.instance.level.LoadGame();
+            //Main.instance.level.LoadGame();
             //Dictionary<string, Upgrade[,]>[] upgrades = new Dictionary<string, Upgrade[,]>[3];
 
             //for (int i = 0; i < upgrades.Length; i++)

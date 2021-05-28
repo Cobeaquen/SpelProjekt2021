@@ -165,7 +165,7 @@ namespace Spelprojekt2
 
             for (int i = 0; i < Global.PlacedTowers.Count; i++)
             {
-                Towers.Tower t = Global.PlacedTowers[i];
+                Tower t = Global.PlacedTowers[i];
                 towerData[i] = new TowerSaveData(t.Position.X, t.Position.Y, t.Path, t.Tier, t.towerInfo);
             }
             SaveData data = new SaveData(towerData);

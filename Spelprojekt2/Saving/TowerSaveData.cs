@@ -24,7 +24,7 @@ namespace Spelprojekt2.Saving
         [ProtoMember(4)]
         public int tier;
         [ProtoMember(5)]
-        public Towers.Tower.TowerInfo towerInfo;
+        public Tower.TowerInfo towerInfo;
 
         public TowerSaveData(float x, float y, int path, int tier, Tower.TowerInfo ti)
         {
