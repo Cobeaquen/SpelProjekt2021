@@ -24,6 +24,8 @@ namespace Spelprojekt2.UI
         public static ButtonElement WaveStartToggle;
         public static ButtonElement WavePauseToggle;
 
+        public static Tower.TowerInfo[] towerInfos;
+
         private static bool placingTower;
         private static bool TowerOverLevel;
         private static bool TowerOverTower;
@@ -56,7 +58,7 @@ namespace Spelprojekt2.UI
             //List<Tower.TowerInfo> tis = new List<Tower.TowerInfo>() { new Tower.TowerInfo(typeof(GunTower), "Gun Tower", "Most basic tower, great for medium-sized groups of enemies.", 50, "guntower") };
             //Global.SaveJSON(tis, "towers.json");
             //return;
-            Tower.TowerInfo[] towerInfos = Global.LoadJSON<Tower.TowerInfo[]>("towers.json");
+            towerInfos = Global.LoadJSON<Tower.TowerInfo[]>("towers.json");
 
             for (int i = 0; i < towerInfos.Length; i++)
             {

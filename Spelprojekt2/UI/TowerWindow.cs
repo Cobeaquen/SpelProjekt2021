@@ -136,7 +136,7 @@ namespace Spelprojekt2.UI
             {
                 Upgrades[tower.Path].SelectTower(tower, tower.Upgrades[tower.Path], tower.Tier, tower.Path);
                 int not = tower.Path == 0 ? 1 : 0;
-                Upgrades[not].Visible = false;
+                Upgrades[not].Deactivate();
             }
             
             visible = true;
@@ -148,7 +148,7 @@ namespace Spelprojekt2.UI
             Console.WriteLine("Upgraded tower");
             tower.Upgrade(path, tier);
             int not = path == 0 ? 1 : 0;
-            Upgrades[not].Visible = false;
+            Upgrades[not].Deactivate();
         }
         public void SellTower()
         {

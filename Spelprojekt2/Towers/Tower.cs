@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Newtonsoft.Json;
+using ProtoBuf;
 using Spelprojekt2.Enemies;
 using Spelprojekt2.UI;
 
@@ -210,12 +211,18 @@ namespace Spelprojekt2.Towers
             First, Last
         }
 
+        [ProtoContract]
         public struct TowerInfo
         {
+            [ProtoMember(1)]
             public string name;
+            [ProtoMember(2)]
             public string type;
+            [ProtoMember(3)]
             public string desc;
+            [ProtoMember(4)]
             public int cost;
+            [ProtoMember(5)]
             public string icon;
             [JsonIgnore]
             public Texture2D iconSprite;

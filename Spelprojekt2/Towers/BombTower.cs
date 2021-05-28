@@ -68,6 +68,7 @@ namespace Spelprojekt2.Towers
                             miniBombsActive = true;
                             break;
                         case 3:
+                            miniBombsActive = true;
                             miniBombsAdd = 6;
                             break;
                     }

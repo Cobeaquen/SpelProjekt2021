@@ -72,6 +72,7 @@ namespace Spelprojekt2
         public static Texture2D ShopButton { get; internal set; }
         public static Vector2 ShopButtonOrigin { get; internal set; }
         public static Texture2D Level1Waypoints { get; internal set; }
+        public static Texture2D UpgradeMeter { get; internal set; }
         public static SpriteFont DefaultFont { get; internal set; }
         #endregion
 
@@ -138,6 +139,7 @@ namespace Spelprojekt2
             SellButton = Content.Load<Texture2D>("graphics/ui/buttons/sell");
             Level1 = Content.Load<Texture2D>("graphics/levels/level1");
             Level1Waypoints = Content.Load<Texture2D>("graphics/levels/level1_waypoints");
+            UpgradeMeter = Content.Load<Texture2D>("graphics/ui/upgrade_meter");
             DefaultFont = Content.Load<SpriteFont>("graphics/ui/fonts/default");
             DefaultFont.LineSpacing = 14;
 

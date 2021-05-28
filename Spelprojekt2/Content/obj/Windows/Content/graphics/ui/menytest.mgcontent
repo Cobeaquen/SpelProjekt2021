@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/menytest.png</SourceFile>
-  <SourceTime>2021-05-03T17:10:51.9316104+02:00</SourceTime>
-  <DestFile>C:/Users/OliMol0330/OneDrive - Stiftelsen Stockholms Stadsmission/Dokument/GitHub/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/ui/menytest.xnb</DestFile>
-  <DestTime>2021-05-27T18:04:51.3713419+02:00</DestTime>
+  <SourceFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/graphics/ui/menytest.png</SourceFile>
+  <SourceTime>2021-05-03T17:40:27.474817+02:00</SourceTime>
+  <DestFile>C:/Users/cobea/source/repos/SpelProjekt2021/Spelprojekt2/Content/bin/Windows/Content/graphics/ui/menytest.xnb</DestFile>
+  <DestTime>2021-05-27T18:04:41.254227+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

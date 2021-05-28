@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Newtonsoft.Json.Linq;
+using ProtoBuf;
 using System.IO;
 using Spelprojekt2.Effects;
 using Spelprojekt2.Collision;
@@ -29,7 +30,7 @@ namespace Spelprojekt2
 
         public static int StartHP = 200;
         public static int HP;
-        public static int StartCoins = 100;
+        public static int StartCoins = 1000;
         public static int Coins;
 
         public static List<Tower> PlacedTowers;
@@ -49,8 +50,9 @@ namespace Spelprojekt2
             HP = StartHP;
             Coins = StartCoins;
             Upgrades = LoadJSON<Dictionary<string, Upgrade[][]>[]>("upgrades.json");
+            PlacedTowers = new List<Tower>();
             GUI.Load();
-
+            Main.instance.level.LoadGame();
             //Dictionary<string, Upgrade[,]>[] upgrades = new Dictionary<string, Upgrade[,]>[3];
 
             //for (int i = 0; i < upgrades.Length; i++)
@@ -135,6 +137,42 @@ namespace Spelprojekt2
             StreamWriter sw = new StreamWriter("data/" + path, false);
             sw.Write(obj);
             sw.Close();
+        }
+        public static void SerializeAndSave(string path)
+        {
+
+        }
+        public static void ProtoSerialize<T>(T record, string path)
+        {
+            if (null == record) return;
+
+            try
+            {
+                using (var file = File.Create(path))
+                {
+                    Serializer.Serialize(file, record);
+                }
+            }
+            catch
+            {
+                // Log error
+                throw;
+            }
+        }
+        public static T ProtoDeserialize<T>(string path)
+        {
+            try
+            {
+                using (var file = File.OpenRead(path))
+                {
+                    return Serializer.Deserialize<T>(file);
+                }
+            }
+            catch
+            {
+                // Log error
+                throw;
+            }
         }
 
         public static float GetDistanceFromLine(Vector2 a, Vector2 b, Vector2 p)

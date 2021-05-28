@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using MonoGame.SplineFlower;
-using MonoGame.SplineFlower.Spline;
-using MonoGame.SplineFlower.Spline.Types;
+using ProtoBuf;
+using ProtoBuf.Serializers;
 using Spelprojekt2.Enemies;
+using Spelprojekt2.Saving;
+using Spelprojekt2.Towers;
 
 namespace Spelprojekt2
 {
@@ -155,6 +157,29 @@ namespace Spelprojekt2
                 }
             }
             return false;
+        }
+
+        public void SaveGame()
+        {
+            var towerData = new TowerSaveData[Global.PlacedTowers.Count];
+
+            for (int i = 0; i < Global.PlacedTowers.Count; i++)
+            {
+                Towers.Tower t = Global.PlacedTowers[i];
+                towerData[i] = new TowerSaveData(t.Position.X, t.Position.Y, t.Path, t.Tier, t.towerInfo);
+            }
+            SaveData data = new SaveData(towerData);
+            Global.ProtoSerialize(towerData, "game.save");
+        }
+        public void LoadGame()
+        {
+            var data = Global.ProtoDeserialize<SaveData>("game.save");
+            for (int i = 0; i < data.towers.Length; i++)
+            {
+                Tower t = data.towers[i].GetTower();
+                t.Upgrade(t.Path, t.Tier); // Loopa igenom varje uppgradering???
+                Global.PlacedTowers.Add(t);
+            }
         }
 
         public void Draw()

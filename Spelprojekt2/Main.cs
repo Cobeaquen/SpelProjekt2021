@@ -50,13 +50,11 @@ namespace Spelprojekt2
             PresentationParameters pp = GraphicsDevice.PresentationParameters;
             scene = new RenderTarget2D(graphics.GraphicsDevice, 480, 270, false, SurfaceFormat.Color, DepthFormat.None, pp.MultiSampleCount, RenderTargetUsage.DiscardContents);
 
-            Global.PlacedTowers = new List<Tower>();
-            //Global.placedTowers.Add(new GunTower(new Vector2(275, 171)));
         }
 
         protected override void UnloadContent()
         {
-
+            level.SaveGame();
         }
 
         protected override void Update(GameTime gameTime)

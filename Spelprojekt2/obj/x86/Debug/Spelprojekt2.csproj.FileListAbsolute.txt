@@ -236,3 +236,18 @@ C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\C
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\towers\bombtower.xnb
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\towers\circleshooter.xnb
 C:\Users\OliMol0330\OneDrive - Stiftelsen Stockholms Stadsmission\Dokument\GitHub\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\icons\towers\lasertower.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\Content\graphics\ui\upgrade_meter.xnb
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\protobuf-net.Core.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\protobuf-net.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Buffers.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Collections.Immutable.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Memory.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Numerics.Vectors.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\protobuf-net.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\protobuf-net.Core.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Buffers.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Collections.Immutable.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Memory.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Numerics.Vectors.xml
+C:\Users\cobea\source\repos\SpelProjekt2021\Spelprojekt2\bin\Windows\x86\Debug\System.Runtime.CompilerServices.Unsafe.xml
